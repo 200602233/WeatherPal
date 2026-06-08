@@ -54,7 +54,7 @@
                 android:id="@+id/searchBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="transparent"
+                android:background="@color/transparent"
                 android:textColor="@color/black"
                 android:layout_margin="10dp"
                 android:text="Search" />
@@ -63,7 +63,7 @@
                 android:id="@+id/savedBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="transparent"
+                android:background="@color/transparent"
                 android:textColor="@color/black"
                 android:layout_margin="10dp"
                 android:text="Saved" />
@@ -72,7 +72,7 @@
                 android:id="@+id/settingsBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="transparent"
+                android:background="@color/transparent"
                 android:textColor="@color/black"
                 android:layout_margin="10dp"
                 android:text="Settings" />

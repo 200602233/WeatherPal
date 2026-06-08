@@ -5,6 +5,7 @@
     <color name="green">#6ef989</color> <!-- primary -->
     <color name="blue">#6E98F9</color><!-- secondary -->
     <color name="creme">#f9faed</color> <!-- background -->
+    <color name="transparent">#00000000</color>
 
     <color name="pink">#F96EDE</color> <!-- idea, not confirmed coloru -->
     <color name="orange">#F9CF6E</color> <!-- idea, not confirmed colour -->
