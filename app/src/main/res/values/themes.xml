@@ -16,5 +16,13 @@
         </item>
     </style>
 
+    <!-- Splash theme (may change after next weeks class) -->
+    <style name="Theme.WeatherPal.SplashActivity" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">
+            @color/green <!-- change later, just for testing -->
+        </item>
+    </style>
+
+
     <style name="Theme.WeatherPal" parent="Base.Theme.WeatherPal" />
 </resources>
