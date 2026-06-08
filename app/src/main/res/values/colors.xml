@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#6ef989</color> <!-- Primary Colour? -->
+    <color name="primaryColour">#6ef989</color>
+    <color name="backgroundColour">#f9faed</color> <!-- creme -->
     <color name="pink">#F96EDE</color> <!-- idea, not confirmed coloru -->
     <color name="blue">#6E98F9</color> <!-- idea, not confirmed colour -->
     <color name="orange">#F9CF6E</color> <!-- idea, not confirmed colour -->
