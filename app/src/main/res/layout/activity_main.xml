@@ -47,8 +47,8 @@
 
     <!-- add bottom navigation bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="400dp"
-        android:layout_height="81dp"
+        android:layout_width="412dp"
+        android:layout_height="78dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,28 +66,28 @@
                 android:id="@+id/searchBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:textColor="@color/black"
                 android:layout_margin="10dp"
-                android:text="Search" />
+                android:background="@color/transparent"
+                android:text="Search"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/savedBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:textColor="@color/black"
                 android:layout_margin="10dp"
-                android:text="Saved" />
+                android:background="@color/transparent"
+                android:text="Saved"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/settingsBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:textColor="@color/black"
                 android:layout_margin="10dp"
-                android:text="Settings" />
+                android:background="@color/transparent"
+                android:text="Settings"
+                android:textColor="@color/black" />
         </LinearLayout>
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
