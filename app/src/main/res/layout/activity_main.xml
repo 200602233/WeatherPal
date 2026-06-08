@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,15 +8,76 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fragContainer"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_weight="1"/>
+    <!-- Evelyn -->
+    <!-- add container for header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="410dp"
+        android:layout_height="86dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <!-- header title inside header container -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_weight="1"
+            android:text="WeatherPal"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.508" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- add bottom navigation bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="400dp"
+        android:layout_height="81dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="366dp"
+            android:layout_height="89dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- make buttons transparent & change text colour -->
+            <Button
+                android:id="@+id/searchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="transparent"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:text="Search" />
+
+            <Button
+                android:id="@+id/savedBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="transparent"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:text="Saved" />
+
+            <Button
+                android:id="@+id/settingsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="transparent"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:text="Settings" />
+        </LinearLayout>
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
