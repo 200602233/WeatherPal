@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -50,6 +50,27 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Actions"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- ACTIONS menu layout -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="ACTIONS"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
