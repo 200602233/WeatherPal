@@ -52,14 +52,15 @@
                 app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/Actions"
             android:layout_width="match_parent"
             android:layout_height="85dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical">
 
             <!-- ACTIONS menu layout -->
             <TextView
@@ -68,10 +69,52 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:text="ACTIONS"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/feedback"/>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/feedback"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:padding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/feedbackIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:src=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="103dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Send Feedback"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
+                    app:layout_constraintStart_toEndOf="@id/feedbackIcon"
+                    app:layout_constraintTop_toTopOf="@id/feedbackIcon"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="139dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Opens your default email app"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
+                    app:layout_constraintStart_toEndOf="@id/feedbackIcon"
+                    app:layout_constraintTop_toTopOf="@id/feedbackIcon"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
