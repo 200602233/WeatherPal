@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/searchBtn"
+        android:icon="@drawable/vector_search"
+        android:title="Search"/>
 
+    <item
+        android:id="@+id/savedBtn"
+        android:icon="@drawable/vector_saved"
+        android:title="Saved"/>
+
+    <item
+        android:id="@+id/settingsBtn"
+        android:icon="@drawable/vector_settings"
+        android:title="Settings"/>
 </menu>
