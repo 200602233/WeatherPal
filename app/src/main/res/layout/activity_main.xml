@@ -45,51 +45,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- add bottom navigation bar -->
+    <!-- add bottom navigation bar (updated to call to the new bottom view menu) -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="412dp"
-        android:layout_height="78dp"
-        android:orientation="horizontal"
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="366dp"
-            android:layout_height="89dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <!-- make buttons transparent & change text colour -->
-            <Button
-                android:id="@+id/searchBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/transparent"
-                android:text="Search"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/savedBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/transparent"
-                android:text="Saved"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/settingsBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/transparent"
-                android:text="Settings"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:layout_constraintStart_toStartOf="parent"
+        app:itemActiveIndicatorStyle="@null"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

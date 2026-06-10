@@ -34,29 +34,30 @@ public class MainActivity extends AppCompatActivity {
         //binding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        
+        // BottomNavView connection (may have to update after Thursday class)
 
-        // search btn
-        binding.searchBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                switchFragment(new SearchFragment());
-            }
-        });
+        switchFragment(new SearchFragment());
+        binding.bottomNavigation.setSelectedItemId(R.id.searchBtn);
+        binding.bottomNavigation.setOnItemSelectedListener(item -> {
 
-        // saved btn
-        binding.savedBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                switchFragment(new SearchFragment());
-            }
-        });
+            if (item.getItemId() == R.id.searchBtn) {
 
-        // settings btn
-        binding.settingsBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
                 switchFragment(new SearchFragment());
+                return true;
+
+            } else if (item.getItemId() == R.id.savedBtn) {
+
+                switchFragment(new SavedFragment());
+                return true;
+
+            } else if (item.getItemId() == R.id.settingsBtn) {
+
+                switchFragment(new SettingsFragment());
+                return true;
             }
+
+            return false;
         });
     }
 
