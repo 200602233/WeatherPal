@@ -11,25 +11,26 @@
     <!-- add container for header -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="410dp"
-        android:layout_height="86dp"
+        android:layout_width="0dp"
+        android:layout_height="106dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/green">
 
         <!-- header title inside header container -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:text="WeatherPal"
-            android:textSize="20sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.983" />
+            app:layout_constraintVertical_bias="0.797" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- add constraintlayout for frag view -->
@@ -37,13 +38,13 @@
     <!-- add bottom navigation bar (updated to call to the new bottom view menu) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragArea"
-        android:layout_width="408dp"
-        android:layout_height="557dp"
-        android:layout_marginStart="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
