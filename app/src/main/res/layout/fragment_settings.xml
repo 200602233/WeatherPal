@@ -16,64 +16,67 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/About"
             android:layout_width="match_parent"
-            android:layout_height="85dp"
-            android:layout_marginBottom="25dp"
+            android:layout_height="76dp"
+            android:layout_marginBottom="15dp"
             android:background="@color/green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <!-- ABOUT text section-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="ABOUT"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- About information -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="WeatherPal"
+                android:text="ABOUT"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.242" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="WeatherPal"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.757" />
 
             <TextView
                 android:id="@+id/versionTxt"
                 android:layout_width="102dp"
                 android:layout_height="21dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="Version"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.75" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/Actions"
             android:layout_width="match_parent"
-            android:layout_height="270dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="25dp"
+            android:layout_height="match_parent"
             android:background="@color/green"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <!-- ACTIONS menu layout -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-
+                android:layout_margin="10dp"
                 android:text="ACTIONS"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/feedback" />
 
@@ -111,7 +114,7 @@
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
                     android:text="Opens your default email app"
-                    android:textSize="10dp"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
                     app:layout_constraintStart_toEndOf="@id/feedbackIcon"
                     app:layout_constraintTop_toTopOf="@id/feedbackIcon"
@@ -151,7 +154,7 @@
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
                     android:text="Opens in your browser"
-                    android:textSize="10dp"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/githubIcon"
                     app:layout_constraintStart_toEndOf="@id/githubIcon"
                     app:layout_constraintTop_toTopOf="@id/githubIcon"
@@ -191,7 +194,7 @@
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
                     android:text="Share with friends"
-                    android:textSize="10dp"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/shareAppIcon"
                     app:layout_constraintStart_toEndOf="@id/shareAppIcon"
                     app:layout_constraintTop_toTopOf="@id/shareAppIcon"
