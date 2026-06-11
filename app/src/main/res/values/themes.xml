@@ -14,6 +14,9 @@
         <item name="textAppearanceBodyMedium">
             @style/TextAppearance.Material3.BodyMedium
         </item>
+
+        <!-- Disable the android green icon from loading before splash -->
+        <item name="android:windowDisablePreview">true</item>
     </style>
 
     <!-- Splash theme (may change after next weeks class) -->
