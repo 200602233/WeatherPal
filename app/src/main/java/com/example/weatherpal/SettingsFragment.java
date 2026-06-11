@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.weatherpal.databinding.ActivityMainBinding;
 import com.example.weatherpal.databinding.FragmentSettingsBinding;
+//import com.example.weatherpal.;
 
 
 public class SettingsFragment extends Fragment {
@@ -27,6 +27,9 @@ public class SettingsFragment extends Fragment {
 
         // binding
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
+
+        // set version by using BuildCOnfig.VERSION_NAME
+        //binding.versionTxt.setText("Version: " + BuildConfig.VERSION_NAME);
 
         // code from week 4 Intent Slide 14
         binding.feedback.setOnClickListener(v -> {
