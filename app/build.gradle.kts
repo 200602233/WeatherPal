@@ -9,9 +9,10 @@ android {
             minorApiLevel = 1
         }
     }
-    //viewBinding()
+    //viewBinding() and BuildConfig
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 
     defaultConfig {
@@ -42,6 +43,7 @@ android {
 dependencies {
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
+    implementation(libs.cardview)
     implementation(libs.constraintlayout)
     implementation(libs.material)
     // add dependency for BottomNavView (may change or delete after Thurs class)

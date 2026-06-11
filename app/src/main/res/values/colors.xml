@@ -2,11 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#6ef989</color> <!-- primary -->
-    <color name="blue">#6E98F9</color><!-- secondary -->
-    <color name="creme">#f9faed</color> <!-- background -->
+    <color name="green">#B3F2A8</color> <!-- primary -->
+    <color name="blue">#9CB7F4</color><!-- secondary -->
+    <color name="lightgreen">#D3FDCB</color> <!-- background -->
     <color name="transparent">#00000000</color>
 
-    <color name="pink">#F96EDE</color> <!-- idea, not confirmed coloru -->
-    <color name="orange">#F9CF6E</color> <!-- idea, not confirmed colour -->
+    <color name="pink">#F6BEE9</color> <!-- idea, not confirmed coloru -->
+    <color name="orange">#F2DDAA</color> <!-- idea, not confirmed colour -->
 </resources>
