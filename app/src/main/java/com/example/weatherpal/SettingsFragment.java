@@ -50,8 +50,8 @@ public class SettingsFragment extends Fragment {
         // code from week 4-Intent slide 15
         /*
             Assignment Tip
-Link to your own GitHub repo. The URL can be anything
-valid — the marker checks the intent fires.
+                Link to your own GitHub repo. The URL can be anything
+                valid — the marker checks the intent fires.
          */
         // github intent
         binding.github.setOnClickListener(v ->{
@@ -87,9 +87,9 @@ valid — the marker checks the intent fires.
                     shareIntent,
                     "Share WeatherPal ..."
             );
-            // teachers note:
-            // Guard: show Toast if nothing handles ACTION_SEND
-            // added requireActvivty so it would properly call getPackageManager()
+            // teachers note - Guard: show Toast if nothing handles ACTION_SEND
+            // added requireActvivty so it would properly call getPackageManager() isnce we are
+            // using a fragment not activity
             if (shareIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
                 startActivity(chooser);
             } else{
