@@ -23,6 +23,14 @@
         </item>
     </style>
 
+    <!-- Headline -->
+    <style name="TextAppearance.Material3.HeadlineMedium.">
+        <item name="android:textSize">25sp</item>
+    </style>
+    <!-- Body -->
+    <style name="TextAppearance.Material3.BodyMedium.">
+        <item name="android:textSize">18sp</item>
+    </style>
 
     <style name="Theme.WeatherPal" parent="Base.Theme.WeatherPal" />
 </resources>
