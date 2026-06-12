@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Text -->
+    <color name="textColour1">#FF000000</color> <!-- black -->
+    <color name="textColour2">#FFFFFFFF</color> <!-- white -->
     <!-- Theme -->
     <color name="primary">#B3F2A8</color> <!-- green -->
     <color name="secondary">#9CB7F4</color><!-- blue -->
