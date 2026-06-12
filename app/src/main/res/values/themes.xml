@@ -14,6 +14,9 @@
         <item name="textAppearanceBodyMedium">
             @style/TextAppearance.Material3.BodyMedium
         </item>
+
+        <!-- Disable the android green icon from loading before splash -->
+        <item name="android:windowDisablePreview">true</item>
     </style>
 
     <!-- Splash theme (may change after next weeks class) -->
@@ -23,6 +26,14 @@
         </item>
     </style>
 
+    <!-- Headline -->
+    <style name="TextAppearance.Material3.HeadlineMedium.">
+        <item name="android:textSize">25sp</item>
+    </style>
+    <!-- Body -->
+    <style name="TextAppearance.Material3.BodyMedium.">
+        <item name="android:textSize">18sp</item>
+    </style>
 
     <style name="Theme.WeatherPal" parent="Base.Theme.WeatherPal" />
 </resources>
