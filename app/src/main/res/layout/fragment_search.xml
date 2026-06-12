@@ -30,15 +30,13 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/textColour2"
                 app:cardCornerRadius="30dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/londonCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -104,15 +102,13 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/textColour2"
                 app:cardCornerRadius="30dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/TorontoCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -178,15 +174,13 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/textColour2"
                 app:cardCornerRadius="30dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/tokyoCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -252,15 +246,13 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/textColour2"
                 app:cardCornerRadius="30dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/sydneyCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -326,15 +318,13 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/textColour2"
                 app:cardCornerRadius="30dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/newYorkCard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -393,24 +383,8 @@
                         app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-            <!--            <androidx.cardview.widget.CardView-->
-<!--                android:id="@+id/Card2"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:orientation="vertical">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:text="TEST"/>-->
-<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--            </androidx.cardview.widget.CardView>-->
         </LinearLayout>
     </ScrollView>
-
-
 
 </LinearLayout>
