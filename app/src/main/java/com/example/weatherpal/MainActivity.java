@@ -42,17 +42,17 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
 
             if (item.getItemId() == R.id.searchBtn) {
-
+                binding.headerTitle.setText("WeatherPal"); //default
                 switchFragment(new SearchFragment());
                 return true;
 
             } else if (item.getItemId() == R.id.savedBtn) {
-
+                binding.headerTitle.setText("Saved Cities");
                 switchFragment(new SavedFragment());
                 return true;
 
             } else if (item.getItemId() == R.id.settingsBtn) {
-
+                binding.headerTitle.setText("Settings");
                 switchFragment(new SettingsFragment());
                 return true;
             }
