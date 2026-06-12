@@ -7,6 +7,15 @@
     tools:context=".SearchFragment"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/secondary"
+        android:paddingTop="50dp"
+        android:layout_marginBottom="15dp"
+        app:title="WeatherPal"
+        app:titleTextColor="@color/textColour1" />
+
     <!-- search bar above scroll view -->
     <EditText
         android:layout_width="match_parent"

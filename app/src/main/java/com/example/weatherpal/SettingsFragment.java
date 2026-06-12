@@ -32,6 +32,7 @@ public class SettingsFragment extends Fragment {
         // set version by using BuildCOnfig.VERSION_NAME
         binding.versionTxt.setText("Version " + BuildConfig.VERSION_NAME);
 
+
         // code from week 4 Intent Slide 14
         binding.feedback.setOnClickListener(v -> {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
