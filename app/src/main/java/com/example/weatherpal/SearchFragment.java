@@ -1,5 +1,6 @@
 package com.example.weatherpal;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -22,9 +23,16 @@ public class SearchFragment extends Fragment {
         // binding
         binding = FragmentSearchBinding.inflate(inflater, container, false);
 
-        // set version by using BuildCOnfig.VERSION_NAME
+        binding.londonCard.setOnClickListener(v-> openCityDetails("London"));
+        binding.TorontoCard.setOnClickListener(v-> openCityDetails("Toronto"));
+
 
         // return
         return binding.getRoot();
+    }
+    private void openCityDetails(String city){
+        Intent intent = new Intent(requireActivity(), WeatherDetailActivity.class);
+        intent.putExtra("city", city);
+        startActivity(intent);
     }
 }
