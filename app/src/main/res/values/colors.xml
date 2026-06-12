@@ -2,11 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#B3F2A8</color> <!-- primary -->
-    <color name="blue">#9CB7F4</color><!-- secondary -->
-    <color name="lightgreen">#D3FDCB</color> <!-- background -->
+    <!-- Theme -->
+    <color name="primary">#B3F2A8</color> <!-- primary -->
+    <color name="secondary">#9CB7F4</color><!-- secondary -->
+    <color name="background">#D3FDCB</color> <!-- background -->
     <color name="transparent">#00000000</color>
 
+    <!-- optional colours -->
     <color name="pink">#F6BEE9</color> <!-- idea, not confirmed coloru -->
     <color name="orange">#F2DDAA</color> <!-- idea, not confirmed colour -->
 </resources>

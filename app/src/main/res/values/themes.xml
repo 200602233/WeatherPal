@@ -3,9 +3,9 @@
     <style name="Base.Theme.WeatherPal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/green</item>
-        <item name="colorSecondary">@color/blue</item>
-        <item name="android:colorBackground">@color/lightgreen</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="android:colorBackground">@color/background</item>
         <!-- headline -->
         <item name="textAppearanceHeadlineMedium">
             @style/TextAppearance.Material3.HeadlineMedium
@@ -15,7 +15,7 @@
             @style/TextAppearance.Material3.BodyMedium
         </item>
 
-        <!-- Disable the android green icon from loading before splash -->
+        <!-- Disable the android primary icon from loading before splash -->
         <item name="android:windowDisablePreview">true</item>
     </style>
 
