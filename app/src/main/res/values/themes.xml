@@ -26,10 +26,12 @@
     <!-- Headline -->
     <style name="TextAppearance.Material3.HeadlineMedium.">
         <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/textColour1</item>
     </style>
     <!-- Body -->
     <style name="TextAppearance.Material3.BodyMedium.">
         <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textColour1</item>
     </style>
 
     <style name="Theme.WeatherPal" parent="Base.Theme.WeatherPal" />

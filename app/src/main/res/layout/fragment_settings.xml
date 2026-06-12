@@ -11,6 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="?attr/colorSecondary"
+            android:paddingTop="50dp"
+            android:layout_marginBottom="15dp"
+            app:title="Settings"
+            app:titleTextColor="@color/textColour1"
+            />
+
         <!-- change colour background later -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
