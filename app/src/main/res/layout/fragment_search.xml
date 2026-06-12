@@ -40,12 +40,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:id="@+id/flag1"
+                    <TextView
+                        android:id="@+id/UKflag"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
-                        android:src="@drawable/vector_saved"
+                        android:text="@string/flagUK"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +58,7 @@
                         android:layout_marginStart="16dp"
                         android:text="London"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag1"
+                        app:layout_constraintStart_toEndOf="@+id/UKflag"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
@@ -66,7 +67,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="City of London, Greater London, UK"
+                        android:text="City of London, Greater London"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/city1" />
 
@@ -112,12 +113,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:id="@+id/flag2"
+                    <TextView
+                        android:id="@+id/CAflag"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
-                        android:src="@drawable/vector_saved"
+                        android:text="@string/flagCA"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -129,7 +131,7 @@
                         android:layout_marginStart="16dp"
                         android:text="Toronto"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag2"
+                        app:layout_constraintStart_toEndOf="@+id/CAflag"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
@@ -138,7 +140,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="Ontario, CA"
+                        android:text="Ontario"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/city2" />
 
@@ -184,12 +186,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:id="@+id/flag3"
+                    <TextView
+                        android:id="@+id/JPflag"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
-                        android:src="@drawable/vector_saved"
+                        android:text="@string/flagJP"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -201,7 +204,7 @@
                         android:layout_marginStart="16dp"
                         android:text="Tokyo"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag3"
+                        app:layout_constraintStart_toEndOf="@+id/JPflag"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
@@ -210,7 +213,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="Tokyo-to, JP"
+                        android:text="Tokyo-to"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/city3" />
 
@@ -256,12 +259,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:id="@+id/flag4"
+                    <TextView
+                        android:id="@+id/AUflag"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
-                        android:src="@drawable/vector_saved"
+                        android:text="@string/flagAU"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -273,7 +277,7 @@
                         android:layout_marginStart="16dp"
                         android:text="Sydney"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag4"
+                        app:layout_constraintStart_toEndOf="@+id/AUflag"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
@@ -282,7 +286,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="New South Wales, AU"
+                        android:text="New South Wales"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/city4" />
 
@@ -328,12 +332,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:id="@+id/flag5"
+                    <TextView
+                        android:id="@+id/USflag"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
-                        android:src="@drawable/vector_saved"
+                        android:text="@string/flagUS"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -345,7 +350,7 @@
                         android:layout_marginStart="16dp"
                         android:text="New York"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag5"
+                        app:layout_constraintStart_toEndOf="@+id/USflag"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
@@ -354,7 +359,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="New York State, US"
+                        android:text="New York State"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/city5" />
 
