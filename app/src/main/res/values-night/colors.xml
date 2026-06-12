@@ -7,9 +7,9 @@
 
     <color name="primary">#148317</color>
     <color name="secondary">#001f9d</color>
-    <color name="background">#2e2e2e</color>
+    <color name="background1">#2e2e2e</color>
 
-    <color name="accent_grey">#424242</color>
+    <color name="background2">#424242</color>
     <color name="accent_blue">#396fe9</color>
     <color name="accent_pink">#ea6acc</color>
     <color name="accent_orange">#e5bc58</color>

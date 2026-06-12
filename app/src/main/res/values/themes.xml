@@ -5,7 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorSecondary">@color/secondary</item>
-        <item name="android:colorBackground">@color/background</item>
+        <item name="android:colorBackground">@color/background1</item>
         <!-- headline -->
         <item name="textAppearanceHeadlineMedium">
             @style/TextAppearance.Material3.HeadlineMedium
