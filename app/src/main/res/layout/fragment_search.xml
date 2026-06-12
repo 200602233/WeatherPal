@@ -41,7 +41,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/flag"
+                        android:id="@+id/flag1"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
@@ -51,27 +51,27 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/city"
+                        android:id="@+id/city1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="London"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag"
+                        app:layout_constraintStart_toEndOf="@+id/flag1"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
                     <TextView
-                        android:id="@+id/region"
+                        android:id="@+id/region1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:text="City of London, Greater London, UK"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/city" />
+                        app:layout_constraintStart_toStartOf="@+id/city1" />
 
                     <TextView
-                        android:id="@+id/temp"
+                        android:id="@+id/temp1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="236dp"
@@ -80,10 +80,10 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.105"
-                        app:layout_constraintStart_toEndOf="@+id/city" />
+                        app:layout_constraintStart_toEndOf="@+id/city1" />
 
                     <TextView
-                        android:id="@+id/weather"
+                        android:id="@+id/weather1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
@@ -91,7 +91,7 @@
                         android:text="Cloudy"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/temp"
+                        app:layout_constraintTop_toBottomOf="@+id/temp1"
                         app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -113,7 +113,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/flag"
+                        android:id="@+id/flag2"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
@@ -123,27 +123,27 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/city"
+                        android:id="@+id/city2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="Toronto"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag"
+                        app:layout_constraintStart_toEndOf="@+id/flag2"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
                     <TextView
-                        android:id="@+id/region"
+                        android:id="@+id/region2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:text="Ontario, CA"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/city" />
+                        app:layout_constraintStart_toStartOf="@+id/city2" />
 
                     <TextView
-                        android:id="@+id/temp"
+                        android:id="@+id/temp2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="236dp"
@@ -152,10 +152,10 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.105"
-                        app:layout_constraintStart_toEndOf="@+id/city" />
+                        app:layout_constraintStart_toEndOf="@+id/city2" />
 
                     <TextView
-                        android:id="@+id/weather"
+                        android:id="@+id/weather2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
@@ -163,7 +163,7 @@
                         android:text="Sunny"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/temp"
+                        app:layout_constraintTop_toBottomOf="@+id/temp2"
                         app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -185,7 +185,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/flag"
+                        android:id="@+id/flag3"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
@@ -195,27 +195,27 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/city"
+                        android:id="@+id/city3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="Tokyo"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag"
+                        app:layout_constraintStart_toEndOf="@+id/flag3"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
                     <TextView
-                        android:id="@+id/region"
+                        android:id="@+id/region3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:text="Tokyo-to, JP"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/city" />
+                        app:layout_constraintStart_toStartOf="@+id/city3" />
 
                     <TextView
-                        android:id="@+id/temp"
+                        android:id="@+id/temp3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="236dp"
@@ -224,10 +224,10 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.225"
-                        app:layout_constraintStart_toEndOf="@+id/city" />
+                        app:layout_constraintStart_toEndOf="@+id/city3" />
 
                     <TextView
-                        android:id="@+id/weather"
+                        android:id="@+id/weather3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="24dp"
@@ -235,7 +235,7 @@
                         android:text="Clear"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/temp"
+                        app:layout_constraintTop_toBottomOf="@+id/temp3"
                         app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -257,7 +257,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/flag"
+                        android:id="@+id/flag4"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
@@ -267,27 +267,27 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/city"
+                        android:id="@+id/city4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="Sydney"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag"
+                        app:layout_constraintStart_toEndOf="@+id/flag4"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
                     <TextView
-                        android:id="@+id/region"
+                        android:id="@+id/region4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:text="New South Wales, AU"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/city" />
+                        app:layout_constraintStart_toStartOf="@+id/city4" />
 
                     <TextView
-                        android:id="@+id/temp"
+                        android:id="@+id/temp4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="236dp"
@@ -296,10 +296,10 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.105"
-                        app:layout_constraintStart_toEndOf="@+id/city" />
+                        app:layout_constraintStart_toEndOf="@+id/city4" />
 
                     <TextView
-                        android:id="@+id/weather"
+                        android:id="@+id/weather4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
@@ -307,7 +307,7 @@
                         android:text="Sunny"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/temp"
+                        app:layout_constraintTop_toBottomOf="@+id/temp4"
                         app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -329,7 +329,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/flag"
+                        android:id="@+id/flag5"
                         android:layout_width="37dp"
                         android:layout_height="38dp"
                         android:layout_marginStart="4dp"
@@ -339,27 +339,27 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/city"
+                        android:id="@+id/city5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="New York"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/flag"
+                        app:layout_constraintStart_toEndOf="@+id/flag5"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.292" />
 
                     <TextView
-                        android:id="@+id/region"
+                        android:id="@+id/region5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:text="New York State, US"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/city" />
+                        app:layout_constraintStart_toStartOf="@+id/city5" />
 
                     <TextView
-                        android:id="@+id/temp"
+                        android:id="@+id/temp5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="236dp"
@@ -368,10 +368,10 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.105"
-                        app:layout_constraintStart_toEndOf="@+id/city" />
+                        app:layout_constraintStart_toEndOf="@+id/city5" />
 
                     <TextView
-                        android:id="@+id/weather"
+                        android:id="@+id/weather5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
@@ -379,7 +379,7 @@
                         android:text="Rainy"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/temp"
+                        app:layout_constraintTop_toBottomOf="@+id/temp5"
                         app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
