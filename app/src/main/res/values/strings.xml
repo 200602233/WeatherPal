@@ -2,4 +2,11 @@
     <string name="app_name">WeatherPal</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- flags for search frag -->
+    <string name="flagUK">&#x1F1EC;&#x1F1E7;</string>
+    <string name="flagCA">&#x1F1E8;&#x1F1E6;</string>
+    <string name="flagJP">&#x1F1EF;&#x1F1F5;</string>
+    <string name="flagAU">&#x1F1E6;&#x1F1FA;</string>
+    <string name="flagUS">&#x1F1FA;&#x1F1F8;</string>
 </resources>
