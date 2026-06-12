@@ -15,15 +15,12 @@
             @style/TextAppearance.Material3.BodyMedium
         </item>
 
-        <!-- Disable the android primary icon from loading before splash -->
-        <item name="android:windowDisablePreview">true</item>
     </style>
 
     <!-- Splash theme (may change after next weeks class) -->
     <style name="Theme.WeatherPal.SplashActivity" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:windowBackground">
-            @color/green <!-- change later, just for testing -->
-        </item>
+        <item name="android:windowBackground">@color/secondary</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
 
     <!-- Headline -->
