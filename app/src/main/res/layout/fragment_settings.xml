@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:layout_marginBottom="25dp"
-            android:background="@color/green"
+            android:background="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -61,7 +61,7 @@
             android:layout_height="270dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="25dp"
-            android:background="@color/green"
+            android:background="@color/primary"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -91,7 +91,7 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
-                    android:background="@color/lightgreen"
+                    android:background="@color/background"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,7 +131,7 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
-                    android:background="@color/lightgreen"
+                    android:background="@color/background"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -171,7 +171,7 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
-                    android:background="@color/lightgreen"
+                    android:background="@color/background"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
