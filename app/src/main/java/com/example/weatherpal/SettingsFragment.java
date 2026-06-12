@@ -1,5 +1,6 @@
 package com.example.weatherpal;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.weatherpal.databinding.FragmentSettingsBinding;
-//import com.example.weatherpal.;
+import com.example.weatherpal.BuildConfig;
 
 
 public class SettingsFragment extends Fragment {
@@ -29,7 +30,7 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
 
         // set version by using BuildCOnfig.VERSION_NAME
-        //binding.versionTxt.setText("Version: " + BuildConfig.VERSION_NAME);
+        binding.versionTxt.setText("Version " + BuildConfig.VERSION_NAME);
 
         // code from week 4 Intent Slide 14
         binding.feedback.setOnClickListener(v -> {

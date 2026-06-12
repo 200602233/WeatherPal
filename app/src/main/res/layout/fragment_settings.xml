@@ -16,23 +16,25 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/About"
             android:layout_width="match_parent"
-            android:layout_height="85dp"
+            android:layout_height="65dp"
             android:layout_marginBottom="25dp"
             android:background="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <!-- ABOUT text section-->
+
+            <!-- About information -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="ABOUT"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- About information -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-
+                android:layout_marginBottom="15sp"
                 android:text="ACTIONS"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/feedback" />
@@ -119,6 +121,12 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- View border for seperating the constraints for looks wise -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background"/>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/github"
                 android:layout_width="match_parent"
@@ -158,6 +166,12 @@
                     app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- View border for seperating the constraints for looks wise -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/shareApp"
