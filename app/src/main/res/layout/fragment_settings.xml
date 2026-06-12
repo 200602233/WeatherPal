@@ -41,8 +41,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:text="ABOUT"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="WeatherPal"
+                android:textAppearance="@style/Text.Headline"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -62,6 +64,7 @@
                 android:layout_height="21dp"
                 android:layout_marginEnd="8dp"
                 android:text="Version"
+                android:textAppearance="@style/Text.Body"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -80,13 +83,15 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <!-- ACTIONS menu layout -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="15sp"
                 android:text="ACTIONS"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/feedback" />
 
@@ -113,7 +118,7 @@
                     android:layout_height="26dp"
                     android:layout_marginStart="16dp"
                     android:text="Send Feedback"
-                    android:textSize="15sp"
+                    android:textAppearance="@style/Text.Headline"
                     app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
                     app:layout_constraintStart_toEndOf="@id/feedbackIcon"
                     app:layout_constraintTop_toTopOf="@id/feedbackIcon"
@@ -124,8 +129,7 @@
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
                     android:text="Opens your default email app"
-                    android:textSize="10dp"
-                    app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
+                    android:textAppearance="@style/Text.Body"                    app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
                     app:layout_constraintStart_toEndOf="@id/feedbackIcon"
                     app:layout_constraintTop_toTopOf="@id/feedbackIcon"
                     app:layout_constraintVertical_bias="1.0" />
@@ -155,11 +159,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="103dp"
+                    android:layout_width="133dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="16dp"
                     android:text="View on Github"
-                    android:textSize="15sp"
+                    android:textAppearance="@style/Text.Headline"
                     app:layout_constraintBottom_toBottomOf="@id/githubIcon"
                     app:layout_constraintStart_toEndOf="@id/githubIcon"
                     app:layout_constraintTop_toTopOf="@id/githubIcon"
@@ -170,8 +174,7 @@
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
                     android:text="Opens in your browser"
-                    android:textSize="10dp"
-                    app:layout_constraintBottom_toBottomOf="@id/githubIcon"
+                    android:textAppearance="@style/Text.Body"                    app:layout_constraintBottom_toBottomOf="@id/githubIcon"
                     app:layout_constraintStart_toEndOf="@id/githubIcon"
                     app:layout_constraintTop_toTopOf="@id/githubIcon"
                     app:layout_constraintVertical_bias="1.0" />
@@ -205,7 +208,7 @@
                     android:layout_height="26dp"
                     android:layout_marginStart="16dp"
                     android:text="Share App"
-                    android:textSize="15sp"
+                    android:textAppearance="@style/Text.Headline"
                     app:layout_constraintBottom_toBottomOf="@id/shareAppIcon"
                     app:layout_constraintStart_toEndOf="@id/shareAppIcon"
                     app:layout_constraintTop_toTopOf="@id/shareAppIcon"
@@ -216,8 +219,7 @@
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
                     android:text="Share with friends"
-                    android:textSize="10dp"
-                    app:layout_constraintBottom_toBottomOf="@id/shareAppIcon"
+                    android:textAppearance="@style/Text.Body"                    app:layout_constraintBottom_toBottomOf="@id/shareAppIcon"
                     app:layout_constraintStart_toEndOf="@id/shareAppIcon"
                     app:layout_constraintTop_toTopOf="@id/shareAppIcon"
                     app:layout_constraintVertical_bias="1.0" />

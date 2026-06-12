@@ -21,17 +21,19 @@
     <style name="Theme.WeatherPal.SplashActivity" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/secondary</item>
         <item name="android:windowDisablePreview">true</item>
+<!--        <item name="android:textColor">@color/textColour1</item>-->
+<!--        <item name="android:textSize">40sp</item>-->
     </style>
 
     <!-- Headline -->
-    <style name="TextAppearance.Material3.HeadlineMedium.">
-        <item name="android:textSize">25sp</item>
+    <style name="Text.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/textColour1</item>
     </style>
     <!-- Body -->
-    <style name="TextAppearance.Material3.BodyMedium.">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/textColour1</item>
+    <style name="Text.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/textColour3</item>
     </style>
 
     <style name="Theme.WeatherPal" parent="Base.Theme.WeatherPal" />
