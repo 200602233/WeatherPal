@@ -3,6 +3,7 @@
     <!-- Text -->
     <color name="textColour1">#FF000000</color> <!-- black -->
     <color name="textColour2">#FFFFFFFF</color> <!-- white -->
+    <color name="textColour3">#242424</color>
     <!-- Theme -->
     <color name="primary">#B3F2A8</color> <!-- green -->
     <color name="secondary">#9CB7F4</color><!-- blue -->
