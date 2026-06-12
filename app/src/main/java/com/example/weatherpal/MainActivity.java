@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -38,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         // BottomNavView connection (may have to update after Thursday class)
 
         switchFragment(new SearchFragment());
+
+        //Colour binding to show active
+        binding.bottomNavigation.setItemIconTintList(
+                AppCompatResources.getColorStateList(this, R.color.bottom_nav_colors)
+        );
+
+        binding.bottomNavigation.setItemTextColor(
+                AppCompatResources.getColorStateList(this, R.color.bottom_nav_colors)
+        );
+
         binding.bottomNavigation.setSelectedItemId(R.id.searchBtn);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
 
@@ -45,12 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 binding.headerTitle.setText("WeatherPal"); //default
                 switchFragment(new SearchFragment());
                 return true;
-
             } else if (item.getItemId() == R.id.savedBtn) {
                 binding.headerTitle.setText("Saved Cities");
                 switchFragment(new SavedFragment());
                 return true;
-
             } else if (item.getItemId() == R.id.settingsBtn) {
                 binding.headerTitle.setText("Settings");
                 switchFragment(new SettingsFragment());

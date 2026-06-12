@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="green">#B3F2A8</color> <!-- primary -->
-    <color name="blue">#9CB7F4</color><!-- secondary -->
-    <color name="lightgreen">#D3FDCB</color> <!-- background -->
+    <!-- Text -->
+    <color name="textColour1">#FF000000</color> <!-- black -->
+    <color name="textColour2">#FFFFFFFF</color> <!-- white -->
+    <!-- Theme -->
+    <color name="primary">#B3F2A8</color> <!-- green -->
+    <color name="secondary">#9CB7F4</color><!-- blue -->
+    <color name="background">#D3FDCB</color> <!-- lightgreen -->
     <color name="transparent">#00000000</color>
 
-    <color name="pink">#F6BEE9</color> <!-- idea, not confirmed coloru -->
-    <color name="orange">#F2DDAA</color> <!-- idea, not confirmed colour -->
+    <!-- optional colours -->
+    <color name="accent_blue">#9CB7F4</color><!-- secondary -->
+    <color name="accent_pink">#F6BEE9</color> <!-- idea, not confirmed coloru -->
+    <color name="accent_orange">#F2DDAA</color> <!-- idea, not confirmed colour -->
 </resources>
