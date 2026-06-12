@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-
+                android:layout_marginBottom="15sp"
                 android:text="ACTIONS"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/feedback" />
@@ -121,6 +121,12 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- View border for seperating the constraints for looks wise -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background"/>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/github"
                 android:layout_width="match_parent"
@@ -160,6 +166,12 @@
                     app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- View border for seperating the constraints for looks wise -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/shareApp"
