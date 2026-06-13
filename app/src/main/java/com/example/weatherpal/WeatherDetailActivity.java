@@ -43,6 +43,18 @@ public class WeatherDetailActivity extends AppCompatActivity {
             binding.toolbar.setTitle("Toronto");
             binding.toolbar.setSubtitle("Ontario");
         }
+        else if(city.equals("Tokyo")){
+            binding.toolbar.setTitle("Tokyo");
+            binding.toolbar.setSubtitle("Tokyo-to");
+        }
+        else if(city.equals("Sydney")){
+            binding.toolbar.setTitle("Sydney");
+            binding.toolbar.setSubtitle("New South Wales");
+        }
+        else if(city.equals("New York")){
+            binding.toolbar.setTitle("New York");
+            binding.toolbar.setSubtitle("New York State");
+        }
     }
 
     // function to display weather details for the selected city
