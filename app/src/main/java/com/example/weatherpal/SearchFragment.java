@@ -24,7 +24,7 @@ public class SearchFragment extends Fragment {
         binding = FragmentSearchBinding.inflate(inflater, container, false);
 
         binding.londonCard.setOnClickListener(v-> openCityDetails("London"));
-        binding.TorontoCard.setOnClickListener(v-> openCityDetails("Toronto"));
+        binding.torontoCard.setOnClickListener(v-> openCityDetails("Toronto"));
 
 
         // return
