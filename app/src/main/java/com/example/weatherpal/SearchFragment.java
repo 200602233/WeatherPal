@@ -24,12 +24,16 @@ public class SearchFragment extends Fragment {
         binding = FragmentSearchBinding.inflate(inflater, container, false);
 
         binding.londonCard.setOnClickListener(v-> openCityDetails("London"));
-        binding.TorontoCard.setOnClickListener(v-> openCityDetails("Toronto"));
-
+        binding.torontoCard.setOnClickListener(v-> openCityDetails("Toronto"));
+        binding.tokyoCard.setOnClickListener(v-> openCityDetails("Tokyo"));
+        binding.sydneyCard.setOnClickListener(v-> openCityDetails("Sydney"));
+        binding.newYorkCard.setOnClickListener(v-> openCityDetails("New York"));
 
         // return
         return binding.getRoot();
     }
+
+    // function to take user to the selected city's details page
     private void openCityDetails(String city){
         Intent intent = new Intent(requireActivity(), WeatherDetailActivity.class);
         intent.putExtra("city", city);

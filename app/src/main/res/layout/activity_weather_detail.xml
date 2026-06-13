@@ -23,8 +23,6 @@
         app:title="London"
         app:titleTextColor="@color/textColour1" />
 
-
-    <!-- ℃   ℉  -->
     <!-- use cardviews for displaying weather info -->
 
     <androidx.cardview.widget.CardView
