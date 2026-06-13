@@ -114,8 +114,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="103dp"
-                    android:layout_height="26dp"
+                    android:layout_width="134dp"
+                    android:layout_height="21dp"
                     android:layout_marginStart="16dp"
                     android:text="Send Feedback"
                     android:textAppearance="@style/Text.Headline"
