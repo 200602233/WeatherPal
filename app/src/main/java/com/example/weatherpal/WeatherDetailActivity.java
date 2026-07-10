@@ -1,5 +1,6 @@
 package com.example.weatherpal;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -31,8 +32,16 @@ public class WeatherDetailActivity extends AppCompatActivity {
         String city = getIntent().getStringExtra("city");
         setToolBar(city);
         setWeatherDetails(city);
+
+        //back btn
+        binding.backBtn.setOnClickListener(view -> backBtnAction());
     }
 
+    // back btn
+    public void backBtnAction(){
+        Intent intent = new Intent(WeatherDetailActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
     // function to change header/toolbar title to display selected city
     private void setToolBar(String city){
         if(city.equals("London")){
