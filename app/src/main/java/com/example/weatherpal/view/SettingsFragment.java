@@ -1,6 +1,5 @@
-package com.example.weatherpal;
+package com.example.weatherpal.view;
 
-import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
