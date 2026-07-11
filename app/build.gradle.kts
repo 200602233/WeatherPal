@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.material)
     // add dependency for BottomNavView (may change or delete after Thurs class)
-    implementation("com.google.android.material:material:1.12.0")
+    implementation(libs.material.v1120)
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
