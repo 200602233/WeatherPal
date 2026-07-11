@@ -1,4 +1,4 @@
-package com.example.weatherpal;
+package com.example.weatherpal.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.weatherpal.databinding.FragmentSearchBinding;
-import com.example.weatherpal.databinding.FragmentSettingsBinding;
 
 public class SearchFragment extends Fragment {
 

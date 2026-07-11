@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherPal"> <!-- theme applied -->
         <activity
-            android:name=".WeatherDetailActivity"
+            android:name=".view.WeatherDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".view.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.WeatherPal.SplashActivity">
             <intent-filter>

@@ -1,7 +1,6 @@
-package com.example.weatherpal;
+package com.example.weatherpal.view;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import java.util.zip.Inflater;
+import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityMainBinding;
 
 
