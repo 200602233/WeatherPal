@@ -56,6 +56,10 @@ public class WeatherDetailActivity extends AppCompatActivity {
             binding.uvIndex.setText(weatherData.getUvIndex());
         });
 
+        // added this so api would properly show data
+        if (city != null && !city.isEmpty()) {
+            viewModel.Refresh(city);
+        }
 
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());
