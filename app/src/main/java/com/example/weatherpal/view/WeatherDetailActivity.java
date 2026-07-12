@@ -44,7 +44,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
         viewModel.getWeatherData().observe(this, weatherData -> {
             // toolbar binding
             binding.toolbar.setTitle(weatherData.getCity());
-            binding.toolbar.setTitle(weatherData.getRegion());
+            binding.toolbar.setSubtitle(weatherData.getRegion());
 
             // cards
             binding.weatherCondition.setText(weatherData.getWeatherCondition());
