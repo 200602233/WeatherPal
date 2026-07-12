@@ -3,6 +3,7 @@ package com.example.weatherpal.model;
 public class WeatherModel {
     // variables that we have in the WeatherDetails atcivity and xml
     private String city;
+    private String region; // for city cards and toolbar
     private String weatherCondition;
     private String tempC;
     private String tempF;
@@ -19,6 +20,14 @@ public class WeatherModel {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public String getWeatherCondition() {
