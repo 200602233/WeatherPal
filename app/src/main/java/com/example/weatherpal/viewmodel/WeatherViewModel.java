@@ -40,13 +40,13 @@ public class WeatherViewModel extends ViewModel {
 
                     JSONObject location = json.getJSONObject("location");
                     JSONObject current = json.getJSONObject("current");
-                    JSONObject condition = json.getJSONObject("condition");
+                    JSONObject condition = current.getJSONObject("condition");
 
                     String strCity = location.getString("name");
                     String strRegion = location.getString("region");
-                    String strWeatherCondition = condition.getString("text");
                     String strTempC = current.getString("temp_c") + "°C";
                     String strTempF = current.getString("temp_f") + "°F";
+                    String strWeatherCondition = condition.getString("text");
                     String strHumidity = current.getString("humidity") + "%";
                     String strWind = current.getString("wind_kph") + " kph";
                     String strFeelsLike = current.getString("feelslike_c") + "°C";
@@ -61,7 +61,6 @@ public class WeatherViewModel extends ViewModel {
                     weatherModel.setWind(strWind);
                     weatherModel.setFeelsLike(strFeelsLike);
                     weatherModel.setUvIndex(strUvIndex);
-
 
                     weatherData.postValue(weatherModel);
 
