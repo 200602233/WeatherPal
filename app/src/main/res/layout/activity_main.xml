@@ -5,17 +5,56 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fragContainer"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_weight="1"/>
+    <!-- add container for header -->
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:id="@+id/constraintLayout"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="106dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        android:background="@color/secondary">-->
+
+    <!--        &lt;!&ndash; header title inside header container &ndash;&gt;-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/headerTitle"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="WeatherPal"-->
+    <!--            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:layout_constraintVertical_bias="0.797" />-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!-- add constraintlayout for frag view -->
+
+    <!-- add bottom navigation bar (updated to call to the new bottom view menu) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:itemActiveIndicatorStyle="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragArea"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

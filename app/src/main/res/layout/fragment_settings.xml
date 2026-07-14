@@ -1,14 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".view.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:paddingTop="50dp"
+            android:background="@color/secondary"
+            android:layout_marginBottom="15dp"
+            app:title="Settings"
+            app:titleTextColor="@color/textColour1"
+            />
+
+        <!-- change colour background later -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/About"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/background2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- ABOUT text section-->
+
+            <!-- About information -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="ABOUT"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="WeatherPal"
+                android:textAppearance="@style/Text.Headline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/versionTxt"
+                android:layout_width="102dp"
+                android:layout_height="21dp"
+                android:layout_marginEnd="8dp"
+                android:text="Version"
+                android:textAppearance="@style/Text.Body"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/Actions"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/background2"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- ACTIONS menu layout -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="15sp"
+                android:text="ACTIONS"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/feedback" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/feedback"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:padding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/feedbackIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/background1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="134dp"
+                    android:layout_height="21dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Send Feedback"
+                    android:textAppearance="@style/Text.Headline"
+                    app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
+                    app:layout_constraintStart_toEndOf="@id/feedbackIcon"
+                    app:layout_constraintTop_toTopOf="@id/feedbackIcon"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="139dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Opens your default email app"
+                    android:textAppearance="@style/Text.Body"                    app:layout_constraintBottom_toBottomOf="@id/feedbackIcon"
+                    app:layout_constraintStart_toEndOf="@id/feedbackIcon"
+                    app:layout_constraintTop_toTopOf="@id/feedbackIcon"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- View border for seperating the constraints for looks wise -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background1"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/github"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:padding="2dp">
+
+                <ImageView
+                    android:id="@+id/githubIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/background1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="133dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="16dp"
+                    android:text="View on Github"
+                    android:textAppearance="@style/Text.Headline"
+                    app:layout_constraintBottom_toBottomOf="@id/githubIcon"
+                    app:layout_constraintStart_toEndOf="@id/githubIcon"
+                    app:layout_constraintTop_toTopOf="@id/githubIcon"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="139dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Opens in your browser"
+                    android:textAppearance="@style/Text.Body"                    app:layout_constraintBottom_toBottomOf="@id/githubIcon"
+                    app:layout_constraintStart_toEndOf="@id/githubIcon"
+                    app:layout_constraintTop_toTopOf="@id/githubIcon"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- View border for seperating the constraints for looks wise -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background1"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/shareApp"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:padding="2dp">
+
+                <ImageView
+                    android:id="@+id/shareAppIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/background1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="103dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Share App"
+                    android:textAppearance="@style/Text.Headline"
+                    app:layout_constraintBottom_toBottomOf="@id/shareAppIcon"
+                    app:layout_constraintStart_toEndOf="@id/shareAppIcon"
+                    app:layout_constraintTop_toTopOf="@id/shareAppIcon"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="139dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Share with friends"
+                    android:textAppearance="@style/Text.Body"                    app:layout_constraintBottom_toBottomOf="@id/shareAppIcon"
+                    app:layout_constraintStart_toEndOf="@id/shareAppIcon"
+                    app:layout_constraintTop_toTopOf="@id/shareAppIcon"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

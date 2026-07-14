@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- dark-mode colours -->
+    <color name="textColour1">#FFFFFFFF</color>
+    <color name="textColour2">#FF000000</color>
+    <color name="textColour3">#CECECE</color>
+
+    <color name="primary">#148317</color>
+    <color name="secondary">#001f9d</color>
+    <color name="background1">#2e2e2e</color>
+
+    <color name="background2">#424242</color>
+    <color name="accent_blue">#396fe9</color>
+    <color name="accent_pink">#ea6acc</color>
+    <color name="accent_orange">#e5bc58</color>
+</resources>

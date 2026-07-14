@@ -3,6 +3,37 @@
     <style name="Base.Theme.WeatherPal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="android:colorBackground">@color/background1</item>
+        <!-- headline -->
+        <item name="textAppearanceHeadlineMedium">
+            @style/TextAppearance.Material3.HeadlineMedium
+        </item>
+        <!-- body -->
+        <item name="textAppearanceBodyMedium">
+            @style/TextAppearance.Material3.BodyMedium
+        </item>
+
+    </style>
+
+    <!-- Splash theme (may change after next weeks class) -->
+    <style name="Theme.WeatherPal.SplashActivity" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/secondary</item>
+        <item name="android:windowDisablePreview">true</item>
+<!--        <item name="android:textColor">@color/textColour1</item>-->
+<!--        <item name="android:textSize">40sp</item>-->
+    </style>
+
+    <!-- Headline -->
+    <style name="Text.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textColour1</item>
+    </style>
+    <!-- Body -->
+    <style name="Text.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/textColour3</item>
     </style>
 
     <style name="Theme.WeatherPal" parent="Base.Theme.WeatherPal" />

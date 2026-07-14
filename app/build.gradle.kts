@@ -9,6 +9,11 @@ android {
             minorApiLevel = 1
         }
     }
+    //viewBinding() and BuildConfig
+    buildFeatures{
+        viewBinding = true
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.example.weatherpal"
@@ -38,9 +43,14 @@ android {
 dependencies {
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
+    implementation(libs.cardview)
     implementation(libs.constraintlayout)
     implementation(libs.material)
+    // add dependency for BottomNavView (may change or delete after Thurs class)
+    implementation(libs.material.v1120)
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
+    // api dependency
+    implementation(libs.okhttp)
 }

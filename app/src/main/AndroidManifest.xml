@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- api permission required -->
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,16 +12,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WeatherPal">
+        android:theme="@style/Theme.WeatherPal"> <!-- theme applied -->
         <activity
-            android:name=".WeatherDetailActivity"
+            android:name=".view.WeatherDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".view.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".view.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.WeatherPal.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
