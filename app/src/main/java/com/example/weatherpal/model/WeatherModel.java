@@ -11,6 +11,8 @@ public class WeatherModel {
     private String wind;
     private String feelsLikeC;
     private String feelsLikeF;
+    private String windChillC;
+    private String windChillF;
     private String uvIndex;
 
     // get and sets (used generate > Getters and Setters)
@@ -85,6 +87,22 @@ public class WeatherModel {
 
     public void setFeelsLikeF(String feelsLikeF) {
         this.feelsLikeF = feelsLikeF;
+    }
+
+    public String getWindChillC() {
+        return windChillC;
+    }
+
+    public void setWindChillC(String windChillC) {
+        this.windChillC = windChillC;
+    }
+
+    public String getWindChillF() {
+        return windChillF;
+    }
+
+    public void setWindChillF(String windChillF) {
+        this.windChillF = windChillF;
     }
 
     public String getUvIndex() {
