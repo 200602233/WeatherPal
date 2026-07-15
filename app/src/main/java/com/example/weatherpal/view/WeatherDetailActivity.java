@@ -2,6 +2,7 @@ package com.example.weatherpal.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,6 +64,20 @@ public class WeatherDetailActivity extends AppCompatActivity {
         if (city != null && !city.isEmpty()) {
             viewModel.Refresh(city);
         }
+
+        // error message - change after class if we learn it
+        viewModel.getErrorMessage()
+                .observe(
+                        this,
+                        message -> {
+
+                            Toast.makeText(
+                                    this,
+                                    message,
+                                    Toast.LENGTH_LONG
+                            ).show();
+
+                        });
 
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());

@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- api permission required -->
+    <!-- api permission required -->
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        />
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherPal"> <!-- theme applied -->
+
         <activity
             android:name=".view.WeatherDetailActivity"
             android:exported="false" />

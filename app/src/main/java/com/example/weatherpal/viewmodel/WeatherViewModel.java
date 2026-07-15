@@ -21,10 +21,18 @@ public class WeatherViewModel extends ViewModel {
     // followed week 9 api code
     WeatherModel weatherModel = new WeatherModel();
 
+    // api weather data
     private final MutableLiveData<WeatherModel> weatherData = new MutableLiveData<WeatherModel>();
     public LiveData<WeatherModel> getWeatherData() {
         return weatherData;
     }
+
+    // error message
+    private final MutableLiveData<String> error = new MutableLiveData<String>();
+    public LiveData<String> getErrorMessage() {
+        return error;
+    }
+
 
     // refresh
     public void Refresh(String city){
@@ -33,7 +41,7 @@ public class WeatherViewModel extends ViewModel {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 String responseData = response.body().string();
-                Log.i("tag", responseData); // not sure if needed
+                Log.i("WeatherViewModel", responseData); // not sure if needed
                 JSONObject json = null;
                 try{
                     json = new JSONObject(responseData);
@@ -71,13 +79,17 @@ public class WeatherViewModel extends ViewModel {
                     weatherData.postValue(weatherModel);
 
                 } catch (Exception e){
-                    Log.e("tag", "Error while parsing JSON: ", e);
+                    Log.e("WeatherViewModel", "Error while parsing JSON: ", e);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                Log.i("tag", "onFailure"); // not sure if needed
+                Log.i("WeatherViewModel", "Network Error. Request Failed :("); // not sure if needed
+                // error message
+                // - Show user-friendly error message if network call fails (DO NOT CRASH)
+                // may update after class
+                error.postValue("Network Connection Issue. Please Check Your Network.");
             }
         });
     }
