@@ -52,7 +52,10 @@ public class WeatherDetailActivity extends AppCompatActivity {
             binding.tempF.setText(weatherData.getTempF());
             binding.humidity.setText(weatherData.getHumidity());
             binding.wind.setText(weatherData.getWind());
-            binding.feelsLike.setText(weatherData.getFeelsLike());
+            binding.feelsLikeC.setText(weatherData.getFeelsLikeC());
+            binding.feelsLikeF.setText(weatherData.getFeelsLikeF());
+            binding.windChillC.setText(weatherData.getWindChillC());
+            binding.windChillF.setText(weatherData.getWindChillF());
             binding.uvIndex.setText(weatherData.getUvIndex());
         });
 

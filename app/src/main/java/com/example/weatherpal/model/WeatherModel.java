@@ -9,7 +9,10 @@ public class WeatherModel {
     private String tempF;
     private String humidity;
     private String wind;
-    private String feelsLike;
+    private String feelsLikeC;
+    private String feelsLikeF;
+    private String windChillC;
+    private String windChillF;
     private String uvIndex;
 
     // get and sets (used generate > Getters and Setters)
@@ -70,12 +73,36 @@ public class WeatherModel {
         this.humidity = humidity;
     }
 
-    public String getFeelsLike() {
-        return feelsLike;
+    public String getFeelsLikeC() {
+        return feelsLikeC;
     }
 
-    public void setFeelsLike(String feelsLike) {
-        this.feelsLike = feelsLike;
+    public void setFeelsLikeC(String feelsLike) {
+        this.feelsLikeC = feelsLike;
+    }
+
+    public String getFeelsLikeF() {
+        return feelsLikeF;
+    }
+
+    public void setFeelsLikeF(String feelsLikeF) {
+        this.feelsLikeF = feelsLikeF;
+    }
+
+    public String getWindChillC() {
+        return windChillC;
+    }
+
+    public void setWindChillC(String windChillC) {
+        this.windChillC = windChillC;
+    }
+
+    public String getWindChillF() {
+        return windChillF;
+    }
+
+    public void setWindChillF(String windChillF) {
+        this.windChillF = windChillF;
     }
 
     public String getUvIndex() {
