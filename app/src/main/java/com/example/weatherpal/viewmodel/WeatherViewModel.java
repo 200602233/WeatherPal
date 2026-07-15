@@ -49,7 +49,8 @@ public class WeatherViewModel extends ViewModel {
                     String strWeatherCondition = condition.getString("text");
                     String strHumidity = current.getString("humidity") + "%";
                     String strWind = current.getString("wind_kph") + " kph";
-                    String strFeelsLike = current.getString("feelslike_c") + "°C";
+                    String strFeelsLikeC = current.getString("feelslike_c") + "°C";
+                    String strFeelsLikeF = current.getString("feelslike_f") + "°F";
                     String strUvIndex = current.getString("uv");
 
                     weatherModel.setCity(strCity);
@@ -59,7 +60,8 @@ public class WeatherViewModel extends ViewModel {
                     weatherModel.setTempF(strTempF);
                     weatherModel.setHumidity(strHumidity);
                     weatherModel.setWind(strWind);
-                    weatherModel.setFeelsLike(strFeelsLike);
+                    weatherModel.setFeelsLikeC(strFeelsLikeC);
+                    weatherModel.setFeelsLikeF(strFeelsLikeF);
                     weatherModel.setUvIndex(strUvIndex);
 
                     weatherData.postValue(weatherModel);
