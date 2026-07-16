@@ -2,6 +2,7 @@ package com.example.weatherpal.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -64,6 +65,18 @@ public class WeatherDetailActivity extends AppCompatActivity {
         if (city != null && !city.isEmpty()) {
             viewModel.Refresh(city);
         }
+
+        // progress bar visibility state based off code from week9 slide 13
+        // modified the example syntax from kotlin (i think?) to java instead
+        // call our getIsLoading method from viewModel (i.e. WeatherViewModel class)
+        // observe the current state of our WeatherDetailActivity and display/hide bar accordingly
+        viewModel.getIsLoading().observe(this, isLoading -> {
+            // bind the progress bar by referencing it from activity_weather_data.xml
+            // change the progress bar visibility based on whether the WeatherDetailActivity is still loading
+            // if API call in progress, make bar visible; if not in progress, then make it not visible
+            // ternary operator syntax: condition ? value_if_true : value_if_false
+            binding.progressBarIndeterminate.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+        });
 
         // error message - change after class if we learn it
         viewModel.getErrorMessage()
