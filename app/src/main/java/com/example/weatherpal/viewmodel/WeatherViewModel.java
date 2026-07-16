@@ -33,9 +33,23 @@ public class WeatherViewModel extends ViewModel {
         return error;
     }
 
+    // isLoading state (i.e. whether we've finished fetching the API data)
+    // initial reference: week9 slide 12
+    // using MutableLiveData basically as a container to hold data related to the api call
+    // LiveData class also as a container; LiveData is ready only, MutableLiveData is read and write
+    // MutableLiveData doesn't pull any api data itself
+    // isLoading syntax modeled after the weatherData and error syntax above
+    private final MutableLiveData<Boolean> isLoading = new MutableLiveData<Boolean>();
+    public LiveData<Boolean> getIsLoading() {
+        return isLoading;
+    }
 
     // refresh
     public void Refresh(String city){
+        // set our isLoading value to true before we make the API call
+        /* using postValue() instead of setValue() because app was initially crashing with following logcat
+        error - java.lang.IllegalStateException: Cannot invoke setValue on a background thread */
+        isLoading.postValue(true);
         WeatherRepository.get(city, new okhttp3.Callback(){
 
             @Override
@@ -76,9 +90,13 @@ public class WeatherViewModel extends ViewModel {
                     weatherModel.setWindChillF(strWindChillF);
                     weatherModel.setUvIndex(strUvIndex);
 
+                    // set our isLoading value to false once all the weather data has been fetched
+                    isLoading.postValue(false);
                     weatherData.postValue(weatherModel);
 
                 } catch (Exception e){
+                    // set our isLoading value to false if we get an error during API call
+                    isLoading.postValue(false);
                     Log.e("WeatherViewModel", "Error while parsing JSON: ", e);
                 }
             }
