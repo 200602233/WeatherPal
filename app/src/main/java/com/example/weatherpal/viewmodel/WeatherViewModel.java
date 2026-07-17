@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.weatherpal.R;
 import com.example.weatherpal.model.WeatherModel;
 import com.example.weatherpal.repository.WeatherRepository;
 
@@ -72,7 +73,7 @@ public class WeatherViewModel extends ViewModel {
                     String strTempC = current.getString("temp_c") + "°C";
                     String strTempF = current.getString("temp_f") + "°F";
                     String strWeatherCondition = condition.getString("text");
-                    Integer intWeatherIcon = condition.getInt("icon");
+                    //Integer intWeatherIcon = condition.getInt("icon");
                     String strHumidity = current.getString("humidity") + "%";
                     String strWind = current.getString("wind_kph") + " kph";
                     String strFeelsLikeC = current.getString("feelslike_c") + "°C";
@@ -87,7 +88,9 @@ public class WeatherViewModel extends ViewModel {
                     weatherModel.setLatitude(dblLatitude);
                     weatherModel.setLongitude(dblLongtitude);
                     weatherModel.setWeatherCondition(strWeatherCondition);
-                    weatherModel.setWeatherIcon(intWeatherIcon);
+                    //weatherModel.setWeatherIcon(intWeatherIcon);
+                    // hardcided the icon fro now
+                    weatherModel.setWeatherIcon(R.drawable.white_circle);
                     weatherModel.setTempC(strTempC);
                     weatherModel.setTempF(strTempF);
                     weatherModel.setHumidity(strHumidity);
