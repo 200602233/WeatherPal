@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.material)
     // add dependency for BottomNavView (may change or delete after Thurs class)
     implementation(libs.material.v1120)
+    implementation(libs.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
