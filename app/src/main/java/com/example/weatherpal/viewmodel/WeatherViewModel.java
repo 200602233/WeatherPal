@@ -64,11 +64,15 @@ public class WeatherViewModel extends ViewModel {
                     JSONObject current = json.getJSONObject("current");
                     JSONObject condition = current.getJSONObject("condition");
 
+                    // get data from api
                     String strCity = location.getString("name");
                     String strRegion = location.getString("region");
+                    Double dblLatitude = location.getDouble("lat");
+                    Double dblLongtitude = location.getDouble("lon");
                     String strTempC = current.getString("temp_c") + "°C";
                     String strTempF = current.getString("temp_f") + "°F";
                     String strWeatherCondition = condition.getString("text");
+                    Integer intWeatherIcon = condition.getInt("icon");
                     String strHumidity = current.getString("humidity") + "%";
                     String strWind = current.getString("wind_kph") + " kph";
                     String strFeelsLikeC = current.getString("feelslike_c") + "°C";
@@ -77,9 +81,13 @@ public class WeatherViewModel extends ViewModel {
                     String strWindChillF = current.getString("windchill_f") + "°F";
                     String strUvIndex = current.getString("uv");
 
+                    // display live data to the id locations
                     weatherModel.setCity(strCity);
                     weatherModel.setRegion(strRegion);
+                    weatherModel.setLatitude(dblLatitude);
+                    weatherModel.setLongitude(dblLongtitude);
                     weatherModel.setWeatherCondition(strWeatherCondition);
+                    weatherModel.setWeatherIcon(intWeatherIcon);
                     weatherModel.setTempC(strTempC);
                     weatherModel.setTempF(strTempF);
                     weatherModel.setHumidity(strHumidity);

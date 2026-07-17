@@ -5,6 +5,9 @@ public class WeatherModel {
     private String city;
     private String region; // for city cards and toolbar
     private String weatherCondition;
+    private int weatherIcon;
+    private double latitude;
+    private double longitude;
     private String tempC;
     private String tempF;
     private String humidity;
@@ -14,6 +17,22 @@ public class WeatherModel {
     private String windChillC;
     private String windChillF;
     private String uvIndex;
+
+
+    // constructor for the searchFrag view
+    public WeatherModel(int weatherIcon, String city, String region, double latitude, double longitude) {
+        this.weatherIcon = weatherIcon;
+        this.city = city;
+        this.region = region;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    // forced to add from WeatehrViewModel for api
+    public WeatherModel() {
+
+    }
+
 
     // get and sets (used generate > Getters and Setters)
 
@@ -39,6 +58,30 @@ public class WeatherModel {
 
     public void setWeatherCondition(String weatherCondition) {
         this.weatherCondition = weatherCondition;
+    }
+
+    public int getWeatherIcon() {
+        return weatherIcon;
+    }
+
+    public void setWeatherIcon(int weatherIcon) {
+        this.weatherIcon = weatherIcon;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getTempC() {
