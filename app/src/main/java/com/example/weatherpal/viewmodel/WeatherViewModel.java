@@ -60,14 +60,18 @@ public class WeatherViewModel extends ViewModel {
                 JSONObject json = null;
                 try{
                     json = new JSONObject(responseData);
-
-                    JSONObject location = json.getJSONObject("location");
+                    // use https://api.weatherapi.com/v1/current.json?key=4b1c28ddf81a49d5a6c155408261107&q=Toronto&aqi=no
+                    // ^^ for reference
+                    // JSON location in api
+                    JSONObject location = json.getJSONObject("location"); //name, region,
+                    // country, etc etc
                     JSONObject current = json.getJSONObject("current");
                     JSONObject condition = current.getJSONObject("condition");
 
                     // get data from api
                     String strCity = location.getString("name");
                     String strRegion = location.getString("region");
+                    String strCountry = location.getString("country");
                     Double dblLatitude = location.getDouble("lat");
                     Double dblLongtitude = location.getDouble("lon");
                     String strTempC = current.getString("temp_c") + "°C";
@@ -85,6 +89,7 @@ public class WeatherViewModel extends ViewModel {
                     // display live data to the id locations
                     weatherModel.setCity(strCity);
                     weatherModel.setRegion(strRegion);
+                    weatherModel.setCountry(strCountry);
                     weatherModel.setLatitude(dblLatitude);
                     weatherModel.setLongitude(dblLongtitude);
                     weatherModel.setWeatherCondition(strWeatherCondition);

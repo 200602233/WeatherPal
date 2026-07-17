@@ -4,6 +4,7 @@ public class WeatherModel {
     // variables that we have in the WeatherDetails atcivity and xml
     private String city;
     private String region; // for city cards and toolbar
+    private String country;
     private String weatherCondition;
     private int weatherIcon;
     private double latitude;
@@ -50,6 +51,14 @@ public class WeatherModel {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getWeatherCondition() {
