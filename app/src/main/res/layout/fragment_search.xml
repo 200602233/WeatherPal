@@ -24,12 +24,11 @@
         android:text="Search"
         android:layout_margin="12dp" />
 
-
     <!-- Recycler View (refer to week 10 lesson) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
