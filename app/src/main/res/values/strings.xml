@@ -32,7 +32,7 @@
     <string name="fragmentSettingsVersion">Version</string>
     <string name="fragmentSettingsActions">ACTIONS</string>
     <string name="fragmentSettingsFeedback">Send Feedback</string>
-    <string name="fragmentSettingsOpenEmailApp">Opens your default email app</string>
+    <string name="fragmentSettingsOpenEmailApp">Opens your email app</string>
     <string name="fragmentSettingsViewOnGithub">View on Github</string>
     <string name="fragmentSettingsOpenBrowser">Opens in your browser</string>
     <string name="fragmentSettingsShareApp">Share App</string>
