@@ -94,8 +94,8 @@ public class WeatherViewModel extends ViewModel {
                     weatherModel.setLongitude(dblLongtitude);
                     weatherModel.setWeatherCondition(strWeatherCondition);
                     //weatherModel.setWeatherIcon(intWeatherIcon);
-                    // hardcided the icon fro now
-                    weatherModel.setWeatherIcon(R.drawable.white_circle);
+                    // hardcoded the icon for now
+                    weatherModel.setWeatherIcon(R.drawable.rain_icon);
                     weatherModel.setTempC(strTempC);
                     weatherModel.setTempF(strTempF);
                     weatherModel.setHumidity(strHumidity);

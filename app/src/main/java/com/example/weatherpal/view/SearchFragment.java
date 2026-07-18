@@ -38,9 +38,9 @@ public class SearchFragment extends Fragment implements ItemClickListener{
 
         // data source Assign 2 addition
         weatherList = new ArrayList<>();
-        WeatherModel place1 = new WeatherModel(R.drawable.white_circle, "Toronto", "Ontario, Canada", 43.6667, -79.4167);
-        WeatherModel place2 = new WeatherModel(R.drawable.white_circle, "Montreal", "Québec, Canada", 45.5, -73.5833);
-        WeatherModel place3 = new WeatherModel(R.drawable.white_circle, "Winnipeg", "Manitoba, Canada", 49.8833, -97.1667);
+        WeatherModel place1 = new WeatherModel(R.drawable.rain_icon, "Toronto", "Ontario, Canada", 43.6667, -79.4167);
+        WeatherModel place2 = new WeatherModel(R.drawable.rain_icon, "Montreal", "Québec, Canada", 45.5, -73.5833);
+        WeatherModel place3 = new WeatherModel(R.drawable.rain_icon, "Winnipeg", "Manitoba, Canada", 49.8833, -97.1667);
 
         // add to list
         weatherList.add(place1);

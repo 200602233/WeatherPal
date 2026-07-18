@@ -58,7 +58,7 @@
             android:layout_width="160dp"
             android:layout_height="144dp"
             android:layout_marginBottom="12dp"
-            android:src="@drawable/white_circle"
+            android:src="@drawable/rain_icon"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
