@@ -9,4 +9,37 @@
     <string name="flagJP">&#x1F1EF;&#x1F1F5;</string>
     <string name="flagAU">&#x1F1E6;&#x1F1FA;</string>
     <string name="flagUS">&#x1F1FA;&#x1F1F8;</string>
+
+    <!-- replacing all hardcoded .xml text values with string resources -->
+
+    <string name="activitySplashWeatherPal">WeatherPal</string>
+    <string name="activitySplashTrustyApp">Your trustworthy weather app!</string>
+
+    <string name="activityWeatherDetailHumidity">Humidity</string>
+    <string name="activityWeatherDetailWind">Wind</string>
+    <string name="activityWeatherDetailFeelsLike">Feels Like</string>
+    <string name="activityWeatherDetailWindChill">Wind Chill</string>
+    <string name="activityWeatherDetailUVIndex">UV Index</string>
+    <string name="activityWeatherDetailBackButton">Back</string>
+
+    <string name="fragmentSavedNoSavedCities">No Saved Cities</string>
+    <string name="fragmentSavedSearchPrompt">Search for a city and save it\nto view it here</string>
+
+    <string name="fragmentSearchSearch">Search</string>
+
+    <string name="fragmentSettingsAbout">About</string>
+    <string name="fragmentSettingsWeatherPal">WeatherPal</string>
+    <string name="fragmentSettingsVersion">Version</string>
+    <string name="fragmentSettingsActions">ACTIONS</string>
+    <string name="fragmentSettingsFeedback">Send Feedback</string>
+    <string name="fragmentSettingsOpenEmailApp">Opens your email app</string>
+    <string name="fragmentSettingsViewOnGithub">View on Github</string>
+    <string name="fragmentSettingsOpenBrowser">Opens in your browser</string>
+    <string name="fragmentSettingsShareApp">Share App</string>
+    <string name="fragmentSettingsShareWithFriends">Share with friends</string>
+
+    <string name="itemLayoutCity">city</string>
+    <string name="itemLayoutRegion">region</string>
+    <string name="itemLayoutLat">lat</string>
+    <string name="itemLayoutLon">lon</string>
 </resources>
