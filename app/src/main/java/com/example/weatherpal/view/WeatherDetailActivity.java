@@ -79,18 +79,9 @@ public class WeatherDetailActivity extends AppCompatActivity {
         });
 
         // error message - change after class if we learn it
-        viewModel.getErrorMessage()
-                .observe(
-                        this,
-                        message -> {
-
-                            Toast.makeText(
-                                    this,
-                                    message,
-                                    Toast.LENGTH_LONG
-                            ).show();
-
-                        });
+        viewModel.getErrorMessage().observe(this, message -> {
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show(); // show for 3.5 seconds
+        });
 
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());

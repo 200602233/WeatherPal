@@ -8,6 +8,8 @@ import okhttp3.Request;
 
 public class WeatherRepository {
     // week 9 api code
+
+    // creates OkHttpClient (sends http requests)
     private static final OkHttpClient client = new OkHttpClient();
     //    private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     public static void get(String city, Callback callback) {
@@ -20,7 +22,7 @@ public class WeatherRepository {
                 .addQueryParameter("q", city)
                 .addQueryParameter("aqi", "no")
                 .build();
-        // request
+        // request: GET
         Request request = new Request.Builder()
                 .url(url)
                 .build();
