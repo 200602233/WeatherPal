@@ -18,9 +18,23 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Response;
 
+// imports in order to replaced OnCleared() code from MVVM lecture
+// seems like they work in unison
+// need to be able to pass in a looper parameter to the handler object or get a warning about handler being deprecated
+import android.os.Handler;
+import android.os.Looper;
+// also including log class so we can confirm via logcat that oncleared() has been called
+import android.util.Log;
+
 public class WeatherViewModel extends ViewModel {
     // followed week 9 api code
     WeatherModel weatherModel = new WeatherModel();
+
+    // handler and runnable for use in OnCleared() method override
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private Runnable runnable;
+    // define TAG parameter in the logcat method so we know where message is coming from
+    private static final String TAG = "WeatherViewModel";
 
     // api weather data
     private final MutableLiveData<WeatherModel> weatherData = new MutableLiveData<WeatherModel>();
@@ -126,5 +140,20 @@ public class WeatherViewModel extends ViewModel {
                 error.postValue("Network Connection Issue. Please Check Your Network.");
             }
         });
+    }
+
+    // based on code from MVVM lecture
+    // called by the framework when this viewmodel's about to be destroyed
+    // used to prevent memory leaks
+    @Override
+    protected void onCleared() {
+        // when onCleared() is called be the framework, it calls our implementation here
+        // which is to also call oncleared() on the parent class we are extending, i.e. ViewModel
+        super.onCleared();
+        // and then remove all current callback methods related to this viewmodel
+        handler.removeCallbacks(runnable);
+        // logcat message to confirm oncleared() was called
+        // checked logcat and confirmed that pressing android studio back button does trigger this log message
+        Log.i(TAG, "WeatherViewModel cleared.");
     }
 }
