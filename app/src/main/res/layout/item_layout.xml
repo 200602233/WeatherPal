@@ -13,11 +13,11 @@
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="22dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lat"
+        app:layout_constraintEnd_toStartOf="@+id/latLon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,27 +45,28 @@
         app:layout_constraintTop_toBottomOf="@+id/city" />
 
     <TextView
-        android:id="@+id/lat"
+        android:id="@+id/latLon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="237dp"
-        android:text="lat"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="227dp"
+        android:text="lat, lon"
         android:textColor="@color/textColour1"
         android:textSize="13sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/weatherIcon" />
-
-    <TextView
-        android:id="@+id/lon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="20dp"
-        android:text="lon"
-        android:textColor="@color/textColour1"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@+id/lat"
+        app:layout_constraintStart_toEndOf="@+id/weatherIcon"
         app:layout_constraintTop_toBottomOf="@+id/region" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/lon"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="92dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:text="lon"-->
+    <!--        android:textColor="@color/textColour1"-->
+    <!--        android:textSize="13sp"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/latLon"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/region" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
