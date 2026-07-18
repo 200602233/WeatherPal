@@ -17,7 +17,6 @@
         android:layout_marginBottom="16dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/latLon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,8 +52,8 @@
         android:text="lat, lon"
         android:textColor="@color/textColour1"
         android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/region"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/weatherIcon"
         app:layout_constraintTop_toBottomOf="@+id/region" />
 
     <!--    <TextView-->
