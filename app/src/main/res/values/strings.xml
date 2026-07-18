@@ -42,4 +42,5 @@
     <string name="itemLayoutRegion">region</string>
     <string name="itemLayoutLat">lat</string>
     <string name="itemLayoutLon">lon</string>
+    <string name="lat_lon">lat, lon</string>
 </resources>
