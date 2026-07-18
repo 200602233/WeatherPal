@@ -14,14 +14,13 @@ import com.example.weatherpal.model.WeatherModel;
 import java.util.List;
 
 /* Class purpose:
-- Connector class between API data (i.e. WeatherModel) and RecyclerView (MainActivity)
+- Connector class between WeatherModel and RecyclerView (SearchFragment)
 - Our adapter class extends the built-in RecyclerView class. */
 
 // based on code from recyclerview lesson
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     // our data source
-    // to-do: figure out how to handle with this with dynamic api data instead of a list of hardcoded values
     // modified from itemList to weatherModelList; List parameter changed from Item to WeatherModel
     private final List<WeatherModel> weatherModelList;
 
