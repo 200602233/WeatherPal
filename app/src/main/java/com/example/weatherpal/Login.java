@@ -46,19 +46,25 @@ public class Login extends AppCompatActivity {
 
         //login (hard coded user)
         binding.loginBtn.setOnClickListener(view -> {
-            signIn("z@z.com", "password");
+            // grab users inputs
+            String userEmail = binding.email.getText().toString().trim();
+            String userPassword = binding.password.getText().toString().trim();
+
+            // apply information to registering the user
+            loginUser(userEmail, userPassword);
         });
     }
-    private void signIn(String email, String password) {
-        Toast.makeText(this, "LoginPressed", Toast.LENGTH_SHORT).show();
+    private void loginUser(String email, String password) {
+        Toast.makeText(this, "Loading User...", Toast.LENGTH_SHORT).show();
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(Login.this, "Authentication passed.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Successfully Logged-In", Toast.LENGTH_SHORT).show();
                 Intent intObj = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intObj);
                 finish();
             } else {
-                Toast.makeText(Login.this, "Authentication failed." + task.getException(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Failed Logging-In." + task.getException(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -35,25 +35,33 @@ public class Register extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        //hard coded name
         binding.regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerUser("z@z.com", "password");
+                // same code for login and password, just different id's
+
+                // grab users inputs
+                // IF PASS IS UNDER 6 CHARS, IT WILL FAIL
+                String userEmail = binding.regEmail.getText().toString().trim();
+                String userPassword = binding.regPassword.getText().toString().trim();
+
+                // apply information to registering the user
+                registerUser(userEmail, userPassword);
             }
         });
     }
 
     // regsiter
     private void registerUser(String email, String password) {
-        Toast.makeText(Register.this, "registerUser.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Register.this, "Registering User...", Toast.LENGTH_SHORT).show();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 FirebaseUser user = mAuth.getCurrentUser();
-                Toast.makeText(Register.this, "registerUser Pass." +user.getUid(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, "User Registered!", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(Register.this, "registerUser Failed." + task.getException(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, "ERROR Registering User! " + task.getException(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
