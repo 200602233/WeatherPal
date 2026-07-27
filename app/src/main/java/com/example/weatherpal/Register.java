@@ -51,6 +51,15 @@ public class Register extends AppCompatActivity {
                 registerUser(userEmail, userPassword);
             }
         });
+
+        binding.LoginNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // direct user bcak to login page
+                Intent intObj = new Intent(getApplicationContext(), Login.class);
+                startActivity(intObj);
+            }
+        });
     }
 
     // regsiter
