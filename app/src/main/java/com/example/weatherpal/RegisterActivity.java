@@ -16,7 +16,7 @@ import com.example.weatherpal.view.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Register extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     ActivityRegisterBinding binding;
@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // direct user bcak to login page
-                Intent intObj = new Intent(getApplicationContext(), Login.class);
+                Intent intObj = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intObj);
                 // prevent backstack
                 finish();
@@ -66,13 +66,13 @@ public class Register extends AppCompatActivity {
 
     // regsiter
     private void registerUser(String email, String password) {
-        Toast.makeText(Register.this, "Registering User...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(RegisterActivity.this, "Registering User...", Toast.LENGTH_SHORT).show();
 
         // when running, we noticed that the firebase does not allow passwords to be under
         // 6characters, therefore, we added an if statement to allow user to know why they could
         // not register
         if (password.length() < 6){
-            Toast.makeText(Register.this, "Password must be at least 6 Characters", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Password must be at least 6 Characters", Toast.LENGTH_SHORT).show();
             // stops before it shows other toasts below
             return;
         }
@@ -80,12 +80,12 @@ public class Register extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 FirebaseUser user = mAuth.getCurrentUser();
-                Toast.makeText(Register.this, "User Registered!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "User Registered!", Toast.LENGTH_SHORT).show();
                 Intent intObj = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intObj);
                 finish();
             } else {
-                Toast.makeText(Register.this, "ERROR Registering User! " + task.getException(),
+                Toast.makeText(RegisterActivity.this, "ERROR Registering User! " + task.getException(),
                         Toast.LENGTH_SHORT).show();
             }
         });
