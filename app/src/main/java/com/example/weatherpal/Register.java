@@ -1,5 +1,6 @@
 package com.example.weatherpal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.weatherpal.databinding.ActivityRegisterBinding;
+import com.example.weatherpal.view.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -49,6 +51,17 @@ public class Register extends AppCompatActivity {
                 registerUser(userEmail, userPassword);
             }
         });
+
+        binding.LoginNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // direct user bcak to login page
+                Intent intObj = new Intent(getApplicationContext(), Login.class);
+                startActivity(intObj);
+                // prevent backstack
+                finish();
+            }
+        });
     }
 
     // regsiter
@@ -68,6 +81,9 @@ public class Register extends AppCompatActivity {
             if (task.isSuccessful()) {
                 FirebaseUser user = mAuth.getCurrentUser();
                 Toast.makeText(Register.this, "User Registered!", Toast.LENGTH_SHORT).show();
+                Intent intObj = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intObj);
+                finish();
             } else {
                 Toast.makeText(Register.this, "ERROR Registering User! " + task.getException(),
                         Toast.LENGTH_SHORT).show();

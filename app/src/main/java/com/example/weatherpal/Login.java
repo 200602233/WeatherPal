@@ -42,6 +42,8 @@ public class Login extends AppCompatActivity {
         binding.registerNow.setOnClickListener(view -> {
             Intent intObj = new Intent(getApplicationContext(), Register.class);
             startActivity(intObj);
+            // prevent backstack
+            finish();
         });
 
         //login (hard coded user)
