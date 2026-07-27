@@ -55,6 +55,15 @@ public class Register extends AppCompatActivity {
     private void registerUser(String email, String password) {
         Toast.makeText(Register.this, "Registering User...", Toast.LENGTH_SHORT).show();
 
+        // when running, we noticed that the firebase does not allow passwords to be under
+        // 6characters, therefore, we added an if statement to allow user to know why they could
+        // not register
+        if (password.length() < 6){
+            Toast.makeText(Register.this, "Password must be at least 6 Characters", Toast.LENGTH_SHORT).show();
+            // stops before it shows other toasts below
+            return;
+        }
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 FirebaseUser user = mAuth.getCurrentUser();
