@@ -1,6 +1,7 @@
 package com.example.weatherpal;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -33,6 +34,14 @@ public class Register extends AppCompatActivity {
         // week 11 referred to for code below:
 
         mAuth = FirebaseAuth.getInstance();
+
+        //hard coded name
+        binding.regBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerUser("z@z.com", "password");
+            }
+        });
     }
 
     // regsiter
