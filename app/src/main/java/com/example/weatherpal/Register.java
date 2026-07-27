@@ -58,6 +58,8 @@ public class Register extends AppCompatActivity {
                 // direct user bcak to login page
                 Intent intObj = new Intent(getApplicationContext(), Login.class);
                 startActivity(intObj);
+                // prevent backstack
+                finish();
             }
         });
     }
