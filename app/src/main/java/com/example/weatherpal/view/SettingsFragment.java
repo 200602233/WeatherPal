@@ -12,8 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.weatherpal.Login;
 import com.example.weatherpal.databinding.FragmentSettingsBinding;
 import com.example.weatherpal.BuildConfig;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class SettingsFragment extends Fragment {
@@ -101,6 +104,14 @@ public class SettingsFragment extends Fragment {
                         "Sharing errored :(",
                         Toast.LENGTH_SHORT).show();
             }
+        });
+
+        // sign out user (update if different)
+        binding.signOutBtn.setOnClickListener(v ->{
+            FirebaseAuth.getInstance().signOut(); //sign out
+            // go back to login
+            Intent intent = new Intent(requireContext(), Login.class);
+            startActivity(intent);
         });
 
         return binding.getRoot();
