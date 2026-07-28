@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.weatherpal.Login;
 import com.example.weatherpal.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,12 +29,24 @@ public class SplashActivity extends AppCompatActivity {
             return insets;
         });
 
+        // assign 3
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
         // handler to open MainActivity after 2 seconds. (will update after class)
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable(){
             @Override
             public void run(){
-                Intent intent = new Intent(SplashActivity.this, Login.class);
-                startActivity(intent);
+//                Intent intent = new Intent(SplashActivity.this, Login.class);
+//                startActivity(intent);
+//                finish();
+                // assign 3 code:
+                if(currentUser != null){ //skip login if user has account
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else{ //send to login if not logged in
+                    Intent intent = new Intent(SplashActivity.this, Login.class);
+                    startActivity(intent);
+                }
                 finish();
             }
         }, 2000);
