@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "585029768007",
+    "project_id": "weatherpal-15f79",
+    "storage_bucket": "weatherpal-15f79.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585029768007:android:b960fb9f6bddb1dd3ff262",
+        "android_client_info": {
+          "package_name": "com.example.weatherpal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJf9cEY8VpyJhAnhnmi5r_WGyxP9MtjkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
