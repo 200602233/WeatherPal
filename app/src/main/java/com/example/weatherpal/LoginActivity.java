@@ -14,7 +14,7 @@ import com.example.weatherpal.databinding.ActivityLoginBinding;
 import com.example.weatherpal.view.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     // firebase
     private FirebaseAuth mAuth;
@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
 
         // binding for switching to register screen
         binding.registerNow.setOnClickListener(view -> {
-            Intent intObj = new Intent(getApplicationContext(), Register.class);
+            Intent intObj = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(intObj);
             // prevent backstack
             finish();
@@ -60,12 +60,12 @@ public class Login extends AppCompatActivity {
         Toast.makeText(this, "Loading User...", Toast.LENGTH_SHORT).show();
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(Login.this, "Successfully Logged-In", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Successfully Logged-In", Toast.LENGTH_SHORT).show();
                 Intent intObj = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intObj);
                 finish();
             } else {
-                Toast.makeText(Login.this, "Failed Logging-In." + task.getException(),
+                Toast.makeText(LoginActivity.this, "Failed Logging-In." + task.getException(),
                         Toast.LENGTH_SHORT).show();
             }
         });
