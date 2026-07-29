@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.weatherpal.Login;
+import com.example.weatherpal.LoginActivity;
 import com.example.weatherpal.databinding.FragmentSettingsBinding;
 import com.example.weatherpal.BuildConfig;
 import com.google.firebase.Firebase;
@@ -110,7 +110,7 @@ public class SettingsFragment extends Fragment {
         binding.signOutBtn.setOnClickListener(v ->{
             FirebaseAuth.getInstance().signOut(); //sign out
             // go back to login
-            Intent intent = new Intent(requireContext(), Login.class);
+            Intent intent = new Intent(requireContext(), LoginActivity.class);
             startActivity(intent);
         });
 
