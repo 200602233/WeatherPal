@@ -27,7 +27,8 @@
 
     <string name="fragmentSearchSearch">Search</string>
 
-    <string name="fragmentSettingsAbout">About</string>
+    <string name="fragmentSettingsAccount">ACCOUNT</string>
+    <string name="fragmentSettingsAbout">ABOUT</string>
     <string name="fragmentSettingsWeatherPal">WeatherPal</string>
     <string name="fragmentSettingsVersion">Version</string>
     <string name="fragmentSettingsActions">ACTIONS</string>
@@ -37,6 +38,7 @@
     <string name="fragmentSettingsOpenBrowser">Opens in your browser</string>
     <string name="fragmentSettingsShareApp">Share App</string>
     <string name="fragmentSettingsShareWithFriends">Share with friends</string>
+    <string name="fragmentSettingsSignOut">Sign Out</string>
 
     <string name="itemLayoutCity">city</string>
     <string name="itemLayoutRegion">region</string>

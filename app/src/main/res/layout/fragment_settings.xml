@@ -24,6 +24,56 @@
 
         <!-- change colour background later -->
 
+        <!-- signed in user (Assign 3) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/userCard"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/background2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/Account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/fragmentSettingsAccount"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/userIcon"
+                android:layout_width="56dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Account" />
+
+            <TextView
+                android:id="@+id/user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text=""
+                android:textAppearance="@style/Text.Headline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/userIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.737" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- PREFERENCES-->
+
+
+
+        <!-- ABOUT -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/About"
             android:layout_width="match_parent"
@@ -235,7 +285,7 @@
             android:id="@+id/signOutBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Out"
+            android:text="@string/fragmentSettingsSignOut"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
