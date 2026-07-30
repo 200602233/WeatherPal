@@ -88,9 +88,14 @@ public class LoginActivity extends AppCompatActivity {
             String userEmail = binding.email.getText().toString().trim();
             String userPassword = binding.password.getText().toString().trim();
 
-            // apply information to registering the user
-            // call the loginUser method (as defined below) and pass in email and password parameters as inputted by user
-            loginUser(userEmail, userPassword);
+            if (userEmail.isEmpty()  || userPassword.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Please enter a valid email and password.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                // apply information to registering the user
+                // call the loginUser method (as defined below) and pass in email and password parameters as inputted by user
+                loginUser(userEmail, userPassword);
+            }
         });
     }
 
