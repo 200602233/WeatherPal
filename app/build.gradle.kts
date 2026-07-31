@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.cardview)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
     implementation(libs.material)
     // add dependency for BottomNavView (may change or delete after Thurs class)
     implementation(libs.material.v1120)
