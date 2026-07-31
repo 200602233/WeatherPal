@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else{ //send to login if not logged in
-                    Intent intent = new Intent(SplashActivity.this, Login.class);
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
                 finish();
