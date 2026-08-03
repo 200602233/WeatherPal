@@ -71,7 +71,106 @@
 
 
         <!-- PREFERENCES-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/background2">
 
+            <!-- Preferences title -->
+            <TextView
+                android:id="@+id/Preferences"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/fragmentSettingsPreferences"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Temp -->
+            <TextView
+                android:id="@+id/Temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="52dp"
+                android:text="@string/fragmentSettingsTemperature"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/tempRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_contraintEnd_ToStartOf="@+id/Temperature"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="235dp"
+                tools:layout_editor_absoluteY="52dp" >
+
+                <RadioButton
+                    android:id="@+id/tempC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragmentSettingsTemperatureC"
+                    android:layout_marginEnd="26dp"/>
+                <RadioButton
+                    android:id="@+id/tempF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragmentSettingsTemperatureF"/>
+
+            </RadioGroup>
+
+            <!-- View border for seperating the constraints for looks wise -->
+
+
+            <!-- Theme -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.56" />
+
+            <TextView
+                android:id="@+id/Theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="104dp"
+                android:text="@string/fragmentSettingsTheme"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/themeRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="235dp"
+                tools:layout_editor_absoluteY="101dp">
+                <RadioButton
+                    android:id="@+id/lightTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragmentSettingsThemeLight"
+                    android:layout_marginEnd="10dp"/>
+                <RadioButton
+                    android:id="@+id/darkTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragmentSettingsThemeDark"/>
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <!-- ABOUT -->
@@ -139,8 +238,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="15sp"
                 android:text="@string/fragmentSettingsActions"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"

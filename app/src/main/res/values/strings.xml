@@ -28,6 +28,13 @@
     <string name="fragmentSearchSearch">Search</string>
 
     <string name="fragmentSettingsAccount">ACCOUNT</string>
+    <string name="fragmentSettingsPreferences">PREFERENCES</string>
+    <string name="fragmentSettingsTemperature">Temperature Unit</string>
+    <string name="fragmentSettingsTemperatureC">°C</string>
+    <string name="fragmentSettingsTemperatureF">°F</string>
+    <string name="fragmentSettingsTheme">Theme</string>
+    <string name="fragmentSettingsThemeLight">Light</string>
+    <string name="fragmentSettingsThemeDark">Dark</string>
     <string name="fragmentSettingsAbout">ABOUT</string>
     <string name="fragmentSettingsWeatherPal">WeatherPal</string>
     <string name="fragmentSettingsVersion">Version</string>
