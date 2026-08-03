@@ -17,6 +17,7 @@ import com.example.weatherpal.databinding.FragmentSettingsBinding;
 import com.example.weatherpal.BuildConfig;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class SettingsFragment extends Fragment {
@@ -31,10 +32,18 @@ public class SettingsFragment extends Fragment {
         // binding
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
 
+        // Account
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // same we did in splash
+        binding.user.setText(user.getEmail());
+
+        // Preferences
+
+
+        // About
         // set version by using BuildCOnfig.VERSION_NAME
         binding.versionTxt.setText("Version " + BuildConfig.VERSION_NAME);
 
-
+        // Actions
         // code from week 4 Intent Slide 14
         binding.feedback.setOnClickListener(v -> {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
