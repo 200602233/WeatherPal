@@ -14,11 +14,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityMainBinding;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference collectionReference = db.collection("Users");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // generated code
