@@ -53,8 +53,8 @@ public class SettingsFragment extends Fragment {
         SharedPreferences preferences = requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
 
         // Temp
-        boolean fahrenheit = preferences.getBoolean("fahrenheit", false);
-        if (fahrenheit) {
+        boolean tempChanged = preferences.getBoolean("cel", false);
+        if (tempChanged) {
             binding.tempF.setChecked(true);
         } else {
             binding.tempC.setChecked(true);
@@ -62,13 +62,13 @@ public class SettingsFragment extends Fragment {
         binding.tempRadio.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == binding.tempF.getId()) {
                 preferences.edit()
-                        .putBoolean("fahrenheit", true)
+                        .putBoolean("cel", false)
                         .apply();
             }
 
             else if (checkedId == binding.tempC.getId()) {
                 preferences.edit()
-                        .putBoolean("fahrenheit", false)
+                        .putBoolean("cel", true)
                         .apply();
             }
         });
