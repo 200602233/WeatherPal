@@ -64,12 +64,14 @@ public class SettingsFragment extends Fragment {
                 preferences.edit()
                         .putBoolean("cel", false)
                         .apply();
+                Toast.makeText(requireContext(), "Fahrenheit was chosen!", Toast.LENGTH_SHORT).show();
             }
 
             else if (checkedId == binding.tempC.getId()) {
                 preferences.edit()
                         .putBoolean("cel", true)
                         .apply();
+                Toast.makeText(requireContext(), "Celsius was chosen!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -91,10 +93,12 @@ public class SettingsFragment extends Fragment {
             if (checkedId == R.id.lightTheme) {
                 editor.putBoolean("darkTheme", false);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                Toast.makeText(requireContext(), "Light Mode Selected", Toast.LENGTH_SHORT).show();
             }
             if (checkedId == R.id.darkTheme) {
                 editor.putBoolean("darkTheme", true);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                Toast.makeText(requireContext(), "Dark Mode Selected!", Toast.LENGTH_SHORT).show();
             }
             editor.apply();
         });
