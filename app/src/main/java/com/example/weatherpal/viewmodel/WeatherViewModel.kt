@@ -137,8 +137,14 @@ class WeatherViewModel : ViewModel() {
         // when onCleared() is called be the framework, it calls our implementation here
         // which is to also call oncleared() on the parent class we are extending, i.e. ViewModel
         super.onCleared()
+
         // and then remove all current callback methods related to this viewmodel
-        handler.removeCallbacks(runnable!!)
+        //handler.removeCallbacks(runnable!!)
+
+        // ASSIGN 3
+        // replace handler with code below to properly run thsi file as kotlin
+        runnable?.let { handler.removeCallbacks(it) }
+
         // logcat message to confirm oncleared() was called
         // checked logcat and confirmed that pressing android studio back button does trigger this log message
         Log.i(TAG, "WeatherViewModel cleared.")
