@@ -54,11 +54,13 @@ public class SettingsFragment extends Fragment {
 
         // Temp
         boolean tempChanged = preferences.getBoolean("cel", false);
+        // checks to see what temp was clicked
         if (tempChanged) {
             binding.tempF.setChecked(true);
         } else {
             binding.tempC.setChecked(true);
         }
+        //applies the Temp chosen
         binding.tempRadio.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == binding.tempF.getId()) {
                 preferences.edit()
@@ -77,9 +79,8 @@ public class SettingsFragment extends Fragment {
 
 
         // Theme
-
         boolean darkTheme = preferences.getBoolean("darkTheme", false);
-
+        //checks what theme was clicked
         if (darkTheme) {
             binding.darkTheme.setChecked(true);
         }
@@ -87,9 +88,11 @@ public class SettingsFragment extends Fragment {
             binding.lightTheme.setChecked(true);
         }
 
+        // sets the theme chosen
         binding.themeRadio.setOnCheckedChangeListener((group, checkedId) -> {
             SharedPreferences.Editor editor = preferences.edit();
 
+            // applies theme
             if (checkedId == R.id.lightTheme) {
                 editor.putBoolean("darkTheme", false);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
