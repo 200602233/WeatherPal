@@ -1,10 +1,13 @@
 package com.example.weatherpal.view;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.weatherpal.LoginActivity;
+import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.FragmentSettingsBinding;
 import com.example.weatherpal.BuildConfig;
 import com.google.firebase.Firebase;
@@ -23,6 +27,11 @@ import com.google.firebase.auth.FirebaseUser;
 public class SettingsFragment extends Fragment {
 
     private FragmentSettingsBinding binding;
+
+    // Temperature unit preference must be persisted using SharedPreferences and applied globally
+    // — all temperature displays must respect the user's choice
+    private SharedPreferences preferences;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,7 +45,67 @@ public class SettingsFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // same we did in splash
         binding.user.setText(user.getEmail());
 
-        // Preferences
+        // Preferences (may change after classes - did we learn this ?)
+        //https://developer.android.com/reference/android/content/SharedPreferences
+        // https://developer.android.com/develop/ui/views/components/radiobutton
+        // https://www.youtube.com/watch?v=uUyZyws64eA - they use kotlin not java but based off it
+        // boolean to listen to see if user changes temp and set the preference
+        SharedPreferences preferences = requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+
+        // Temp
+        boolean tempChanged = preferences.getBoolean("cel", false);
+        // checks to see what temp was clicked
+        if (tempChanged) {
+            binding.tempF.setChecked(true);
+        } else {
+            binding.tempC.setChecked(true);
+        }
+        //applies the Temp chosen
+        binding.tempRadio.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == binding.tempF.getId()) {
+                preferences.edit()
+                        .putBoolean("cel", false)
+                        .apply();
+                Toast.makeText(requireContext(), "Fahrenheit was chosen!", Toast.LENGTH_SHORT).show();
+            }
+
+            else if (checkedId == binding.tempC.getId()) {
+                preferences.edit()
+                        .putBoolean("cel", true)
+                        .apply();
+                Toast.makeText(requireContext(), "Celsius was chosen!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        // Theme
+        boolean darkTheme = preferences.getBoolean("darkTheme", false);
+        //checks what theme was clicked
+        if (darkTheme) {
+            binding.darkTheme.setChecked(true);
+        }
+        else {
+            binding.lightTheme.setChecked(true);
+        }
+
+        // sets the theme chosen
+        binding.themeRadio.setOnCheckedChangeListener((group, checkedId) -> {
+            SharedPreferences.Editor editor = preferences.edit();
+
+            // applies theme
+            if (checkedId == R.id.lightTheme) {
+                editor.putBoolean("darkTheme", false);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                Toast.makeText(requireContext(), "Light Mode Selected", Toast.LENGTH_SHORT).show();
+            }
+            if (checkedId == R.id.darkTheme) {
+                editor.putBoolean("darkTheme", true);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                Toast.makeText(requireContext(), "Dark Mode Selected!", Toast.LENGTH_SHORT).show();
+            }
+            editor.apply();
+        });
+
 
 
         // About
