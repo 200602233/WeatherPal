@@ -21,7 +21,7 @@ public class WeatherModel {
 
 
     // constructor for the searchFrag view
-    public WeatherModel(int weatherIcon, String city, String region, double latitude, double longitude) {
+    public WeatherModel(int weatherIcon, String city, String region, String country, double latitude, double longitude) {
         this.weatherIcon = weatherIcon;
         this.city = city;
         this.region = region;
