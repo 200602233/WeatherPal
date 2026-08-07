@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherPal">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".view.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="true"></activity> <!-- theme applied -->
         <activity
             android:name=".view.WeatherDetailActivity"

@@ -1,5 +1,5 @@
 // package namespace for our app
-package com.example.weatherpal;
+package com.example.weatherpal.view;
 // android class for navigating between activities
 import android.content.Intent;
 // android class for passing data and saving state information
@@ -17,9 +17,9 @@ import androidx.core.view.ViewCompat;
 // for handling insets in a backwards-compatible manner
 import androidx.core.view.WindowInsetsCompat;
 // our auto-generated binding class for our activity_login.xml file
+import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityLoginBinding;
 // import for our app's MainActivity class
-import com.example.weatherpal.view.MainActivity;
 // class for handling Firebase functionality, like logins, auth, registrations
 import com.google.firebase.auth.FirebaseAuth;
 

@@ -1,4 +1,4 @@
-package com.example.weatherpal;
+package com.example.weatherpal.model;
 
 // Firestore - object storing
 public class Friend {
