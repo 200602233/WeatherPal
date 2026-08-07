@@ -49,6 +49,7 @@
 
     <string name="itemLayoutCity">city</string>
     <string name="itemLayoutRegion">region</string>
+    <string name="itemLayoutRegionCountry">region, country</string>
     <string name="itemLayoutLat">lat</string>
     <string name="itemLayoutLon">lon</string>
     <string name="lat_lon">lat, lon</string>
