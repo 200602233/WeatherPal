@@ -155,7 +155,7 @@ class WeatherViewModel : ViewModel() {
                     val results = json.getJSONArray("results")
 
                     // shows max results, min is 5
-                    for (i in 0 until results.length()){
+                    for (i in 0 until results.length()) {
                         // JSON for city to determine what shows
                         val city = results.getJSONObject(i)
 
@@ -168,14 +168,18 @@ class WeatherViewModel : ViewModel() {
 
                         // add to list
                         // change icon later
-                        weatherList.add(WeatherModel(R.drawable.rain_icon,name,"$region, " +
-                                "$country", latitude, longitude))
+                        weatherList.add(
+                            WeatherModel(
+                                R.drawable.rain_icon, name, "$region, " +
+                                        "$country", latitude, longitude
+                            )
+                        )
                     }
-                    dynamicSearchResults.postValue(weatherList)
 
                 } catch (e: Exception) {
                     Log.e("WeatherViewModel-GEO", "Error while searching: ", e)
                 }
+                dynamicSearchResults.postValue(weatherList)
             }
             override fun onFailure(call: Call, e: IOException) {
                 // same network failure for page as weather deatils
