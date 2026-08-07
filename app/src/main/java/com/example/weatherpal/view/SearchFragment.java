@@ -85,7 +85,8 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         // same get() layout as the one in WeatherDetailActivity for getWeatherDetail() from
         // getLiveData in ViewModel
         viewModel.getDynamicSearchResults().observe(getViewLifecycleOwner(), results -> {
-            // clears list
+            // clears list (also clears list after user goes back from details activity, could
+            // change that later)
             weatherList.clear();
             // shows all results that were searched
             weatherList.addAll(results);
