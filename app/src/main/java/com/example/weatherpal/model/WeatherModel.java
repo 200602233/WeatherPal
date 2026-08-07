@@ -25,6 +25,7 @@ public class WeatherModel {
         this.weatherIcon = weatherIcon;
         this.city = city;
         this.region = region;
+        this.country = country;
         this.latitude = latitude;
         this.longitude = longitude;
     }

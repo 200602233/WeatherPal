@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherpal.R
 import com.example.weatherpal.model.WeatherModel
+import com.example.weatherpal.repository.WeatherRepository
 import com.example.weatherpal.repository.WeatherRepository.get
 import okhttp3.Call
 import okhttp3.Callback
@@ -33,6 +34,14 @@ class WeatherViewModel : ViewModel() {
     fun getWeatherData(): LiveData<WeatherModel?> {
         return weatherData
     }
+
+    // geocoding api code
+    private val dynamicSearchResults = MutableLiveData<ArrayList<WeatherModel>>()
+
+    fun getDynamicSearchResults(): LiveData<ArrayList<WeatherModel>> {
+        return dynamicSearchResults
+    }
+
 
     // error message
     private val error = MutableLiveData<String?>()
@@ -129,6 +138,56 @@ class WeatherViewModel : ViewModel() {
             }
         })
     }
+
+    // followed layout above from weatherapi
+    fun dynamicSearch(city: String) {
+        WeatherRepository.dynamicSearch(city,object : Callback {
+            override fun onResponse(call: Call, response: Response) {
+                // array list for weatehr
+                val weatherList = ArrayList<WeatherModel>()
+                val responseData = response.body.string()
+                Log.i("WeatherViewModel-GEO", responseData) // not sure if needed
+                var json: JSONObject? = null
+                try {
+                    json = JSONObject(responseData)
+
+                    // reuslts for the search array list
+                    val results = json.getJSONArray("results")
+
+                    // shows max results, min is 5
+                    for (i in 0 until results.length()){
+                        // JSON for city to determine what shows
+                        val city = results.getJSONObject(i)
+
+                        // get vars from geo
+                        val name = city.getString("name")
+                        val region = city.getString("admin1")
+                        val country = city.getString("country")
+                        val latitude = city.getDouble("latitude")
+                        val longitude = city.getDouble("longitude")
+
+                        // add to list
+                        // change icon later
+                        weatherList.add(WeatherModel(R.drawable.rain_icon,name,"$region, " +
+                                "$country", latitude, longitude))
+                    }
+                    dynamicSearchResults.postValue(weatherList)
+
+                } catch (e: Exception) {
+                    Log.e("WeatherViewModel-GEO", "Error while searching: ", e)
+                }
+            }
+            override fun onFailure(call: Call, e: IOException) {
+                // same network failure for page as weather deatils
+                Log.i("WeatherViewModel", "Network Error. Request Failed :(") // not sure if needed
+                // error message
+                // - Show user-friendly error message if network call fails (DO NOT CRASH)
+                // may update after class
+                error.postValue("Network Connection Issue. Please Check Your Network.")
+            }
+        }
+    )
+}
 
     // based on code from MVVM lecture
     // called by the framework when this viewmodel's about to be destroyed
