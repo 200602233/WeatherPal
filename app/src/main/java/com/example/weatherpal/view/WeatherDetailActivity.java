@@ -15,11 +15,15 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityWeatherDetailBinding;
 import com.example.weatherpal.viewmodel.WeatherViewModel;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class WeatherDetailActivity extends AppCompatActivity {
 
     private ActivityWeatherDetailBinding binding;
     private WeatherViewModel viewModel;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference collectionReference = db.collection("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,12 @@ public class WeatherDetailActivity extends AppCompatActivity {
         Intent intent = new Intent(WeatherDetailActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    private void saveCity(){
+        // city name, country, latitude, longitude
+        String cityName; // = get cityname
+    }
+
     // function to change header/toolbar title to display selected city
 //    private void setToolBar(String city){
 //        if(city.equals("London")){

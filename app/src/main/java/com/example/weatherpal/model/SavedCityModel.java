@@ -1,14 +1,14 @@
 package com.example.weatherpal.model;
 
 // Firestore - object storing
-public class Friend {
+public class SavedCityModel {
     // add strings for user info? (email, etc.)
     String cityName;
     String country;
     String latitude;
     String longitude;
 
-    public Friend(String cityName, String country, String latitude, String longitude) {
+    public SavedCityModel(String cityName, String country, String latitude, String longitude) {
         this.cityName = cityName;
         this.country = country;
         this.latitude = latitude;
