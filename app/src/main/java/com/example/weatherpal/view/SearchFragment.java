@@ -81,6 +81,11 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         myAdapter = new MyAdapter(weatherList);
         binding.recyclerView.setAdapter(myAdapter);
 
+        // same ideas as tracking isLoading value in WeatherDetailAcitivty to conditionally display loading bar
+        viewModel.getIsSearchLoading().observe(getViewLifecycleOwner(), isSearchLoading -> {
+            binding.progressBarIndeterminateSearch.setVisibility(isSearchLoading ? View.VISIBLE : View.GONE);
+        });
+
         // search
         // same get() layout as the one in WeatherDetailActivity for getWeatherDetail() from
         // getLiveData in ViewModel

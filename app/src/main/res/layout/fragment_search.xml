@@ -25,6 +25,11 @@
         android:layout_margin="12dp" />
 
     <!-- progress bar + anything else somewhere too -->
+    <ProgressBar
+        android:id="@+id/progressBarIndeterminateSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <!-- Start text as invisible -->
     <TextView

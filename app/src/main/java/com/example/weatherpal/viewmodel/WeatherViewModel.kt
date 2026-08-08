@@ -59,6 +59,12 @@ class WeatherViewModel : ViewModel() {
         return isLoading
     }
 
+    // same as above, but for the search results
+    private val isSearchLoading = MutableLiveData<Boolean?>(false)
+    fun getIsSearchLoading(): LiveData<Boolean?> {
+        return isSearchLoading
+    }
+
     // refresh
     fun Refresh(city: String?) {
         // set our isLoading value to true before we make the API call
@@ -141,6 +147,7 @@ class WeatherViewModel : ViewModel() {
 
     // followed layout above from weatherapi
     fun dynamicSearch(city: String) {
+        isSearchLoading.postValue(true);
         WeatherRepository.dynamicSearch(city,object : Callback {
             override fun onResponse(call: Call, response: Response) {
                 // array list for weatehr
@@ -166,6 +173,7 @@ class WeatherViewModel : ViewModel() {
                         val latitude = city.getDouble("latitude")
                         val longitude = city.getDouble("longitude")
 
+                        isSearchLoading.postValue(false);
                         // add to list
                         // change icon later
                         weatherList.add(WeatherModel(R.drawable.rain_icon,name, region, country,
@@ -173,6 +181,7 @@ class WeatherViewModel : ViewModel() {
                     }
 
                 } catch (e: Exception) {
+                    isSearchLoading.postValue(false);
                     Log.e("WeatherViewModel-GEO", "Error while searching: ", e)
                 }
                 dynamicSearchResults.postValue(weatherList)
