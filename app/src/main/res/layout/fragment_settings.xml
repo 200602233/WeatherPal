@@ -236,7 +236,7 @@
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="15dp"
             android:background="@color/background2"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
