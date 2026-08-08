@@ -343,6 +343,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- placeholder for save icon -->
+    <!-- fixed layout issues-->
 
     <ImageView
         android:id="@+id/emptyBookmark"
