@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         // binding for switching to register screen
         // sets an onclick listener to the registerNow view/button in our bound .xml, i.e. login_activity.xml
         // pass in the view that was clicked as the parameter
-        binding.registerNow.setOnClickListener(view -> {
+        binding.registerNav.setOnClickListener(view -> {
             /* creation new intent object, with two parameters:
             - the app's context, which is used to start the activity
             - the target activity class that should be navigated to
