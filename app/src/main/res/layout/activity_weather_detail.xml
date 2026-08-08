@@ -329,6 +329,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+
     <Button
         android:id="@+id/backBtn"
         android:layout_width="82dp"
@@ -340,5 +341,30 @@
         android:textColor="@color/textColour1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- placeholder for save icon -->
+
+    <ImageView
+        android:id="@+id/emptyBookmark"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginStart="520dp"
+        android:src="@drawable/not_bookmarked_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <ImageView
+        android:id="@+id/bookmarked"
+        android:layout_width="75dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginStart="492dp"
+        android:src="@drawable/bookmarked_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="35dp"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

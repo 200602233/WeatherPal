@@ -14,12 +14,22 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityWeatherDetailBinding;
+import com.example.weatherpal.model.SavedCityModel;
 import com.example.weatherpal.viewmodel.WeatherViewModel;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class WeatherDetailActivity extends AppCompatActivity {
 
     private ActivityWeatherDetailBinding binding;
     private WeatherViewModel viewModel;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference collectionReference = db.collection("Users");
+    FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +69,13 @@ public class WeatherDetailActivity extends AppCompatActivity {
             binding.windChillC.setText(weatherData.getWindChillC());
             binding.windChillF.setText(weatherData.getWindChillF());
             binding.uvIndex.setText(weatherData.getUvIndex());
+
+//            //testing save button here
+//            String country = weatherData.getCity();
+//            double latitude = weatherData.getLatitude();
+//            double longitude = weatherData.getLongitude();
+//            binding.saveIcon.setOnClickListener(view -> saveCity(city, country, latitude, longitude));
+
         });
 
         // added this so api would properly show data
@@ -83,8 +100,20 @@ public class WeatherDetailActivity extends AppCompatActivity {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show(); // show for 3.5 seconds
         });
 
+        String savedCity = getIntent().getStringExtra("city");
+        String country = getIntent().getStringExtra("savedCountry");
+        double latitude = getIntent().getDoubleExtra("latitude", 0);
+        double longitude = getIntent().getDoubleExtra("longitude", 0);
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());
+        binding.emptyBookmark.setOnClickListener(view -> saveCity(savedCity, country, latitude,
+                longitude));
+        binding.bookmarked.setOnClickListener(v-> removeCity());
+
+        // save current city
+//        viewModel.getWeatherData().observe(this, );
+//        binding.saveIcon.setOnClickListener(view -> saveCity(city, );
+        //binding.saveIcon2.setOnClickListener(view -> getCity());
     }
 
     // back btn
@@ -92,6 +121,69 @@ public class WeatherDetailActivity extends AppCompatActivity {
         Intent intent = new Intent(WeatherDetailActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    private void saveCity(String city, String country, double latitude, double longitude) {
+
+//        SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
+
+        // firebase user auth
+        FirebaseUser user = auth.getCurrentUser();
+
+        // if user null
+        if (user != null) {
+            String uid = user.getUid();
+            SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
+
+            // save data into the variabels above
+            collectionReference
+                    .document(uid) // saves to users account
+                    .collection("SavedCities") // creates collection called 'SavedCities' to
+                    // organize the cities saved
+                    .document(city + ", " + country)// show city name
+                    .set(savedCity) // show city details
+                    .addOnSuccessListener(documentReference -> {
+                        binding.emptyBookmark.setVisibility(View.GONE);
+                        binding.bookmarked.setVisibility(View.VISIBLE);
+                        // document added
+                        //String docId = documentReference.getId();
+                        // toast message when save icon is pressed
+                        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
+                    }).addOnFailureListener(e -> {
+                        // failed message
+                        Toast.makeText(this, "Failed to Save", Toast.LENGTH_SHORT).show();
+
+                    });
+        } else{
+            // user not found
+            Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void removeCity(){
+        // firebase user auth
+        FirebaseUser user = auth.getCurrentUser();
+
+        // if user null
+        if (user != null) {
+            // same as SavedLocations delete method?
+            String uid = user.getUid();
+            collectionReference
+                    .document(uid)
+                    .delete()
+                    .addOnSuccessListener(documentReference->{
+                        // toast
+                    }).addOnFailureListener(e ->{
+                        //toast
+                    });
+        } else{
+            // user not found
+            Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+
     // function to change header/toolbar title to display selected city
 //    private void setToolBar(String city){
 //        if(city.equals("London")){

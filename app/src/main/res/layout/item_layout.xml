@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/region"
+        android:id="@+id/regionCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -52,9 +52,9 @@
         android:text="@string/lat_lon"
         android:textColor="@color/textColour1"
         android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@id/region"
+        app:layout_constraintStart_toStartOf="@id/regionCountry"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/region" />
+        app:layout_constraintTop_toBottomOf="@+id/regionCountry" />
 
     <!--    <TextView-->
     <!--        android:id="@+id/lon"-->
