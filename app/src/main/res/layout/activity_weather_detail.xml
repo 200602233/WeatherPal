@@ -346,25 +346,23 @@
 
     <ImageView
         android:id="@+id/emptyBookmark"
-        android:layout_width="48dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginStart="520dp"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="4dp"
         android:src="@drawable/not_bookmarked_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteY="44dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/bookmarked"
-        android:layout_width="75dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginStart="492dp"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="4dp"
         android:src="@drawable/bookmarked_icon"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteY="35dp"
         android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
