@@ -19,14 +19,18 @@
     <string name="activityLoginEmail">Email</string>
     <string name="activityLoginPass">Password</string>
     <string name="activityLoginBtn">LOGIN</string>
-    <string name="activityRegisterMessage">Don\'t have an account with us? </string>
+    <string name="activityRegisterMessage">Don\'t have an account with us?</string>
     <string name="activityRegisterNav">Register Today!</string>
 
+    <string name="activityRegisterTitle">Create Account</string>
+    <string name="activityRegisterCreateMessage">Register and save all your favourite
+        locations!</string>
     <string name="activityRegisterEmail">Ex. myEmail@email.com</string>
     <string name="activityRegisterPass">Pass: min 6 characters</string>
     <string name="activityRegisterConfirmPass">Confirm Password</string>
     <string name="activityRegisterBtn">REGISTER</string>
-    <string name="activityLoginNav">Click to Login</string>
+    <string name="activityLoginMessage">Already have an account?</string>
+    <string name="activityLoginNav">Login</string>
 
     <string name="activityWeatherDetailHumidity">Humidity</string>
     <string name="activityWeatherDetailWind">Wind</string>
