@@ -43,12 +43,19 @@ public class RegisterActivity extends AppCompatActivity {
                 // same code for login and password, just different id's
 
                 // grab users inputs
-                // IF PASS IS UNDER 6 CHARS, IT WILL FAIL
+                // IF PASS IS UNDER 6 CHARS, IT WILL FAIL (Firebase does this auto)
                 String userEmail = binding.regEmail.getText().toString().trim();
                 String userPassword = binding.regPassword.getText().toString().trim();
+                String confirmPassword = binding.confirmPassword.getText().toString().trim();
 
-                // apply information to registering the user
-                registerUser(userEmail, userPassword);
+                if (userPassword.equals(confirmPassword)){
+                    // apply information to registering the user
+                    registerUser(userEmail, userPassword);
+                }
+                else{
+                    Toast.makeText(RegisterActivity.this, "Passwords do not match!",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -71,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
         // when running, we noticed that the firebase does not allow passwords to be under
         // 6characters, therefore, we added an if statement to allow user to know why they could
         // not register
-        if (password.length() < 6){
+        if (password.length() < 6) {
             Toast.makeText(RegisterActivity.this, "Password must be at least 6 Characters", Toast.LENGTH_SHORT).show();
             // stops before it shows other toasts below
             return;
