@@ -15,6 +15,7 @@
     <string name="WeatherPalTitle">WeatherPal</string>
     <string name="activitySplashTrustyApp">Your trustworthy weather app!</string>
 
+    <string name="activityLoginSignInMessage">Sign in to access your weather preferences!</string>
     <string name="activityLoginEmail">Email</string>
     <string name="activityLoginPass">Password</string>
     <string name="activityLoginBtn">LOGIN</string>
