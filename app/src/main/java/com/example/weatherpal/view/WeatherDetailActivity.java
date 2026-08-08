@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityWeatherDetailBinding;
+import com.example.weatherpal.model.SavedCityModel;
 import com.example.weatherpal.viewmodel.WeatherViewModel;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -102,10 +103,20 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
     private void saveCity(){
         // city name, country, latitude, longitude
-        String cityName; // = get cityname
-        String country;
-        String latitude;
-        String longitude;
+        String city = "city"; // = get cityname
+        String country = "country";
+        String latitude = "lat";
+        String longitude = "lon";
+
+        SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
+
+        collectionReference.add(savedCity)
+                .addOnSuccessListener(documentReference -> {
+                    // document added
+                    String docId = documentReference.getId();
+
+        });
+
 
         // toast message when save icon is pressed
         Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
