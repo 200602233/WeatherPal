@@ -16,6 +16,9 @@ import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityWeatherDetailBinding;
 import com.example.weatherpal.model.SavedCityModel;
 import com.example.weatherpal.viewmodel.WeatherViewModel;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -26,6 +29,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     private WeatherViewModel viewModel;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference collectionReference = db.collection("Users");
+    FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +100,14 @@ public class WeatherDetailActivity extends AppCompatActivity {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show(); // show for 3.5 seconds
         });
 
+        String cityName = "Elmvale";
+        String country = "Canada";
+        double latitude = 12;
+        double longitude = 11;
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());
+        binding.saveIcon.setOnClickListener(view -> saveCity(cityName, country, latitude,
+                longitude));
 
         // save current city
 //        viewModel.getWeatherData().observe(this, );
@@ -111,48 +121,40 @@ public class WeatherDetailActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void saveCity(String city, String country, double latitude, double longitude){
+    private void saveCity(String city, String country, double latitude, double longitude) {
 
-        SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
+//        SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
 
-        collectionReference.add(savedCity)
-                .addOnSuccessListener(documentReference -> {
-                    // document added
-                    String docId = documentReference.getId();
+        // firebase user auth
+        FirebaseUser user = auth.getCurrentUser();
 
-        });
+        // if user null
+        if (user != null) {
+            String uid = user.getUid();
+            SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
 
-        // toast message when save icon is pressed
-        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
+            // save data into the variabels above
+            collectionReference
+                    .document(uid) // saves to users account
+                    .collection("SavedCities") // creates collection called 'SavedCities' to
+                    // organize the cities saved
+                    .document(city + ", " + country)// show city name
+                    .set(savedCity) // show city details
+                    .addOnSuccessListener(documentReference -> {
+                        // document added
+                        //String docId = documentReference.getId();
+                        // toast message when save icon is pressed
+                        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
+                    }).addOnFailureListener(e -> {
+                        // failed message
+                        Toast.makeText(this, "Failed to Save", Toast.LENGTH_SHORT).show();
 
-    }
-
-    //testing
-    private void getCity(){
-        collectionReference.get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    String data = "";
-                    for (QueryDocumentSnapshot document : queryDocumentSnapshots){
-                        // process the retrieved documents
-                        SavedCityModel savedCity = document.toObject(SavedCityModel.class);
-                        String city = document.getString("city");
-                        String country = document.getString("country");
-
-                        data += "City: " + city + ", Country: " + country + "\n";
-
-                        // do something with each document
-                        Toast.makeText(this, "Document: " + document.getId(), Toast.LENGTH_SHORT).show();
-                    }
-                    // display all retrieved data
-                    Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
-                    binding.saveText.setText(data);
-                })
-                .addOnFailureListener(e -> {
-                    // handle error
-                    Toast.makeText(this, "Error retrieving documents", Toast.LENGTH_SHORT).show();
-                });
+                    });
+        }
+        Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
 
     }
+
 
     // function to change header/toolbar title to display selected city
 //    private void setToolBar(String city){
