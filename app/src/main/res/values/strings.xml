@@ -26,6 +26,7 @@
     <string name="fragmentSavedSearchPrompt">Search for a city and save it\nto view it here</string>
 
     <string name="fragmentSearchSearch">Search</string>
+    <string name="fragmentSearchNoResults">No Results :(</string>
 
     <string name="fragmentSettingsAccount">ACCOUNT</string>
     <string name="fragmentSettingsPreferences">PREFERENCES</string>
