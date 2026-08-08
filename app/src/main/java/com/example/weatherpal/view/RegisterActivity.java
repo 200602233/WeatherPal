@@ -14,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityRegisterBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -75,6 +77,21 @@ public class RegisterActivity extends AppCompatActivity {
     private void registerUser(String email, String password) {
         Toast.makeText(RegisterActivity.this, "Registering User...", Toast.LENGTH_SHORT).show();
 
+        // validations
+
+        //empty emial
+        if (email.isEmpty()){
+            Toast.makeText(RegisterActivity.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
+            // stops before it shows other toasts below
+            return;
+        }
+        // empty password
+        if (password.isEmpty()){
+            Toast.makeText(RegisterActivity.this, "Password cannot be empty", Toast.LENGTH_SHORT).show();
+            // stops before it shows other toasts below
+            return;
+        }
+
         // when running, we noticed that the firebase does not allow passwords to be under
         // 6characters, therefore, we added an if statement to allow user to know why they could
         // not register
@@ -92,8 +109,20 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intObj);
                 finish();
             } else {
-                Toast.makeText(RegisterActivity.this, "ERROR Registering User! " + task.getException(),
-                        Toast.LENGTH_SHORT).show();
+                try{
+                    throw task.getException();
+                }
+                // firebase built-in email already registered
+                catch (FirebaseAuthUserCollisionException e){
+                    Toast.makeText(RegisterActivity.this, "Email already in use!", Toast.LENGTH_SHORT).show();
+                }
+                // we may already catch with the 6 pass?
+                catch(FirebaseAuthWeakPasswordException e){
+                    Toast.makeText(RegisterActivity.this, "Password is weak!", Toast.LENGTH_SHORT).show();
+                }
+                catch(Exception e){
+                    Toast.makeText(RegisterActivity.this, "ERROR Registering User! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
