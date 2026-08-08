@@ -1,5 +1,7 @@
 package com.example.weatherpal.view;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -47,6 +49,10 @@ public class WeatherDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         String city = getIntent().getStringExtra("city");
+        String country = getIntent().getStringExtra("country");
+        double latitude = getIntent().getDoubleExtra("latitude", 0);
+        double longitude = getIntent().getDoubleExtra("longitude", 0);
+        checkCityIfSaved(city, country);
 //        setToolBar(city);
 //        setWeatherDetails(city);
 
@@ -100,15 +106,12 @@ public class WeatherDetailActivity extends AppCompatActivity {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show(); // show for 3.5 seconds
         });
 
-        String savedCity = getIntent().getStringExtra("city");
-        String country = getIntent().getStringExtra("savedCountry");
-        double latitude = getIntent().getDoubleExtra("latitude", 0);
-        double longitude = getIntent().getDoubleExtra("longitude", 0);
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());
-        binding.emptyBookmark.setOnClickListener(view -> saveCity(savedCity, country, latitude,
+        binding.emptyBookmark.setOnClickListener(view -> saveCity(city, country, latitude,
                 longitude));
-        binding.bookmarked.setOnClickListener(v-> removeCity());
+        binding.bookmarked.setOnClickListener(v-> removeCity(city, country, latitude,
+                longitude));
 
         // save current city
 //        viewModel.getWeatherData().observe(this, );
@@ -122,9 +125,34 @@ public class WeatherDetailActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void checkCityIfSaved(String city, String country){
+        FirebaseUser user = auth.getCurrentUser();
+        assert user != null;
+        String uid = user.getUid();
+        collectionReference
+                .document(uid)
+                .collection("SavedCities")
+                .document(city + ", " + country)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+
+                    if (documentSnapshot.exists()) {
+                        // City is saved
+                        binding.bookmarked.setVisibility(View.VISIBLE);
+                    } else {
+                        // City is NOT saved
+                        binding.emptyBookmark.setVisibility(View.VISIBLE);
+                    }
+
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Could not check saved cities", Toast.LENGTH_SHORT).show();
+                });
+    }
+
     private void saveCity(String city, String country, double latitude, double longitude) {
 
-//        SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
+//        cityModel city = new cityModel(city, country, latitude, longitude);
 
         // firebase user auth
         FirebaseUser user = auth.getCurrentUser();
@@ -147,7 +175,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
                         // document added
                         //String docId = documentReference.getId();
                         // toast message when save icon is pressed
-                        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "City unsaved", Toast.LENGTH_SHORT).show();
                     }).addOnFailureListener(e -> {
                         // failed message
                         Toast.makeText(this, "Failed to Save", Toast.LENGTH_SHORT).show();
@@ -159,7 +187,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void removeCity(){
+    private void removeCity(String city, String country, double latitude, double longitude){
         // firebase user auth
         FirebaseUser user = auth.getCurrentUser();
 
@@ -169,11 +197,17 @@ public class WeatherDetailActivity extends AppCompatActivity {
             String uid = user.getUid();
             collectionReference
                     .document(uid)
+                    .collection("SavedCities")
+                    .document(city + ", " + country)
                     .delete()
                     .addOnSuccessListener(documentReference->{
+                        binding.bookmarked.setVisibility(View.GONE);
+                        binding.emptyBookmark.setVisibility(View.VISIBLE);
                         // toast
+                        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
                     }).addOnFailureListener(e ->{
                         //toast
+                        Toast.makeText(this, "Failed to save!", Toast.LENGTH_SHORT).show();
                     });
         } else{
             // user not found
