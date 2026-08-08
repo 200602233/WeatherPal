@@ -22,6 +22,8 @@ import com.example.weatherpal.databinding.ActivityLoginBinding;
 // import for our app's MainActivity class
 // class for handling Firebase functionality, like logins, auth, registrations
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         // binding for switching to register screen
         // sets an onclick listener to the registerNow view/button in our bound .xml, i.e. login_activity.xml
         // pass in the view that was clicked as the parameter
-        binding.registerNow.setOnClickListener(view -> {
+        binding.registerNav.setOnClickListener(view -> {
             /* creation new intent object, with two parameters:
             - the app's context, which is used to start the activity
             - the target activity class that should be navigated to
@@ -107,6 +109,20 @@ public class LoginActivity extends AppCompatActivity {
         // we call these on our firebase authorization object
         // signInWithEmailAndPassword() attempts to login user and return a Task<AuthResult> object, i.e. a Firebase task
         // addOnCompleteListener() listens for result of login attempt
+
+
+        // validations
+        if (email.isEmpty()){
+            Toast.makeText(LoginActivity.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
+            // stops before it shows other toasts below
+            return;
+        }
+        if (password.isEmpty()){
+            Toast.makeText(LoginActivity.this, "Password cannot be empty", Toast.LENGTH_SHORT).show();
+            // stops before it shows other toasts below
+            return;
+        }
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             // if our login attempt/task is successful, we show a toast message displaying the result
             if (task.isSuccessful()) {
@@ -118,11 +134,20 @@ public class LoginActivity extends AppCompatActivity {
                 // include this to avoid backstack
                 finish();
             } else {
+                try{
+                    throw task.getException();
+                }
+                // validations from firebase
+                //  invalid email / password
+                catch (FirebaseAuthInvalidCredentialsException e){
+                    Toast.makeText(LoginActivity.this, "Email or Password is invalid" + task.getException(), Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e){
+                    Toast.makeText(LoginActivity.this, "Failed Logging-In." + task.getException(), Toast.LENGTH_SHORT).show();
+                }
                 // if task/login not successful, display failed login message with task's exception/error details
                 // think maybe the exception details could be a logcat message instead?
                 // not sure what kind of message/technical details it would expose to the user
-                Toast.makeText(LoginActivity.this, "Failed Logging-In." + task.getException(),
-                        Toast.LENGTH_SHORT).show();
             }
         });
     }

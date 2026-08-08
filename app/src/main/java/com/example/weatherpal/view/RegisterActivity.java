@@ -14,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityRegisterBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -43,12 +45,19 @@ public class RegisterActivity extends AppCompatActivity {
                 // same code for login and password, just different id's
 
                 // grab users inputs
-                // IF PASS IS UNDER 6 CHARS, IT WILL FAIL
+                // IF PASS IS UNDER 6 CHARS, IT WILL FAIL (Firebase does this auto)
                 String userEmail = binding.regEmail.getText().toString().trim();
                 String userPassword = binding.regPassword.getText().toString().trim();
+                String confirmPassword = binding.confirmPassword.getText().toString().trim();
 
-                // apply information to registering the user
-                registerUser(userEmail, userPassword);
+                if (userPassword.equals(confirmPassword)){
+                    // apply information to registering the user
+                    registerUser(userEmail, userPassword);
+                }
+                else{
+                    Toast.makeText(RegisterActivity.this, "Passwords do not match!",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -68,10 +77,25 @@ public class RegisterActivity extends AppCompatActivity {
     private void registerUser(String email, String password) {
         Toast.makeText(RegisterActivity.this, "Registering User...", Toast.LENGTH_SHORT).show();
 
+        // validations
+
+        //empty emial
+        if (email.isEmpty()){
+            Toast.makeText(RegisterActivity.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
+            // stops before it shows other toasts below
+            return;
+        }
+        // empty password
+        if (password.isEmpty()){
+            Toast.makeText(RegisterActivity.this, "Password cannot be empty", Toast.LENGTH_SHORT).show();
+            // stops before it shows other toasts below
+            return;
+        }
+
         // when running, we noticed that the firebase does not allow passwords to be under
         // 6characters, therefore, we added an if statement to allow user to know why they could
         // not register
-        if (password.length() < 6){
+        if (password.length() < 6) {
             Toast.makeText(RegisterActivity.this, "Password must be at least 6 Characters", Toast.LENGTH_SHORT).show();
             // stops before it shows other toasts below
             return;
@@ -85,8 +109,20 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intObj);
                 finish();
             } else {
-                Toast.makeText(RegisterActivity.this, "ERROR Registering User! " + task.getException(),
-                        Toast.LENGTH_SHORT).show();
+                try{
+                    throw task.getException();
+                }
+                // firebase built-in email already registered
+                catch (FirebaseAuthUserCollisionException e){
+                    Toast.makeText(RegisterActivity.this, "Email already in use!", Toast.LENGTH_SHORT).show();
+                }
+                // we may already catch with the 6 pass?
+                catch(FirebaseAuthWeakPasswordException e){
+                    Toast.makeText(RegisterActivity.this, "Password is weak!", Toast.LENGTH_SHORT).show();
+                }
+                catch(Exception e){
+                    Toast.makeText(RegisterActivity.this, "ERROR Registering User! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
