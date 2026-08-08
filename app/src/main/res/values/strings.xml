@@ -12,13 +12,14 @@
 
     <!-- replacing all hardcoded .xml text values with string resources -->
 
-    <string name="activitySplashWeatherPal">WeatherPal</string>
+    <string name="WeatherPalTitle">WeatherPal</string>
     <string name="activitySplashTrustyApp">Your trustworthy weather app!</string>
 
     <string name="activityLoginEmail">Email</string>
     <string name="activityLoginPass">Password</string>
     <string name="activityLoginBtn">LOGIN</string>
-    <string name="activityRegisterNav">Click to Register</string>
+    <string name="activityRegisterMessage">Don\'t have an account with us? </string>
+    <string name="activityRegisterNav">Register Today!</string>
 
     <string name="activityRegisterEmail">Ex. myEmail@email.com</string>
     <string name="activityRegisterPass">Pass: min 6 characters</string>
@@ -48,7 +49,6 @@
     <string name="fragmentSettingsThemeLight">Light</string>
     <string name="fragmentSettingsThemeDark">Dark</string>
     <string name="fragmentSettingsAbout">ABOUT</string>
-    <string name="fragmentSettingsWeatherPal">WeatherPal</string>
     <string name="fragmentSettingsVersion">Version</string>
     <string name="fragmentSettingsActions">ACTIONS</string>
     <string name="fragmentSettingsFeedback">Send Feedback</string>
