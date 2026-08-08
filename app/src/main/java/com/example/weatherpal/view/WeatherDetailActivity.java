@@ -89,6 +89,9 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());
+
+        // save current city
+        binding.saveIcon.setOnClickListener(view -> saveCity());
     }
 
     // back btn
@@ -100,6 +103,12 @@ public class WeatherDetailActivity extends AppCompatActivity {
     private void saveCity(){
         // city name, country, latitude, longitude
         String cityName; // = get cityname
+        String country;
+        String latitude;
+        String longitude;
+
+        // toast message when save icon is pressed
+        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
     }
 
     // function to change header/toolbar title to display selected city
