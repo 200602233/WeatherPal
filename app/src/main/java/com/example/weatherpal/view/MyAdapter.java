@@ -1,5 +1,6 @@
 package com.example.weatherpal.view;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,13 +49,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         return new MyViewHolder(binding);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         // binds our api data to the views within the view holder
         WeatherModel weatherModel = weatherModelList.get(position);
         holder.binding.weatherIcon.setImageResource(weatherModel.getWeatherIcon());
         holder.binding.city.setText(weatherModel.getCity());
-        holder.binding.region.setText(weatherModel.getRegion());
+        holder.binding.regionCountry.setText(weatherModel.getRegion()+", "+ weatherModel.getCountry());
         holder.binding.latLon.setText(String.valueOf(weatherModel.getLatitude()+", "+ weatherModel.getLongitude()));
     }
 

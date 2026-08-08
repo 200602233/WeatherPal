@@ -168,8 +168,8 @@ class WeatherViewModel : ViewModel() {
 
                         // add to list
                         // change icon later
-                        weatherList.add(WeatherModel(R.drawable.rain_icon,name,"$region, " +
-                                "$country", latitude, longitude))
+                        weatherList.add(WeatherModel(R.drawable.rain_icon,name, region, country,
+                                latitude, longitude))
                     }
                     dynamicSearchResults.postValue(weatherList)
 
