@@ -5,10 +5,10 @@ public class SavedCityModel {
     // add strings for user info? (email, etc.)
     String cityName;
     String country;
-    String latitude;
-    String longitude;
+    double latitude;
+    double longitude;
 
-    public SavedCityModel(String cityName, String country, String latitude, String longitude) {
+    public SavedCityModel(String cityName, String country, double latitude, double longitude) {
         this.cityName = cityName;
         this.country = country;
         this.latitude = latitude;
@@ -31,19 +31,19 @@ public class SavedCityModel {
         this.country = country;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 }

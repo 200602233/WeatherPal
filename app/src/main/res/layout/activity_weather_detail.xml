@@ -343,14 +343,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- placeholder for save icon -->
+
     <ImageView
         android:id="@+id/saveIcon"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginStart="192dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="764dp"
         android:src="@drawable/vector_saved"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/saveIcon2"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="764dp"
+        android:src="@drawable/vector_saved"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/saveText"
+        android:layout_width="189dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="132dp"
+        android:text="testing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveIcon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

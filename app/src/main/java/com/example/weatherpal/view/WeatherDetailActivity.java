@@ -18,6 +18,7 @@ import com.example.weatherpal.model.SavedCityModel;
 import com.example.weatherpal.viewmodel.WeatherViewModel;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class WeatherDetailActivity extends AppCompatActivity {
 
@@ -64,6 +65,13 @@ public class WeatherDetailActivity extends AppCompatActivity {
             binding.windChillC.setText(weatherData.getWindChillC());
             binding.windChillF.setText(weatherData.getWindChillF());
             binding.uvIndex.setText(weatherData.getUvIndex());
+
+//            //testing save button here
+//            String country = weatherData.getCity();
+//            double latitude = weatherData.getLatitude();
+//            double longitude = weatherData.getLongitude();
+//            binding.saveIcon.setOnClickListener(view -> saveCity(city, country, latitude, longitude));
+
         });
 
         // added this so api would properly show data
@@ -92,7 +100,9 @@ public class WeatherDetailActivity extends AppCompatActivity {
         binding.backBtn.setOnClickListener(view -> backBtnAction());
 
         // save current city
-        binding.saveIcon.setOnClickListener(view -> saveCity());
+//        viewModel.getWeatherData().observe(this, );
+//        binding.saveIcon.setOnClickListener(view -> saveCity(city, );
+        //binding.saveIcon2.setOnClickListener(view -> getCity());
     }
 
     // back btn
@@ -101,12 +111,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void saveCity(){
-        // city name, country, latitude, longitude
-        String city = "city"; // = get cityname
-        String country = "country";
-        String latitude = "lat";
-        String longitude = "lon";
+    private void saveCity(String city, String country, double latitude, double longitude){
 
         SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
 
@@ -117,9 +122,36 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
         });
 
-
         // toast message when save icon is pressed
         Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
+
+    }
+
+    //testing
+    private void getCity(){
+        collectionReference.get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    String data = "";
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots){
+                        // process the retrieved documents
+                        SavedCityModel savedCity = document.toObject(SavedCityModel.class);
+                        String city = document.getString("city");
+                        String country = document.getString("country");
+
+                        data += "City: " + city + ", Country: " + country + "\n";
+
+                        // do something with each document
+                        Toast.makeText(this, "Document: " + document.getId(), Toast.LENGTH_SHORT).show();
+                    }
+                    // display all retrieved data
+                    Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
+                    binding.saveText.setText(data);
+                })
+                .addOnFailureListener(e -> {
+                    // handle error
+                    Toast.makeText(this, "Error retrieving documents", Toast.LENGTH_SHORT).show();
+                });
+
     }
 
     // function to change header/toolbar title to display selected city
