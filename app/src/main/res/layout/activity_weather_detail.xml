@@ -345,33 +345,26 @@
     <!-- placeholder for save icon -->
 
     <ImageView
-        android:id="@+id/saveIcon"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="764dp"
-        android:src="@drawable/vector_saved"
+        android:id="@+id/emptyBookmark"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginStart="520dp"
+        android:src="@drawable/not_bookmarked_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="44dp" />
 
     <ImageView
-        android:id="@+id/saveIcon2"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="292dp"
-        android:layout_marginTop="764dp"
-        android:src="@drawable/vector_saved"
+        android:id="@+id/bookmarked"
+        android:layout_width="75dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginStart="492dp"
+        android:src="@drawable/bookmarked_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/saveText"
-        android:layout_width="189dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="132dp"
-        android:text="testing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveIcon" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="35dp"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
