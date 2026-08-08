@@ -100,14 +100,15 @@ public class WeatherDetailActivity extends AppCompatActivity {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show(); // show for 3.5 seconds
         });
 
-        String cityName = "Elmvale";
-        String country = "Canada";
-        double latitude = 12;
-        double longitude = 11;
+        String savedCity = getIntent().getStringExtra("city");
+        String country = getIntent().getStringExtra("savedCountry");
+        double latitude = getIntent().getDoubleExtra("latitude", 0);
+        double longitude = getIntent().getDoubleExtra("longitude", 0);
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());
-        binding.saveIcon.setOnClickListener(view -> saveCity(cityName, country, latitude,
+        binding.emptyBookmark.setOnClickListener(view -> saveCity(savedCity, country, latitude,
                 longitude));
+        binding.bookmarked.setOnClickListener(v-> removeCity());
 
         // save current city
 //        viewModel.getWeatherData().observe(this, );
@@ -141,6 +142,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
                     .document(city + ", " + country)// show city name
                     .set(savedCity) // show city details
                     .addOnSuccessListener(documentReference -> {
+                        binding.emptyBookmark.setVisibility(View.GONE);
+                        binding.bookmarked.setVisibility(View.VISIBLE);
                         // document added
                         //String docId = documentReference.getId();
                         // toast message when save icon is pressed
@@ -150,8 +153,33 @@ public class WeatherDetailActivity extends AppCompatActivity {
                         Toast.makeText(this, "Failed to Save", Toast.LENGTH_SHORT).show();
 
                     });
+        } else{
+            // user not found
+            Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
+    }
+
+    private void removeCity(){
+        // firebase user auth
+        FirebaseUser user = auth.getCurrentUser();
+
+        // if user null
+        if (user != null) {
+            // same as SavedLocations delete method?
+            String uid = user.getUid();
+            collectionReference
+                    .document(uid)
+                    .delete()
+                    .addOnSuccessListener(documentReference->{
+                        // toast
+                    }).addOnFailureListener(e ->{
+                        //toast
+                    });
+        } else{
+            // user not found
+            Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 
