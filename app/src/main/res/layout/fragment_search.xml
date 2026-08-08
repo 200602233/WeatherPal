@@ -21,7 +21,7 @@
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="@string/fragmentSearchSearch"
+        android:hint="@string/fragmentSearchSearch"
         android:layout_margin="12dp" />
 
     <!-- progress bar + anything else somewhere too -->
@@ -30,8 +30,10 @@
     <TextView
         android:id="@+id/emptyMessage"
         android:layout_width="match_parent"
-        android:layout_height="70px"
-        android:text="No Results :("
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:text="@string/fragmentSearchNoResults"
         android:visibility="gone"/>
 
     <!-- Recycler View (refer to week 10 lesson) -->
