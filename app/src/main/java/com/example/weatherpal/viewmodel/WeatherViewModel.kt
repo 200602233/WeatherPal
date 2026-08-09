@@ -93,8 +93,11 @@ class WeatherViewModel : ViewModel() {
                     val strCountry = location.getString("country")
                     val dblLatitude = location.getDouble("lat")
                     val dblLongtitude = location.getDouble("lon")
+                    /* rewrite without concatenated temp indicators
                     val strTempC = current.getString("temp_c") + "°C"
-                    val strTempF = current.getString("temp_f") + "°F"
+                    val strTempF = current.getString("temp_f") + "°F" */
+                    val strTempC = current.getString("temp_c")
+                    val strTempF = current.getString("temp_f")
                     val strWeatherCondition = condition.getString("text")
                     //Integer intWeatherIcon = condition.getInt("icon");
                     val strHumidity = current.getString("humidity") + "%"
