@@ -78,7 +78,7 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.recyclerView.setLayoutManager(layoutManager);
 
-        myAdapter = new MyAdapter(weatherList);
+        myAdapter = new MyAdapter(weatherList, false);
         binding.recyclerView.setAdapter(myAdapter);
 
         // same ideas as tracking isLoading value in WeatherDetailAcitivty to conditionally display loading bar
@@ -146,12 +146,17 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         // intent
         Intent intent = new Intent(requireActivity(), WeatherDetailActivity.class);
         intent.putExtra("city", cityName.getCity());
-
         // geo info
+        intent.putExtra("region", cityName.getRegion());
         intent.putExtra("country", cityName.getCountry());
         intent.putExtra("latitude", cityName.getLatitude());
         intent.putExtra("longitude", cityName.getLongitude());
         startActivity(intent);
+    }
+
+    @Override
+    public void unsaveCity(View v, int pos) {
+        //leave empty
     }
 
     // function to take user to the selected city's details page

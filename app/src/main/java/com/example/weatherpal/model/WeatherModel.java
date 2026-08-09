@@ -7,6 +7,7 @@ public class WeatherModel {
     private String country;
     private String weatherCondition;
     private int weatherIcon;
+    private int actionIcon;
     private double latitude;
     private double longitude;
     private String tempC;
@@ -23,19 +24,21 @@ public class WeatherModel {
     // constructor for the searchFrag view
     public WeatherModel(int weatherIcon, String city, String region, String country,
                         double latitude,
-                        double longitude) {
+                        double longitude, int actionIcon) {
         this.weatherIcon = weatherIcon;
         this.city = city;
         this.region = region;
         this.country = country;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.actionIcon = actionIcon;
     }
 
     // forced to add from WeatehrViewModel for api
     public WeatherModel() {
 
     }
+
 
 
     // get and sets (used generate > Getters and Setters)
@@ -78,6 +81,14 @@ public class WeatherModel {
 
     public void setWeatherIcon(int weatherIcon) {
         this.weatherIcon = weatherIcon;
+    }
+
+    public int getActionIcon() {
+        return actionIcon;
+    }
+
+    public void setActionIcon(int actionIcon) {
+        this.actionIcon = actionIcon;
     }
 
     public double getLatitude() {

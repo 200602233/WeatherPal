@@ -24,12 +24,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     // our data source
     // modified from itemList to weatherModelList; List parameter changed from Item to WeatherModel
     private final List<WeatherModel> weatherModelList;
-
+    // for image chaneg
+    private boolean savedScreen;
     // click listener
     public ItemClickListener clickListener;
     //constructor for our adapter class
-    public MyAdapter(List<WeatherModel> weatherModelList) {
+    public MyAdapter(List<WeatherModel> weatherModelList, boolean savedScreen) {
         this.weatherModelList = weatherModelList;
+        this.savedScreen = savedScreen;
     }
 
     // define logic for our onclick listener
@@ -44,20 +46,33 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemLayoutBinding binding =
-                ItemLayoutBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        ItemLayoutBinding binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new MyViewHolder(binding);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        // https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter
         // binds our api data to the views within the view holder
         WeatherModel weatherModel = weatherModelList.get(position);
-        holder.binding.weatherIcon.setImageResource(weatherModel.getWeatherIcon());
         holder.binding.city.setText(weatherModel.getCity());
         holder.binding.regionCountry.setText(weatherModel.getRegion()+", "+ weatherModel.getCountry());
         holder.binding.latLon.setText(String.valueOf(weatherModel.getLatitude()+", "+ weatherModel.getLongitude()));
+        if (savedScreen) {
+            holder.binding.weatherIcon.setImageResource(R.drawable.bookmarked_icon);
+            holder.binding.actionIcon.setImageResource(R.drawable.delete_icon);
+            // use the above function to setOnClickListener to JUST the delete Icon for saved
+            // screen so in the search frag, it does NOT apply
+            holder.binding.actionIcon.setOnClickListener(v->{
+                if(clickListener != null){
+                    clickListener.unsaveCity(v, position);
+                }
+            });
+        } else {
+            holder.binding.weatherIcon.setImageResource(weatherModel.getWeatherIcon());
+            holder.binding.actionIcon.setImageResource(weatherModel.getActionIcon());
+        }
     }
 
     @Override
@@ -69,7 +84,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     // class within a class
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // added binding as we cannot use viewByID anywhere in assign
-        ItemLayoutBinding binding; //binds for the item_layout.xml
+        ItemLayoutBinding binding; //binds for the search_item_layout.xml
 
         // variables for each bit of api data that gets displayed in the RecyclerView
 //        TextView city;

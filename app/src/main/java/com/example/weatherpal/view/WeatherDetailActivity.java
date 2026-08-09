@@ -53,6 +53,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         String city = getIntent().getStringExtra("city");
+        String region = getIntent().getStringExtra("region");
         String country = getIntent().getStringExtra("country");
         double latitude = getIntent().getDoubleExtra("latitude", 0);
         double longitude = getIntent().getDoubleExtra("longitude", 0);
@@ -131,9 +132,9 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
         //back btn
         binding.backBtn.setOnClickListener(view -> backBtnAction());
-        binding.emptyBookmark.setOnClickListener(view -> saveCity(city, country, latitude,
+        binding.emptyBookmark.setOnClickListener(view -> saveCity(city, region, country, latitude,
                 longitude));
-        binding.bookmarked.setOnClickListener(v-> removeCity(city, country, latitude,
+        binding.bookmarked.setOnClickListener(v-> removeCity(city, region,  country, latitude,
                 longitude));
 
         // save current city
@@ -173,7 +174,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
                 });
     }
 
-    private void saveCity(String city, String country, double latitude, double longitude) {
+    private void saveCity(String city, String region, String country, double latitude,
+                          double longitude) {
 
 //        cityModel city = new cityModel(city, country, latitude, longitude);
 
@@ -183,7 +185,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
         // if user null
         if (user != null) {
             String uid = user.getUid();
-            SavedCityModel savedCity = new SavedCityModel(city, country, latitude, longitude);
+            SavedCityModel savedCity = new SavedCityModel(city, region, country, latitude,
+                    longitude);
 
             // save data into the variabels above
             collectionReference
@@ -198,7 +201,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
                         // document added
                         //String docId = documentReference.getId();
                         // toast message when save icon is pressed
-                        Toast.makeText(this, "City unsaved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "City saved!", Toast.LENGTH_SHORT).show();
                     }).addOnFailureListener(e -> {
                         // failed message
                         Toast.makeText(this, "Failed to Save", Toast.LENGTH_SHORT).show();
@@ -210,7 +213,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void removeCity(String city, String country, double latitude, double longitude){
+    private void removeCity(String city, String region, String country, double latitude,
+                            double longitude){
         // firebase user auth
         FirebaseUser user = auth.getCurrentUser();
 
@@ -227,7 +231,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
                         binding.bookmarked.setVisibility(View.GONE);
                         binding.emptyBookmark.setVisibility(View.VISIBLE);
                         // toast
-                        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "City unsaved!", Toast.LENGTH_SHORT).show();
                     }).addOnFailureListener(e ->{
                         //toast
                         Toast.makeText(this, "Failed to save!", Toast.LENGTH_SHORT).show();
