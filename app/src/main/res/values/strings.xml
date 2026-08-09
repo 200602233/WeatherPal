@@ -39,6 +39,7 @@
     <string name="activityWeatherDetailUVIndex">UV Index</string>
     <string name="activityWeatherDetailBackButton">Back</string>
 
+    <string name="fragmentSavedLoading">Loading saved cities..."</string>
     <string name="fragmentSavedNoSavedCities">No Saved Cities</string>
     <string name="fragmentSavedSearchPrompt">Search for a city and save it\nto view it here</string>
 

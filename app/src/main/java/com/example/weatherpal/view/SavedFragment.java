@@ -42,6 +42,8 @@ public class SavedFragment extends Fragment implements ItemClickListener{
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
     //weather mdoel
+    private WeatherViewModel viewModel;
+
     private final List<SavedCityModel> savedCityModel = new ArrayList<>();
 
     private final List<WeatherModel> weatherList = new ArrayList<>();
@@ -59,6 +61,12 @@ public class SavedFragment extends Fragment implements ItemClickListener{
         myAdapter = new MyAdapter(weatherList, true);
         binding.recyclerView.setAdapter(myAdapter);
 
+        viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
+
+        viewModel.getIsLoading().observe(getViewLifecycleOwner(), isLoading -> {
+            binding.progressBarSaved.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+            binding.progressBarText.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+        });
 
         // retrieve saved cities
         retrieveSavedCities();
@@ -119,6 +127,7 @@ public class SavedFragment extends Fragment implements ItemClickListener{
 
                         myAdapter.notifyDataSetChanged();
 
+
                         if(weatherList.isEmpty()){
                             binding.emptyImageView.setVisibility(View.VISIBLE);
                             binding.emptyMessage1.setVisibility(View.VISIBLE);
@@ -130,7 +139,10 @@ public class SavedFragment extends Fragment implements ItemClickListener{
                             binding.emptyMessage2.setVisibility(View.GONE);
                             binding.recyclerView.setVisibility(View.VISIBLE);
                         }
+                        binding.progressBarSaved.setVisibility(View.GONE);
+                        binding.progressBarText.setVisibility(View.GONE);
                     }).addOnFailureListener(e->{
+                        binding.progressBarSaved.setVisibility(View.GONE);
                         Toast.makeText(requireContext(), "Error retrieving cities!", Toast.LENGTH_SHORT).show();
                     });
         }
