@@ -201,7 +201,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
                         // document added
                         //String docId = documentReference.getId();
                         // toast message when save icon is pressed
-                        Toast.makeText(this, "City unsaved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "City saved!", Toast.LENGTH_SHORT).show();
                     }).addOnFailureListener(e -> {
                         // failed message
                         Toast.makeText(this, "Failed to Save", Toast.LENGTH_SHORT).show();
@@ -231,7 +231,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
                         binding.bookmarked.setVisibility(View.GONE);
                         binding.emptyBookmark.setVisibility(View.VISIBLE);
                         // toast
-                        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "City unsaved!", Toast.LENGTH_SHORT).show();
                     }).addOnFailureListener(e ->{
                         //toast
                         Toast.makeText(this, "Failed to save!", Toast.LENGTH_SHORT).show();
