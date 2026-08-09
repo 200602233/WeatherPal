@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="115dp"
     android:layout_marginBottom="13dp"
     android:background="@color/primary">
 
+    <!-- image for location or saved-->
     <ImageView
         android:id="@+id/weatherIcon"
         android:layout_width="0dp"
@@ -43,18 +44,33 @@
         app:layout_constraintStart_toStartOf="@+id/city"
         app:layout_constraintTop_toBottomOf="@+id/city" />
 
+    <!-- image for delete or Arrow -->
+
     <TextView
         android:id="@+id/latLon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="227dp"
         android:text="@string/lat_lon"
         android:textColor="@color/textColour1"
         android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/regionCountry"
+        app:layout_constraintTop_toBottomOf="@+id/regionCountry"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/actionIcon"
+        android:layout_width="92dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regionCountry" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <!--    <TextView-->
     <!--        android:id="@+id/lon"-->

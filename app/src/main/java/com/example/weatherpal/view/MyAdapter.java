@@ -59,6 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.binding.city.setText(weatherModel.getCity());
         holder.binding.regionCountry.setText(weatherModel.getRegion()+", "+ weatherModel.getCountry());
         holder.binding.latLon.setText(String.valueOf(weatherModel.getLatitude()+", "+ weatherModel.getLongitude()));
+        holder.binding.actionIcon.setImageResource(weatherModel.getActionIcon());
     }
 
     @Override

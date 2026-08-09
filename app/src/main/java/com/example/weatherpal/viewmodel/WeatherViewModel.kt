@@ -176,8 +176,9 @@ class WeatherViewModel : ViewModel() {
                         isSearchLoading.postValue(false);
                         // add to list
                         // change icon later
+
                         weatherList.add(WeatherModel(R.drawable.rain_icon,name, region, country,
-                                latitude, longitude))
+                                latitude, longitude, R.drawable.open_icon))
                     }
 
                 } catch (e: Exception) {
