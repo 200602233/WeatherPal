@@ -78,7 +78,7 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.recyclerView.setLayoutManager(layoutManager);
 
-        myAdapter = new MyAdapter(weatherList);
+        myAdapter = new MyAdapter(weatherList, false);
         binding.recyclerView.setAdapter(myAdapter);
 
         // same ideas as tracking isLoading value in WeatherDetailAcitivty to conditionally display loading bar
