@@ -146,8 +146,8 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         // intent
         Intent intent = new Intent(requireActivity(), WeatherDetailActivity.class);
         intent.putExtra("city", cityName.getCity());
-
         // geo info
+        intent.putExtra("region", cityName.getRegion());
         intent.putExtra("country", cityName.getCountry());
         intent.putExtra("latitude", cityName.getLatitude());
         intent.putExtra("longitude", cityName.getLongitude());
