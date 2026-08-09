@@ -126,7 +126,9 @@ public class SearchFragment extends Fragment implements ItemClickListener{
 
             // leave empty unless we need or want code but dont think need
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                binding.searchMessage.setVisibility(View.GONE);
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
