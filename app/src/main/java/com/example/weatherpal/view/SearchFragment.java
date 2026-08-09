@@ -111,25 +111,53 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         // https://www.geeksforgeeks.org/android/ontextchangedlistener-in-android/
         // https://developer.android.com/reference/android/text/TextWatcher
         binding.searchBar.addTextChangedListener(new TextWatcher() {
+
             // leave empty unless we need or want code but dont think need
             @Override
             public void afterTextChanged(Editable s) {}
+
             // leave empty unless we need or want code but dont think need
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // took from splash and re-coded to fit
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run(){
-                        // searches after 3 characters (idk thought cool but could chnage)
-                        if (s.length() >= 3){
-                            viewModel.dynamicSearch(s.toString());
+
+                // convert our search input/chars to string and trim the whitespace
+                String searchText = s.toString().trim();
+
+                if (searchText.isEmpty()) {
+                    // we clear the list of our search results
+                    weatherList.clear();
+                    // set the progress bar to not visible
+                    binding.progressBarIndeterminateSearch.setVisibility(View.GONE);
+                    // set recycler view, i.e. search results, to not visible
+                    binding.recyclerView.setVisibility(View.GONE);
+                    // hide empty message as well
+                    binding.emptyMessage.setVisibility(View.GONE);
+                }
+                // if the user has typed something
+                else
+                {
+                    // make the progress bar visible while the search is happening
+                    binding.progressBarIndeterminateSearch.setVisibility(View.VISIBLE);
+
+                    // creating a new handler to delay the search
+                    // which stops it from searching on every keystroke
+                    // took from splash and re-coded to fit
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run(){
+                            // searches after 3 characters (idk thought cool but could chnage)
+                            if (s.length() >= 3){
+                                // converts the character sequence to a string and passes it to the viewmodel
+                                // this triggers the search functionality in viewmodel
+                                viewModel.dynamicSearch(s.toString());
+                            }
                         }
-                    }
-                }, 500); // wait 500 ms
+                        // wait before actually executing the search
+                    }, 500); // wait 500 ms
+                }
             }
         });
 
