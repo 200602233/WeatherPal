@@ -24,34 +24,42 @@
         android:hint="@string/fragmentSearchSearch"
         android:layout_margin="12dp" />
 
-    <!-- progress bar + anything else somewhere too -->
-    <ProgressBar
-        android:id="@+id/progressBarIndeterminateSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-
-    <!-- Start text as invisible -->
-    <TextView
-        android:id="@+id/emptyMessage"
+    <!-- contain for progress bar and recyleview results -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="@string/fragmentSearchNoResults"
-        android:visibility="gone"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <!-- Recycler View (refer to week 10 lesson) -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+        <!-- Start text as invisible -->
+        <TextView
+            android:id="@+id/emptyMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="@string/fragmentSearchNoResults"
+            android:visibility="gone"/>
 
+        <!-- Recycler View (refer to week 10 lesson) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+
+        <!-- progress bar -->
+        <ProgressBar
+            android:id="@+id/progressBarIndeterminateSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
     <!-- ASSIGN 1 - DONT NEED ANYMORE -->
     <!-- scroll view for all city cards -->
     <!-- linear layout inside scroll view to display city cards -->
@@ -450,5 +458,4 @@
 
 <!--        </LinearLayout>-->
 <!--    </ScrollView>-->
-
-</LinearLayout>
+    </LinearLayout>
