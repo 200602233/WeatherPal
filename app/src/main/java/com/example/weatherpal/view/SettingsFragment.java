@@ -50,6 +50,13 @@ public class SettingsFragment extends Fragment {
         // boolean to listen to see if user changes temp and set the preference
         SharedPreferences preferences = requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
 
+        // get value for isSettingsCelsius and dynamically assign
+        // in this case, we're going to start with Celsius as true, and this will be reflected on weather detail page as well
+        boolean isSettingsCelsius = preferences.getBoolean("cel", true);
+        // assign binding 'isChecked' value based on which radio button has been pressed
+        binding.tempC.setChecked(isSettingsCelsius);
+        binding.tempF.setChecked(!isSettingsCelsius);
+
         // Temp
         boolean tempChanged = preferences.getBoolean("cel", false);
         // checks to see what temp was clicked
