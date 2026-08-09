@@ -57,6 +57,7 @@ public class SettingsFragment extends Fragment {
         binding.tempC.setChecked(isSettingsCelsius);
         binding.tempF.setChecked(!isSettingsCelsius);
 
+        /* gonna comment this bit out cause block above handles that logic now
         // Temp
         boolean tempChanged = preferences.getBoolean("cel", false);
         // checks to see what temp was clicked
@@ -64,7 +65,8 @@ public class SettingsFragment extends Fragment {
             binding.tempF.setChecked(true);
         } else {
             binding.tempC.setChecked(true);
-        }
+        }*/
+
         //applies the Temp chosen
         binding.tempRadio.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == binding.tempF.getId()) {
@@ -81,7 +83,6 @@ public class SettingsFragment extends Fragment {
                 Toast.makeText(requireContext(), "Celsius was chosen!", Toast.LENGTH_SHORT).show();
             }
         });
-
 
         // Theme
         boolean darkTheme = preferences.getBoolean("darkTheme", false);
