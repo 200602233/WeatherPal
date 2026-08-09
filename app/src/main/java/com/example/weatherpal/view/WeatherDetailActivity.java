@@ -2,8 +2,12 @@ package com.example.weatherpal.view;
 
 import static java.security.AccessController.getContext;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Toast;
 
@@ -48,6 +52,14 @@ public class WeatherDetailActivity extends AppCompatActivity {
         binding = ActivityWeatherDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // pull a boolean value from our SharedPreferences key/value pair
+        // and dynamically adjust size/font style for C and F based on value
+        // 'cel' key uses 'true' as the default value when app first loads
+        // and .xml layout defaults to large C text by default
+        // only swaps to cel as false and big F font if user selects that option
+        SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        boolean isSettingsCelsius = preferences.getBoolean("cel", true);
+
         String city = getIntent().getStringExtra("city");
         String country = getIntent().getStringExtra("country");
         double latitude = getIntent().getDoubleExtra("latitude", 0);
@@ -66,8 +78,9 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
             // cards
             binding.weatherCondition.setText(weatherData.getWeatherCondition());
+            /* commenting out these and going to try dynamically adjusting via isSettingCelsius logic
             binding.tempC.setText(weatherData.getTempC());
-            binding.tempF.setText(weatherData.getTempF());
+            binding.tempF.setText(weatherData.getTempF()); */
             binding.humidity.setText(weatherData.getHumidity());
             binding.wind.setText(weatherData.getWind());
             binding.feelsLikeC.setText(weatherData.getFeelsLikeC());
@@ -75,6 +88,16 @@ public class WeatherDetailActivity extends AppCompatActivity {
             binding.windChillC.setText(weatherData.getWindChillC());
             binding.windChillF.setText(weatherData.getWindChillF());
             binding.uvIndex.setText(weatherData.getUvIndex());
+
+            // conditionally change display of F/C values based on user selection in settings
+            // adjusts size and makes relevant option bold
+            if (isSettingsCelsius) {
+                binding.tempBigFont.setText(weatherData.getTempC());
+                binding.tempSmallFont.setText(weatherData.getTempF());
+            } else {
+                binding.tempBigFont.setText(weatherData.getTempF());
+                binding.tempSmallFont.setText(weatherData.getTempC());
+            }
 
 //            //testing save button here
 //            String country = weatherData.getCity();
