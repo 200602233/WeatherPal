@@ -44,6 +44,8 @@
     <string name="fragmentSavedSearchPrompt">Search for a city and save it\nto view it here</string>
 
     <string name="fragmentSearchSearch">Search</string>
+    <string name="fragmentSearchStartMessage">Start searching to see weather\nfor different
+        cities!</string>
     <string name="fragmentSearchNoResults">No Results Found :(</string>
 
     <string name="fragmentSettingsAccount">ACCOUNT</string>
@@ -71,4 +73,9 @@
     <string name="itemLayoutLat">lat</string>
     <string name="itemLayoutLon">lon</string>
     <string name="lat_lon">lat, lon</string>
+
+    <!-- Bottom Nav -->
+    <string name="BottomNavSearch">Search</string>
+    <string name="BottomNavSaved">Saved</string>
+    <string name="BottomNavSettings">Settings</string>
 </resources>

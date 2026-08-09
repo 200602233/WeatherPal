@@ -3,15 +3,15 @@
     <item
         android:id="@+id/searchBtn"
         android:icon="@drawable/vector_search"
-        android:title="Search"/>
+        android:title="@string/BottomNavSearch"/>
 
     <item
         android:id="@+id/savedBtn"
-        android:icon="@drawable/vector_saved"
-        android:title="Saved"/>
+        android:icon="@drawable/bookmarked_icon"
+        android:title="@string/BottomNavSaved"/>
 
     <item
         android:id="@+id/settingsBtn"
         android:icon="@drawable/vector_settings"
-        android:title="Settings"/>
+        android:title="@string/BottomNavSettings"/>
 </menu>

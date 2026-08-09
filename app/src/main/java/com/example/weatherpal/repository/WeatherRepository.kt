@@ -39,6 +39,8 @@ object WeatherRepository {
 
     // geocoding api (followed weatherapi code layout)
     fun dynamicSearch(city: String?, callback: Callback){
+        // Endpoint: GET https://geocoding-api.openmeteo.com/v1/search?name={query}&count=10&language=en&format=json
+        // changed {query} to $city to input the city requested apon the api call
         val url = "https://geocoding-api.open-meteo.com/v1/search?name=$city&count=10&language=en&format=json"
         // request: GET
         val request = Request.Builder()
