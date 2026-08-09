@@ -71,4 +71,9 @@
     <string name="itemLayoutLat">lat</string>
     <string name="itemLayoutLon">lon</string>
     <string name="lat_lon">lat, lon</string>
+
+    <!-- Bottom Nav -->
+    <string name="BottomNavSearch">Search</string>
+    <string name="BottomNavSaved">Saved</string>
+    <string name="BottomNavSettings">Settings</string>
 </resources>
