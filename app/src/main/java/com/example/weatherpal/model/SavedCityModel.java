@@ -8,8 +8,8 @@ public class SavedCityModel {
     String country;
     double latitude;
     double longitude;
-    int cityIcon;
-    int actionIcon;
+//    int cityIcon;
+//    int actionIcon;
 
     public SavedCityModel(String cityName, String region, String country, double latitude,
                           double longitude) {
@@ -20,17 +20,17 @@ public class SavedCityModel {
         this.longitude = longitude;
     }
 
-    public SavedCityModel(int cityIcon, String cityName, String region, String country,
-                          double latitude,
-                          double longitude, int actionIcon) {
-        this.cityIcon = cityIcon;
-        this.cityName = cityName;
-        this.region = region;
-        this.country = country;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.actionIcon = actionIcon;
-    }
+//    public SavedCityModel(int cityIcon, String cityName, String region, String country,
+//                          double latitude,
+//                          double longitude, int actionIcon) {
+//        this.cityIcon = cityIcon;
+//        this.cityName = cityName;
+//        this.region = region;
+//        this.country = country;
+//        this.latitude = latitude;
+//        this.longitude = longitude;
+//        this.actionIcon = actionIcon;
+//    }
 
     // REQUIRED by Firestore
     public SavedCityModel() {
@@ -76,19 +76,19 @@ public class SavedCityModel {
         this.longitude = longitude;
     }
 
-    public int getCityIcon() {
-        return cityIcon;
-    }
-
-    public void setCityIcon(int cityIcon) {
-        this.cityIcon = cityIcon;
-    }
-
-    public int getActionIcon() {
-        return actionIcon;
-    }
-
-    public void setActionIcon(int actionIcon) {
-        this.actionIcon = actionIcon;
-    }
+//    public int getCityIcon() {
+//        return cityIcon;
+//    }
+//
+//    public void setCityIcon(int cityIcon) {
+//        this.cityIcon = cityIcon;
+//    }
+//
+//    public int getActionIcon() {
+//        return actionIcon;
+//    }
+//
+//    public void setActionIcon(int actionIcon) {
+//        this.actionIcon = actionIcon;
+//    }
 }
