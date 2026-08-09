@@ -15,4 +15,5 @@ public interface ItemClickListener {
     // when user clicks, we pass in the view and the item position
     // this informs which city has information displayed
     void onClick(View v, int pos);
+    void unsaveCity(View v, int pos);
 }

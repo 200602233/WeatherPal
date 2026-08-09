@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.weatherpal.R;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SavedFragment extends Fragment {
+public class SavedFragment extends Fragment implements ItemClickListener{
 
     // binding, firestore and auth
     private FragmentSavedBinding binding;
@@ -61,6 +62,13 @@ public class SavedFragment extends Fragment {
 
         // retrieve saved cities
         retrieveSavedCities();
+
+        // delete adapter cinnection
+//        myAdapter.setOnActionClickListener(weatherModel -> {
+//            deleteSavedCity(weatherModel);
+//        });
+
+        myAdapter.setClickListener(this);
 
         // return
         return binding.getRoot();
@@ -98,13 +106,13 @@ public class SavedFragment extends Fragment {
                         for(SavedCityModel savedCity : savedCityModel){
                             WeatherModel weather = new WeatherModel();
 
-                            weather.setWeatherIcon(savedCity.getCityIcon());
+//                            weather.setWeatherIcon(savedCity.getCityIcon());
                             weather.setCity(savedCity.getCityName());
                             weather.setRegion(savedCity.getRegion());
                             weather.setCountry(savedCity.getCountry());
                             weather.setLatitude(savedCity.getLatitude());
                             weather.setLongitude(savedCity.getLongitude());
-                            weather.setActionIcon(savedCity.getActionIcon());
+//                            weather.setActionIcon(savedCity.getActionIcon());
 
                             weatherList.add(weather);
                         }
@@ -129,11 +137,14 @@ public class SavedFragment extends Fragment {
     }
 
     // delete city
-    private void deleteSavedCity(WeatherModel weatherModel){
+    @Override
+    public void unsaveCity(View v, int pos){
         // copied from WeatherDetials, edited tho
 
         // firebase user auth
         FirebaseUser user = auth.getCurrentUser();
+
+        WeatherModel weatherModel = weatherList.get(pos);
 
         if (user != null) {
             // same as SavedLocations delete method?
@@ -168,14 +179,19 @@ public class SavedFragment extends Fragment {
         }
     }
 
-    private void openCityCard(WeatherModel weatherModel){
+    @Override
+    public void onClick(View v, int pos) {
+        Log.i("SearchFragment", "Click was received!");
+        // need toast?
+        WeatherModel cityName = weatherList.get(pos);
         // intent
         Intent intent = new Intent(requireActivity(), WeatherDetailActivity.class);
-        intent.putExtra("city", weatherModel.getCity());
-        intent.putExtra("region", weatherModel.getRegion());
-        intent.putExtra("country", weatherModel.getCountry());
-        intent.putExtra("latitude", weatherModel.getLatitude());
-        intent.putExtra("longitude", weatherModel.getLongitude());
+        intent.putExtra("city", cityName.getCity());
+        // geo info
+        intent.putExtra("region", cityName.getRegion());
+        intent.putExtra("country", cityName.getCountry());
+        intent.putExtra("latitude", cityName.getLatitude());
+        intent.putExtra("longitude", cityName.getLongitude());
         startActivity(intent);
     }
 

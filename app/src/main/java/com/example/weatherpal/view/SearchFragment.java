@@ -154,6 +154,11 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         startActivity(intent);
     }
 
+    @Override
+    public void unsaveCity(View v, int pos) {
+        //leave empty
+    }
+
     // function to take user to the selected city's details page
 //    private void openCityDetails(String city){
 //        Intent intent = new Intent(requireActivity(), WeatherDetailActivity.class);

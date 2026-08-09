@@ -53,15 +53,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        // https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter
         // binds our api data to the views within the view holder
         WeatherModel weatherModel = weatherModelList.get(position);
         holder.binding.city.setText(weatherModel.getCity());
         holder.binding.regionCountry.setText(weatherModel.getRegion()+", "+ weatherModel.getCountry());
         holder.binding.latLon.setText(String.valueOf(weatherModel.getLatitude()+", "+ weatherModel.getLongitude()));
-
         if (savedScreen) {
             holder.binding.weatherIcon.setImageResource(R.drawable.bookmarked_icon);
             holder.binding.actionIcon.setImageResource(R.drawable.delete_icon);
+            // use the above function to setOnClickListener to JUST the delete Icon for saved
+            // screen so in the search frag, it does NOT apply
+            holder.binding.actionIcon.setOnClickListener(v->{
+                if(clickListener != null){
+                    clickListener.unsaveCity(v, position);
+                }
+            });
         } else {
             holder.binding.weatherIcon.setImageResource(weatherModel.getWeatherIcon());
             holder.binding.actionIcon.setImageResource(weatherModel.getActionIcon());
