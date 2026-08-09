@@ -173,19 +173,23 @@ class WeatherViewModel : ViewModel() {
                         val latitude = city.getDouble("latitude")
                         val longitude = city.getDouble("longitude")
 
-                        isSearchLoading.postValue(false);
-                        // add to list
-                        // change icon later
-
                         weatherList.add(WeatherModel(R.drawable.rain_icon,name, region, country,
-                                latitude, longitude, R.drawable.open_icon))
+                                latitude, longitude, R.drawable.white_circle))
                     }
 
                 } catch (e: Exception) {
                     isSearchLoading.postValue(false);
                     Log.e("WeatherViewModel-GEO", "Error while searching: ", e)
                 }
+                // adding a finally that always run regardless of try/catch outcome
+                // sets the search loading state as false (moved this from inside try section)
+                // and posts whatever the value of our weather list (might have results, might be empty)
+                finally {
+                isSearchLoading.postValue(false);
+                // add to list
+                // change icon later
                 dynamicSearchResults.postValue(weatherList)
+                }
             }
             override fun onFailure(call: Call, e: IOException) {
                 // same network failure for page as weather deatils
