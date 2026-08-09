@@ -15,7 +15,6 @@
         app:title="Saved"
         app:titleTextColor="@color/textColour1" />
 
-    <!-- Evelyn -->
     <!-- create empty saved cities page for now -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
