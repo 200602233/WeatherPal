@@ -7,6 +7,7 @@
     tools:context=".view.SavedFragment">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/secondary"
@@ -26,7 +27,7 @@
         <!-- circle vector for an icon -->
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/emptyMessage1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -37,10 +38,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.56" />
+            app:layout_constraintVertical_bias="0.56"
+            android:visibility="gone"/>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/emptyMessage2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -50,17 +52,32 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@id/emptyMessage1"
+            android:visibility="gone"/>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/emptyImageView"
             android:layout_width="160dp"
             android:layout_height="144dp"
             android:layout_marginBottom="12dp"
             android:src="@drawable/rain_icon"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintBottom_toTopOf="@id/emptyMessage1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+        <!-- Recycler View (refer to week 10 lesson) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="410dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:layout_editor_absoluteY="99dp"
+            tools:ignore="NotSibling" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
