@@ -90,6 +90,7 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         // same get() layout as the one in WeatherDetailActivity for getWeatherDetail() from
         // getLiveData in ViewModel
         viewModel.getDynamicSearchResults().observe(getViewLifecycleOwner(), results -> {
+
             // clears list (also clears list after user goes back from details activity, could
             // change that later)
             weatherList.clear();
@@ -99,11 +100,18 @@ public class SearchFragment extends Fragment implements ItemClickListener{
             myAdapter.notifyDataSetChanged();
 
             // if zero results show emptyMessage
+            // and hide the recycler
             if(results.size() == 0){
                 binding.emptyMessage.setVisibility(View.VISIBLE);
-            } else{
-                binding.emptyMessage.setVisibility(View.GONE);
+                binding.recyclerView.setVisibility(View.GONE);
             }
+            // otherwise, do the opposite, and show the recycler while hiding the empty message
+            else{
+                binding.emptyMessage.setVisibility(View.GONE);
+                binding.recyclerView.setVisibility(View.VISIBLE);
+            }
+            // and finally hide the progress bar here cause we've gotten results value either way
+            binding.progressBarIndeterminateSearch.setVisibility(View.GONE);
         });
 
         //search + delay (MIN 300 ms)
