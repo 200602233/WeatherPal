@@ -174,7 +174,7 @@ class WeatherViewModel : ViewModel() {
                         val longitude = city.getDouble("longitude")
 
                         weatherList.add(WeatherModel(R.drawable.rain_icon,name, region, country,
-                                latitude, longitude, R.drawable.white_circle))
+                                latitude, longitude, R.drawable.open_icon))
                     }
 
                 } catch (e: Exception) {
