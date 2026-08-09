@@ -1,5 +1,6 @@
 package com.example.weatherpal.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,36 +129,55 @@ public class SavedFragment extends Fragment {
     }
 
     // delete city
-    private void deleteSavedCity(){
+    private void deleteSavedCity(WeatherModel weatherModel){
         // copied from WeatherDetials, edited tho
 
         // firebase user auth
         FirebaseUser user = auth.getCurrentUser();
 
-        // if user null
-//        if (user != null) {
-//            // same as SavedLocations delete method?
-//            String uid = user.getUid();
-//            collectionReference
-//                    .document(uid)
-//                    .collection("SavedCities")
-//                    .document(city + ", " + country)
-//                    .delete()
-//                    .addOnSuccessListener(documentReference->{
-//                        binding.bookmarked.setVisibility(View.GONE);
-//                        binding.emptyBookmark.setVisibility(View.VISIBLE);
-//                        // toast
-//                        Toast.makeText(this, "City saved", Toast.LENGTH_SHORT).show();
-//                    }).addOnFailureListener(e ->{
-//                        //toast
-//                        Toast.makeText(this, "Failed to save!", Toast.LENGTH_SHORT).show();
-//                    });
-//        } else{
-//            // user not found
-//            Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
-//        }
+        if (user != null) {
+            // same as SavedLocations delete method?
+            String uid = user.getUid();
+            collectionReference
+                    .document(uid)
+                    .collection("SavedCities")
+                    .document(weatherModel.getCity() + ", " + weatherModel.getCountry())
+                    .delete()
+                    .addOnSuccessListener(documentReference->{
+                        weatherList.remove(weatherModel);
+
+                        myAdapter.notifyDataSetChanged();
+
+                        if (weatherList.isEmpty()) {
+
+                            binding.emptyImageView.setVisibility(View.VISIBLE);
+                            binding.emptyMessage1.setVisibility(View.VISIBLE);
+                            binding.emptyMessage2.setVisibility(View.VISIBLE);
+                            binding.recyclerView.setVisibility(View.GONE);
+
+                        }
+                        // toast
+                        Toast.makeText(requireContext(), "City Unsaved!", Toast.LENGTH_SHORT).show();
+                    }).addOnFailureListener(e ->{
+                        //toast
+                        Toast.makeText(requireContext(), "Failed to unsave!", Toast.LENGTH_SHORT).show();
+                    });
+        } else{
+            // user not found
+            Toast.makeText(requireContext(), "User Not Found!", Toast.LENGTH_SHORT).show();
+        }
     }
 
+    private void openCityCard(WeatherModel weatherModel){
+        // intent
+        Intent intent = new Intent(requireActivity(), WeatherDetailActivity.class);
+        intent.putExtra("city", weatherModel.getCity());
+        intent.putExtra("region", weatherModel.getRegion());
+        intent.putExtra("country", weatherModel.getCountry());
+        intent.putExtra("latitude", weatherModel.getLatitude());
+        intent.putExtra("longitude", weatherModel.getLongitude());
+        startActivity(intent);
+    }
 
     //testing
 //    private void getCity(){
