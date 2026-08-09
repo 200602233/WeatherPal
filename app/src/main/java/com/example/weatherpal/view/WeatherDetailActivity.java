@@ -52,14 +52,6 @@ public class WeatherDetailActivity extends AppCompatActivity {
         binding = ActivityWeatherDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // pull a boolean value from our SharedPreferences key/value pair
-        // and dynamically adjust size/font style for C and F based on value
-        // 'cel' key uses 'true' as the default value when app first loads
-        // and .xml layout defaults to large C text by default
-        // only swaps to cel as false and big F font if user selects that option
-        SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        boolean isSettingsCelsius = preferences.getBoolean("cel", true);
-
         String city = getIntent().getStringExtra("city");
         String country = getIntent().getStringExtra("country");
         double latitude = getIntent().getDoubleExtra("latitude", 0);
@@ -72,6 +64,14 @@ public class WeatherDetailActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
 
         viewModel.getWeatherData().observe(this, weatherData -> {
+            // pull a boolean value from our SharedPreferences key/value pair
+            // and dynamically adjust size/font style for C and F based on value
+            // 'cel' key uses 'true' as the default value when app first loads
+            // and .xml layout defaults to large C text by default
+            // only swaps to cel as false and big F font if user selects that option
+            SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+            boolean isSettingsCelsius = preferences.getBoolean("cel", true);
+
             // toolbar binding
             binding.toolbar.setTitle(weatherData.getCity());
             binding.toolbar.setSubtitle(weatherData.getRegion() + ", " + weatherData.getCountry());
