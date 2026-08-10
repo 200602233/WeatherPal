@@ -1,6 +1,9 @@
 package com.example.weatherpal.repository
 
-import android.util.Log
+import com.example.weatherpal.model.SavedCityModel
+import com.example.weatherpal.model.WeatherModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import okhttp3.Callback
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
@@ -8,6 +11,12 @@ import okhttp3.Request
 
 // convert into kotlin file - assign 3
 object WeatherRepository {
+    //Firestore
+    var db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val collectionReference = db.collection("Users")
+    var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    var weatherList: MutableList<WeatherModel>? = null
+
     // week 9 api code
     // creates OkHttpClient (sends http requests)
     private val client = OkHttpClient()
@@ -48,5 +57,53 @@ object WeatherRepository {
             .build()
         // cleint call
         client.newCall(request).enqueue(callback)
+    }
+
+
+    // Firestore funs
+    fun retrieveSavedCities(uid: String?, onSuccess: (ArrayList<WeatherModel>) ->
+    Unit,
+                            onFailure: () -> Unit
+    ) {
+        if (uid != null) {
+            collectionReference
+                .document(uid)
+                .collection("SavedCities")
+                .get()
+                .addOnSuccessListener { result ->
+                    val weatherList = ArrayList<WeatherModel>()
+                    for (document in result) {
+                        val savedCity = document.toObject(SavedCityModel::class.java)
+
+                        if(savedCity != null){
+                            val weather = WeatherModel()
+
+                            weather.setCity(savedCity.getCityName());
+                            weather.setRegion(savedCity.getRegion());
+                            weather.setCountry(savedCity.getCountry());
+                            weather.setLatitude(savedCity.getLatitude());
+                            weather.setLongitude(savedCity.getLongitude());
+
+                            weatherList.add(weather);
+                        }
+                    }
+                    onSuccess(weatherList)
+                }.addOnFailureListener { onFailure() }
+        } else{
+            onFailure()
+        }
+    }
+
+    fun unsaveCity(uid: String?, city: String?, country: String?, onSuccess: () ->Unit, onFailure:
+    () -> Unit){
+        if (uid != null) {
+            collectionReference
+                .document(uid)
+                .collection("SavedCities")
+                .document("$city, $country")
+                .delete()
+                .addOnSuccessListener{onSuccess()}
+                .addOnFailureListener{onFailure()}
+        }
     }
 }
