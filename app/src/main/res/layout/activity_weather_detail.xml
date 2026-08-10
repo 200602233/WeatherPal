@@ -51,6 +51,18 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
+                android:id="@+id/networkMessage"
+                android:layout_width="321dp"
+                android:layout_height="44dp"
+                android:text="@string/NetworkMessage"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="33dp" />
+
+            <TextView
                 android:id="@+id/weatherCondition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

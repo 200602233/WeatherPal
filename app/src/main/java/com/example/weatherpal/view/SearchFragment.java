@@ -85,6 +85,11 @@ public class SearchFragment extends Fragment implements ItemClickListener{
         viewModel.getIsSearchLoading().observe(getViewLifecycleOwner(), isSearchLoading -> {
             binding.progressBarIndeterminateSearch.setVisibility(isSearchLoading ? View.VISIBLE : View.GONE);
         });
+        // error message - change after class if we learn it
+        viewModel.getErrorMessage().observe(requireActivity(), message -> {
+            binding.networkMessage.setVisibility(View.VISIBLE); // show network message
+            Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show(); // show for 3.5 seconds
+        });
 
         // search
         // same get() layout as the one in WeatherDetailActivity for getWeatherDetail() from

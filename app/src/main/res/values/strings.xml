@@ -13,6 +13,8 @@
     <!-- replacing all hardcoded .xml text values with string resources -->
 
     <string name="WeatherPalTitle">WeatherPal</string>
+    <string name="NetworkMessage">No Internet Connection. Please\nconnect to your network
+        and try again"</string>
     <string name="activitySplashTrustyApp">Your trustworthy weather app!</string>
 
     <string name="activityLoginSignInMessage">Sign in to access your weather preferences!</string>

@@ -37,6 +37,18 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
+            android:id="@+id/networkMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/NetworkMessage"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="265dp" />
+
+        <TextView
             android:id="@+id/progressBarText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
