@@ -148,8 +148,10 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
     // back btn
     public void backBtnAction(){
-        Intent intent = new Intent(WeatherDetailActivity.this, MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(WeatherDetailActivity.this, MainActivity.class);
+//        startActivity(intent);
+        // just adding finish will backtrack to previous page
+        finish();
     }
 
     private void checkCityIfSaved(String city, String country){
