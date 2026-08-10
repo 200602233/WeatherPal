@@ -40,13 +40,16 @@
             android:id="@+id/networkMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/NetworkMessage"
             android:textAlignment="center"
             android:textSize="20sp"
             android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="265dp" />
+            app:layout_constraintBottom_toTopOf="@id/progressBarSaved"
+            tools:layout_editor_absoluteY="268dp" />
 
         <TextView
             android:id="@+id/progressBarText"

@@ -60,7 +60,8 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="33dp" />
+                app:layout_constraintTop_toTopOf="@id/cardView"
+                tools:ignore="NotSibling" />
 
             <TextView
                 android:id="@+id/weatherCondition"
