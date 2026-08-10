@@ -101,24 +101,24 @@ public class WeatherDetailActivity extends AppCompatActivity {
                 binding.tempSmallFont.setText(weatherData.getTempF());
 
                 // feels like temps
-                binding.feelsLikeC.setText(weatherData.getFeelsLikeC());
-                binding.feelsLikeF.setText(weatherData.getFeelsLikeF());
+                binding.feelsLikeBigFont.setText(weatherData.getFeelsLikeC());
+                binding.feelsLikeSmallFont.setText(weatherData.getFeelsLikeF());
 
                 // wind chill temps
-                binding.windChillC.setText(weatherData.getWindChillC());
-                binding.windChillF.setText(weatherData.getWindChillF());
+                binding.windChillBigFont.setText(weatherData.getWindChillC());
+                binding.windChillSmallFont.setText(weatherData.getWindChillF());
             } else {
                 // main temps
                 binding.tempBigFont.setText(weatherData.getTempF());
                 binding.tempSmallFont.setText(weatherData.getTempC());
 
                 // feels like temp
-                binding.feelsLikeC.setText(weatherData.getFeelsLikeF());
-                binding.feelsLikeF.setText(weatherData.getFeelsLikeC());
+                binding.feelsLikeBigFont.setText(weatherData.getFeelsLikeF());
+                binding.feelsLikeSmallFont.setText(weatherData.getFeelsLikeC());
 
                 // wind chill temps
-                binding.windChillC.setText(weatherData.getWindChillF());
-                binding.windChillF.setText(weatherData.getWindChillC());
+                binding.windChillBigFont.setText(weatherData.getWindChillF());
+                binding.windChillSmallFont.setText(weatherData.getWindChillC());
             }
 
 //            //testing save button here
