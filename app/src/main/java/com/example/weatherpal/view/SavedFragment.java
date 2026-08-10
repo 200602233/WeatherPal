@@ -71,6 +71,12 @@ public class SavedFragment extends Fragment implements ItemClickListener{
             binding.progressBarText.setVisibility(isLoading ? View.VISIBLE : View.GONE);
         });
 
+        // error message - change after class if we learn it
+        viewModel.getErrorMessage().observe(requireActivity(), message -> {
+            binding.networkMessage.setVisibility(View.VISIBLE); // show network message
+            Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show(); // show for 3.5 seconds
+        });
+
         // retrieve saved cities
         retrieveSavedCities();
 
