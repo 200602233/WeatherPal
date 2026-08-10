@@ -15,9 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.weatherpal.BuildConfig;
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.FragmentSettingsBinding;
-import com.example.weatherpal.BuildConfig;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
