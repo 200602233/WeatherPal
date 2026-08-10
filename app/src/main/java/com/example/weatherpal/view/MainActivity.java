@@ -1,5 +1,7 @@
 package com.example.weatherpal.view;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -24,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // get the preferences info from the settings page so we can track whether them has been changed
+        SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+
         // generated code
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -40,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         
         // BottomNavView connection (may have to update after Thursday class)
 
-        switchFragment(new SearchFragment());
+        // commenting this out cause we dont always want to go to search page
+        // switchFragment(new SearchFragment());
 
         //Colour binding to show active
         binding.bottomNavigation.setItemIconTintList(
@@ -52,6 +58,23 @@ public class MainActivity extends AppCompatActivity {
         );
 
         binding.bottomNavigation.setSelectedItemId(R.id.searchBtn);
+
+        // wait for all binding and initialization stuff to finish
+        // then get our themeSwitched value from preferences as set in settings
+        boolean themeSwitched = preferences.getBoolean("themeSwitched", false);
+
+        // if theme has been switched, that means we have just been sent here from settings
+        // amd we redirect user to settings page
+        if (themeSwitched) {
+            preferences.edit().putBoolean("themeSwitched", false).apply();
+            switchFragment(new SettingsFragment());
+        } // otherwise, send us to search page as per usual process
+        else {
+            switchFragment(new SearchFragment());
+
+        }
+
+        // function to bind our click listener for nav
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
 
             if (item.getItemId() == R.id.searchBtn) {

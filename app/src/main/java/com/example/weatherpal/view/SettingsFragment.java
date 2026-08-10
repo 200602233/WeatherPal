@@ -96,23 +96,28 @@ public class SettingsFragment extends Fragment {
 
         // sets the theme chosen
         binding.themeRadio.setOnCheckedChangeListener((group, checkedId) -> {
+
             SharedPreferences.Editor editor = preferences.edit();
+            // create a boolean and saved in preferences to track whether theme was switched
+            boolean themeSwitched = preferences.getBoolean("themeSwitched", false);
 
             // applies theme
             if (checkedId == R.id.lightTheme) {
                 editor.putBoolean("darkTheme", false);
+                editor.putBoolean("themeSwitched", true);
+                // this is the line that basically restarts the app/main activity
+                // it sends us back to settings via main activity
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 Toast.makeText(requireContext(), "Light Mode Selected", Toast.LENGTH_SHORT).show();
             }
             if (checkedId == R.id.darkTheme) {
                 editor.putBoolean("darkTheme", true);
+                editor.putBoolean("themeSwitched", true);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 Toast.makeText(requireContext(), "Dark Mode Selected!", Toast.LENGTH_SHORT).show();
             }
             editor.apply();
         });
-
-
 
         // About
         // set version by using BuildCOnfig.VERSION_NAME
