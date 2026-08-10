@@ -118,7 +118,7 @@ object WeatherRepository {
         }
     }
 
-    // SavedFrag function
+    // WeatherDetail function
     fun checkCityIfSaved(
         uid: String, city: String, country: String?, onSuccess: (Boolean)
         -> Unit, onFailure:
@@ -140,7 +140,7 @@ object WeatherRepository {
             .addOnFailureListener { onFailure() }
     }
 
-    // SavedFrag function
+    // WeatherDetail function
     fun saveCity(
         uid: String?, city: String?, country: String, savedCity: SavedCityModel, onSuccess: ()
         -> Unit,
