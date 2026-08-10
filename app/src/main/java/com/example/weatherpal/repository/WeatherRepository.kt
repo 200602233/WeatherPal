@@ -1,7 +1,11 @@
 package com.example.weatherpal.repository
 
+import android.view.View
+import android.widget.Toast
 import com.example.weatherpal.model.SavedCityModel
 import com.example.weatherpal.model.WeatherModel
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import okhttp3.Callback
@@ -47,10 +51,11 @@ object WeatherRepository {
     }
 
     // geocoding api (followed weatherapi code layout)
-    fun dynamicSearch(city: String?, callback: Callback){
+    fun dynamicSearch(city: String?, callback: Callback) {
         // Endpoint: GET https://geocoding-api.openmeteo.com/v1/search?name={query}&count=10&language=en&format=json
         // changed {query} to $city to input the city requested apon the api call
-        val url = "https://geocoding-api.open-meteo.com/v1/search?name=$city&count=10&language=en&format=json"
+        val url =
+            "https://geocoding-api.open-meteo.com/v1/search?name=$city&count=10&language=en&format=json"
         // request: GET
         val request = Request.Builder()
             .url(url)
@@ -61,9 +66,12 @@ object WeatherRepository {
 
 
     // Firestore funs
-    fun retrieveSavedCities(uid: String?, onSuccess: (ArrayList<WeatherModel>) ->
-    Unit,
-                            onFailure: () -> Unit
+
+    // SavedFrag function
+    fun retrieveSavedCities(
+        uid: String?, onSuccess: (ArrayList<WeatherModel>) ->
+        Unit,
+        onFailure: () -> Unit
     ) {
         if (uid != null) {
             collectionReference
@@ -75,7 +83,7 @@ object WeatherRepository {
                     for (document in result) {
                         val savedCity = document.toObject(SavedCityModel::class.java)
 
-                        if(savedCity != null){
+                        if (savedCity != null) {
                             val weather = WeatherModel()
 
                             weather.setCity(savedCity.getCityName());
@@ -89,21 +97,64 @@ object WeatherRepository {
                     }
                     onSuccess(weatherList)
                 }.addOnFailureListener { onFailure() }
-        } else{
+        } else {
             onFailure()
         }
     }
 
-    fun unsaveCity(uid: String?, city: String?, country: String?, onSuccess: () ->Unit, onFailure:
-    () -> Unit){
+    // SavedFrag and WeatherDetail function
+    fun unsaveCity(
+        uid: String?, city: String?, country: String?, onSuccess: () -> Unit, onFailure:
+            () -> Unit
+    ) {
         if (uid != null) {
             collectionReference
                 .document(uid)
                 .collection("SavedCities")
                 .document("$city, $country")
                 .delete()
-                .addOnSuccessListener{onSuccess()}
-                .addOnFailureListener{onFailure()}
+                .addOnSuccessListener { onSuccess() }
+                .addOnFailureListener { onFailure() }
         }
+    }
+
+    // SavedFrag function
+    fun checkCityIfSaved(
+        uid: String, city: String, country: String?, onSuccess: (Boolean)
+        -> Unit, onFailure:
+            () -> Unit
+    ) {
+        collectionReference
+            .document(uid)
+            .collection("SavedCities")
+            .document(city + ", " + country)
+            .get()
+            .addOnSuccessListener { documentSnapshot ->
+                if (documentSnapshot.exists()) {
+                    // City is saved
+                    onSuccess(true)
+                } else {
+                    onSuccess(false)
+                }
+            }
+            .addOnFailureListener { onFailure() }
+    }
+
+    // SavedFrag function
+    fun saveCity(
+        uid: String?, city: String?, country: String, savedCity: SavedCityModel, onSuccess: ()
+        -> Unit,
+        onFailure: () -> Unit
+    ) {
+
+        // save data into the variabels above
+        collectionReference
+            .document(uid!!) // saves to users account
+            .collection("SavedCities") // creates collection called 'SavedCities' to
+            // organize the cities saved
+            .document(city + ", " + country) // show city name
+            .set(savedCity) // show city details
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onFailure()}
     }
 }

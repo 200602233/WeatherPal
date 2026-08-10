@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.weatherpal.R;
 import com.example.weatherpal.databinding.ActivityWeatherDetailBinding;
 import com.example.weatherpal.model.SavedCityModel;
+import com.example.weatherpal.repository.WeatherRepository;
 import com.example.weatherpal.viewmodel.WeatherViewModel;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +29,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import kotlin.Unit;
 
 public class WeatherDetailActivity extends AppCompatActivity {
 
@@ -153,24 +156,25 @@ public class WeatherDetailActivity extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
         assert user != null;
         String uid = user.getUid();
-        collectionReference
-                .document(uid)
-                .collection("SavedCities")
-                .document(city + ", " + country)
-                .get()
-                .addOnSuccessListener(documentSnapshot -> {
-
-                    if (documentSnapshot.exists()) {
+        WeatherRepository.INSTANCE.checkCityIfSaved(
+                uid,
+                city,
+                country,
+                citySaved ->{
+                    if (citySaved) {
                         // City is saved
                         binding.bookmarked.setVisibility(View.VISIBLE);
+                        binding.emptyBookmark.setVisibility(View.GONE);
                     } else {
                         // City is NOT saved
+                        binding.bookmarked.setVisibility(View.GONE);
                         binding.emptyBookmark.setVisibility(View.VISIBLE);
                     }
-
-                })
-                .addOnFailureListener(e -> {
+                    return Unit.INSTANCE;
+                },
+                () -> {
                     Toast.makeText(this, "Could not check saved cities", Toast.LENGTH_SHORT).show();
+                    return Unit.INSTANCE;
                 });
     }
 
@@ -188,25 +192,25 @@ public class WeatherDetailActivity extends AppCompatActivity {
             SavedCityModel savedCity = new SavedCityModel(city, region, country, latitude,
                     longitude);
 
-            // save data into the variabels above
-            collectionReference
-                    .document(uid) // saves to users account
-                    .collection("SavedCities") // creates collection called 'SavedCities' to
-                    // organize the cities saved
-                    .document(city + ", " + country)// show city name
-                    .set(savedCity) // show city details
-                    .addOnSuccessListener(documentReference -> {
+            WeatherRepository.INSTANCE.saveCity(
+                    uid,
+                    city,
+                    country,
+                    savedCity,
+                    () -> {
                         binding.emptyBookmark.setVisibility(View.GONE);
                         binding.bookmarked.setVisibility(View.VISIBLE);
                         // document added
                         //String docId = documentReference.getId();
                         // toast message when save icon is pressed
                         Toast.makeText(this, "City saved!", Toast.LENGTH_SHORT).show();
-                    }).addOnFailureListener(e -> {
+                        return Unit.INSTANCE;
+                    }, () -> {
                         // failed message
                         Toast.makeText(this, "Failed to Save", Toast.LENGTH_SHORT).show();
-
-                    });
+                        return Unit.INSTANCE;
+                    }
+            );
         } else{
             // user not found
             Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
@@ -222,20 +226,21 @@ public class WeatherDetailActivity extends AppCompatActivity {
         if (user != null) {
             // same as SavedLocations delete method?
             String uid = user.getUid();
-            collectionReference
-                    .document(uid)
-                    .collection("SavedCities")
-                    .document(city + ", " + country)
-                    .delete()
-                    .addOnSuccessListener(documentReference->{
+            WeatherRepository.INSTANCE.unsaveCity(
+                    uid,
+                    city,
+                    country,
+                    () -> {
                         binding.bookmarked.setVisibility(View.GONE);
                         binding.emptyBookmark.setVisibility(View.VISIBLE);
-                        // toast
-                        Toast.makeText(this, "City unsaved!", Toast.LENGTH_SHORT).show();
-                    }).addOnFailureListener(e ->{
-                        //toast
-                        Toast.makeText(this, "Failed to save!", Toast.LENGTH_SHORT).show();
-                    });
+                        Toast.makeText(this, "City unsaved.", Toast.LENGTH_SHORT).show();
+                        return Unit.INSTANCE;
+                    },
+                    () -> {
+                        Toast.makeText(this, "Failed unsaving city!", Toast.LENGTH_SHORT).show();
+                        return Unit.INSTANCE;
+                    }
+            );
         } else{
             // user not found
             Toast.makeText(this, "User Not Found!", Toast.LENGTH_SHORT).show();
