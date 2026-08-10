@@ -2,6 +2,8 @@
 <resources>
     <!-- Text -->
     <color name="splashText">#FF000000</color> <!-- splash text, does not change -->
+    <color name="authText">#1B1B1B</color> <!-- auth text, does not change -->
+    <color name="authTextHint">#242424</color> <!-- splash text, does not change -->
     <color name="textColour1">#FF000000</color> <!-- black -->
     <color name="textColour2">#FFFFFFFF</color> <!-- white -->
     <color name="textColour3">#242424</color>
