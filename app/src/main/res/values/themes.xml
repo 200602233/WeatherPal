@@ -21,7 +21,7 @@
     <style name="Theme.WeatherPal.SplashActivity" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/secondary</item>
         <item name="android:windowDisablePreview">true</item>
-<!--        <item name="android:textColor">@color/textColour1</item>-->
+        <item name="android:textColor">@color/splashText</item>
 <!--        <item name="android:textSize">40sp</item>-->
     </style>
 
